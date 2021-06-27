@@ -3,7 +3,7 @@ import s from './Header.module.css';
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
 import Button from "../ui/Button/Button";
-import {logout} from "../../redux/reducers/auth-reducer";
+import {logout} from "../../redux/actions/auth.action";
 
 const Header = ({isAuth, logout}) => {
   return (

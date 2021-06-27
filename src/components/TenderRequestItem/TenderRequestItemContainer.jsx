@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {selectRequestCreator} from "../../redux/selectors/accountPage-selectors";
+import {selectRequestCreator} from "../../redux/selectors/accountPage.selector";
 import {connect} from "react-redux";
-import {acceptTenderRequest} from "../../redux/reducers/accountTender-reducer";
+import {acceptTenderRequest} from "../../redux/actions/accountTender.action";
 import TenderRequestItem from "./TenderRequestItem";
 import {getContractorAPI} from "../../services/accountPage-services";
 import spinner from "../../assets/Spinner.gif";

@@ -4,7 +4,7 @@ import CreateContractorForm from "../../components/Form/CreateUser-Form/CreateCo
 import {withSuccessRedirect} from "../../hoc/withSuccessRedirect";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {createContractor} from "../../redux/reducers/auth-reducer";
+import {createContractor} from "../../redux/actions/auth.action";
 
 const CreateAccount = ({createContractor}) => {
 
