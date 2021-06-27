@@ -1,0 +1,31 @@
+.reply {
+    align-items: center;
+
+    border-radius: 20px;
+    background-color: #F4F4F4;
+    font-size: 20px;
+    color: #212529;
+    padding: 7px 35px 10px;
+    margin-top: 15px;
+
+    transition: transform 0.2s linear;
+}
+
+.tender {
+    font-size: 22px;
+    font-weight: 600;
+
+    margin-bottom: 10px;
+}
+
+.tender a {
+    color: inherit;
+}
+
+.tender a:hover {
+    text-decoration: underline;
+}
+
+.status {
+    font-size: 18px;
+}

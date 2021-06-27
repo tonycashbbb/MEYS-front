@@ -1,0 +1,21 @@
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.header {
+    margin: 35px 0 30px;
+    padding: 5px;
+}
+
+.title {
+    color: #212529;
+    font-size: 35px;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+.form {
+    margin-top: 40px;
+}

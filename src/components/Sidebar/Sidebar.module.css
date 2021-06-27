@@ -1,0 +1,87 @@
+/* SIDEBAR */
+.sidebar {
+    margin-top: 90px;
+    width: 25%;
+    height: 100%;
+}
+
+.inner {
+    padding: 30px;
+}
+
+
+/* AccountSidebar Blocks */
+.block {
+    border-radius: 20px;
+    background-color: #F4F4F4;
+}
+
+.block:first-child {
+    margin-bottom: 50px;
+}
+
+.header {
+    padding: 20px;
+    border-bottom: 1px solid #CB9AE1;
+}
+
+.sidebar__title {
+    font-size: 22px;
+    font-weight: 500;
+
+    margin-bottom: 12px;
+}
+
+.username {
+    font-size: 18px;
+}
+
+.links {
+    padding: 20px;
+    font-size: 18px;
+}
+
+.links li {
+    margin-bottom: 8px;
+}
+
+.links li:last-child {
+    margin-bottom: 0;
+}
+
+.links li a:hover {
+    color: #EEACFF;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.links li a {
+    color: #000;
+
+    transition: color 0.1s linear;
+}
+
+.personal__data {
+    padding: 20px 20px 13px;
+    font-size: 18px;
+}
+
+.personal__data span {
+    font-weight: 500;
+}
+
+
+.company__list li {
+    margin-bottom: 8px;
+}
+
+.company__list li:last-child {
+    margin-top: 20px;
+}
+
+.company__list li:last-child button {
+    min-width: 109px;
+    max-width: 109px;
+}
+
+

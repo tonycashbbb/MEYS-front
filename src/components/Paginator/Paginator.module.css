@@ -1,0 +1,26 @@
+.pagination {
+    width: 300px;
+    margin: 30px auto 0;
+}
+
+.pagination span {
+    font-size: 15px;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.pagination span:last-child {
+    margin-right: 0;
+}
+
+.selected__page {
+    font-weight: 700;
+    transform: scale(1.2);
+    color: #CB9AE1;
+}
+
+.go {
+    font-size: 15px;
+    color: #CB9AE1;
+}

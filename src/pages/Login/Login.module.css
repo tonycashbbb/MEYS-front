@@ -1,0 +1,34 @@
+.auth {
+    height: 100%;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.column {
+    height: 80%;
+    padding: 90px 20px 40px;
+    display: flex;
+    align-items: center;
+}
+
+.text {
+    width: 50%;
+    padding: 10px;
+}
+
+.title {
+    color: #CB9AE1;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.description {
+    font-size: 28px;
+    line-height: 32px;
+}

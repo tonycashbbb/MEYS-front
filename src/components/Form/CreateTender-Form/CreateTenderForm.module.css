@@ -1,0 +1,10 @@
+.form {
+    border: 2px solid #999;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    margin-top: 10px;
+}

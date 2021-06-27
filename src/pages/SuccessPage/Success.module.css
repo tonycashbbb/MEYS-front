@@ -1,0 +1,37 @@
+.success {
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    text-align: center;
+}
+
+.img {
+    margin-bottom: 50px;
+}
+
+.img img {
+    height: 300px;
+    width: 300px;
+}
+
+.title {
+    color: #212529;
+    font-size: 35px;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.back {
+    margin-top: 50px;
+}
+
+.back a {
+    color: #CB9AE1;
+    font-size: 25px;
+
+    transition: color 0.2s linear;
+}
+
+.back a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,55 @@
+.formControl {
+    display: flex;
+    position: relative;
+}
+
+.formControl input {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    border: 2px solid #DFDFDF;
+    font-size: 17px;
+}
+.formControl input:focus {
+    border: 2px solid #CB9AE1;
+}
+
+.formControl textarea {
+    display: block;
+    height: 250px;
+    width: 100%;
+
+    margin-bottom: 12px;
+    padding: 14px 16px;
+
+    border-radius: 20px;
+    border: 2px solid #DFDFDF;
+
+    font-size: 17px;
+    resize: none;
+}
+
+.formControl textarea:focus {
+    border: 2px solid #CB9AE1;
+}
+
+
+/* Handle error */
+
+.error input,
+.error textarea {
+    border-color: indianred;
+}
+
+.errorMessage {
+    position: absolute;
+    top: 18px;
+    left: -155px;
+    z-index: 1;
+
+    font-size: 17px;
+    font-weight: 500;
+    color: indianred;
+}

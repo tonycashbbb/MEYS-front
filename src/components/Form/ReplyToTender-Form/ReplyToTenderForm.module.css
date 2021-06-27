@@ -1,0 +1,13 @@
+.reply {
+    margin: 0 0 12px 0;
+}
+
+.flex {
+    width: 48%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex__item {
+
+}
