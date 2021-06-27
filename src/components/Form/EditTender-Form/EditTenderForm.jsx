@@ -7,14 +7,12 @@ import {Input, Textarea} from "../Form-controls/FormControls";
 const EditTenderForm = ({
                           handleSubmit,
                           cancelEditing,
-                          status,
-                          yyyy_mm_dd,
-                          time,
-                          contractorName,
-                          companyName,
-                          industry,
-                          city
+                          tender,
+                          contractor,
                         }) => {
+  const yyyy_mm_dd = tender.createdDate.slice(0, 10)
+  const time = tender.createdDate.slice(11, 16)
+
   return (
     <form className={s.tender} onSubmit={handleSubmit}>
       <div className={s.header}>
@@ -26,7 +24,7 @@ const EditTenderForm = ({
         </div>
         <div className={s.data}>
           <div className={s.row}>
-            <div className={s.data}>Status: <b>{status}</b></div>
+            <div className={s.data}>Status: <b>{tender.status}</b></div>
           </div>
         </div>
       </div>
@@ -44,15 +42,15 @@ const EditTenderForm = ({
               </span>
             </li>
             <li><span>Created date</span><span>{yyyy_mm_dd} - {time}</span></li>
-            <li><span>Contractor</span><span>{contractorName}</span></li>
+            <li><span>Contractor</span><span>{contractor.name}</span></li>
           </ul>
         </div>
         <div className={s.column}>
           <h2>Information about contractor:</h2>
           <ul className={s.info}>
-            <li><span>Company name</span><span>{companyName}</span></li>
-            <li><span>Industry</span><span>{industry}</span></li>
-            <li><span>City</span><span>{city}</span></li>
+            <li><span>Company name</span><span>{contractor.companyName}</span></li>
+            <li><span>Industry</span><span>{contractor.industry}</span></li>
+            <li><span>City</span><span>{contractor.city}</span></li>
           </ul>
         </div>
       </div>

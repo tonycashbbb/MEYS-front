@@ -59,25 +59,17 @@ const HomeTender = ({
 
   return (
     <div className="container">
-      <Tender tenderName={homeTender.name}
-              status={homeTender.status}
-              budget={homeTender.budget}
-              createdDate={homeTender.createdDate}
-              yyyy_mm_dd={homeTender.createdDate.slice(0, 10)}
-              time={homeTender.createdDate.slice(11, 16)}
-              description={homeTender.description}
-              contractorName={contractor.name}
-              companyName={contractor.companyName}
-              industry={contractor.industry}
-              city={contractor.city}/>
+      <Tender tender={homeTender}
+              contractor={contractor}/>
 
       {canReply && !isReplying && <Button onClick={changeIsReplying}>Reply</Button>}
       {canReply && isReplying && <ReplyToTender onSubmitReply={onSubmitReply}
                                                 cancel={changeIsReplying}/>}
       {!canReply && <div className={s.replied}>
-        {!isAccepted && <Button btnHover={"#CB9AE1"}>Replied</Button>}
-        {isAccepted && <Button btnColor={"#6498E1"}
-                               btnHover={"#6498E1"}>Accepted</Button>}
+        {isAccepted
+          ? <Button btnColor={"#6498E1"}
+                    btnHover={"#6498E1"}>Accepted</Button>
+          : <Button btnHover={"#CB9AE1"}>Replied</Button>}
       </div>}
     </div>
   )

@@ -21,7 +21,7 @@ const Account = () => {
 
   return (
     <div className={s.account__page}>
-      <SidebarContainer isAccount={true}/>
+      <SidebarContainer isAccount/>
       {!isRepliesShowing && <MyTendersContainer toggleIsRepliesShowing={toggleIsRepliesShowing}/>}
       {isRepliesShowing && <MyRepliesListContainer toggleIsRepliesShowing={toggleIsRepliesShowing}/>}
     </div>
