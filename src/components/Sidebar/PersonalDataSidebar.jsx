@@ -1,6 +1,6 @@
 import React from 'react';
 import s from "./Sidebar.module.css";
-import Button from "../ui/Button/Button";
+import {Button} from "@components/ui";
 
 const PersonalDataSidebar = ({
                                user,

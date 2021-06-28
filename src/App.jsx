@@ -1,17 +1,17 @@
 import React from 'react';
 import './App.css';
-import IntroPage from "./pages/IntroPage/IntroPage";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import {Redirect, Route} from 'react-router-dom';
-import Login from "./pages/Login/Login";
-import CreateAccount from "./pages/CreateAccount/CreateAccount";
-import AccountTenderContainer from "./pages/AccountTender/AccountTenderContainer";
-import Account from "./pages/Account/Account";
-import HomeContainer from "./pages/Home/HomeContainer";
-import HomeTenderContainer from "./pages/HomeTender/HomeTenderContainer";
-import CreateTenderContainer from "./pages/CreateTender/CreateTenderContainer";
-import Success from "./pages/SuccessPage/Success";
+import {Redirect, Route} from "react-router-dom";
+import {Footer, Header} from "./components";
+import {
+  Account,
+  AccountTenderContainer,
+  CreateAccount,
+  CreateTenderContainer,
+  HomeContainer,
+  HomeTenderContainer,
+  IntroPage,
+  Login, Success
+} from "./pages";
 
 const EditAccountData = React.lazy(() => import("./pages/EditAccountData/EditAccountData"))
 

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {getTenderAPI} from "../../services/homePage-services";
+import {getTenderAPI} from "@services/homePage.services";
 import MyRepliesListItem from "./MyRepliesListItem";
-import spinner from "../../assets/Spinner.gif";
+import spinner from "@assets/Spinner.gif";
 
 const MyRepliesListItemContainer = ({
                                       tenderId,

@@ -3,8 +3,7 @@ import s from "./Sidebar.module.css";
 import {NavLink} from "react-router-dom";
 import PersonalDataSidebar from "./PersonalDataSidebar";
 import CreateSidebar from "./CreateSidebar";
-import Accordion from "../ui/Accordion/Accordion";
-import Spinner from "../ui/Spinner/Spinner";
+import {Accordion, Spinner} from "@components/ui";
 
 const Sidebar = ({
                    isAccount = false,

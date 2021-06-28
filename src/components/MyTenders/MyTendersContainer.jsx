@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
 import TenderList from "../TenderList/TenderList";
 import {connect} from "react-redux";
-import {selectIsLoaded, selectTenders} from "../../redux/selectors/accountPage.selector";
 import {
   cancelTender,
   getAccountTenders,
   retender, setIsLoaded,
   startTender
-} from "../../redux/actions/accountPage.action";
-import Spinner from "../ui/Spinner/Spinner";
-import {selectUserId} from "../../redux/selectors/auth.selector";
+} from "@redux/actions/accountPage.action";
+import {Spinner} from "@components/ui";
+import {selectUserId} from "@redux/selectors/auth.selector";
+import {selectIsLoaded, selectTenders} from "@redux/selectors/accountPage.selector";
 
 const MyTendersContainer = ({
                               toggleIsRepliesShowing,
@@ -22,6 +22,7 @@ const MyTendersContainer = ({
                               retender,
                               setIsLoaded
                             }) => {
+
   useEffect(() => {
     getAccountTenders(userId)
   }, [getAccountTenders, userId, setIsLoaded])

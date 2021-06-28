@@ -1,12 +1,11 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
-import s from "../CreateUser-Form/CreateUserForm.module.css";
-import Button from "../../ui/Button/Button";
-import {Input} from "../Form-controls/FormControls";
+import s from "../CreateContractorForm/CreateContractorForm.module.css";
+import {Button} from "@components/ui";
+import {Input} from "../FormControls/FormControls";
 import {required} from "../validators/validators";
 
-const EditAccountDataForm = ({handleSubmit, toggleIsEditing}) => {
-
+const EditAccountDataForm = ({ handleSubmit }) => {
 
   return (
     <form className={s.form} onSubmit={handleSubmit}>

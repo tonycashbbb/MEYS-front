@@ -2,7 +2,7 @@ import React from 'react';
 import s from "./ReplyToTenderForm.module.css";
 import Button from "../../ui/Button/Button";
 import {Field, reduxForm} from "redux-form";
-import {Textarea} from "../Form-controls/FormControls";
+import {Textarea} from "../FormControls/FormControls";
 import {required} from "../validators/validators";
 
 const ReplyToTenderForm = (props) => {

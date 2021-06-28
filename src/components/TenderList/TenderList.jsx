@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./TenderList.module.css";
 import {NavLink} from "react-router-dom";
-import Button from "../ui/Button/Button";
+import {Button} from "@components/ui";
 
 const TenderList = ({
                       listItems,

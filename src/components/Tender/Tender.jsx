@@ -5,8 +5,8 @@ const Tender = ({
                   tender,
                   contractor
                 }) => {
-  const yyyy_mm_dd = tender.createdDate.slice(0, 10)
-  const time = tender.createdDate.slice(11, 16)
+  const createdDate = tender.createdDate.slice(0, 10)
+  const createdTime = tender.createdDate.slice(11, 16)
 
   return (
     <div className={s.tender}>
@@ -19,7 +19,7 @@ const Tender = ({
           <h2>Information about tender:</h2>
           <ul className={s.info}>
             <li><span>Budget</span><span>{tender.budget} zl</span></li>
-            <li><span>Created date</span><span>{yyyy_mm_dd} - {time}</span></li>
+            <li><span>Created date</span><span>{createdDate} - {createdTime}</span></li>
             <li><span>Contractor</span><span>{contractor.name}</span></li>
           </ul>
         </div>

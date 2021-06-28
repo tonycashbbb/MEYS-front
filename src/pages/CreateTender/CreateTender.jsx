@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './CreateTender.module.css'
-import CreateTenderForm from "../../components/Form/CreateTender-Form/CreateTenderForm";
+import {CreateTenderForm} from "@components/Form";
 
 const CreateTender = ({contractorId, createTender}) => {
   const onSubmit = ({name, budget, description}) => {

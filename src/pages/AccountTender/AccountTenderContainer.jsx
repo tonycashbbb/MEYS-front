@@ -3,14 +3,14 @@ import AccountTender from "./AccountTender";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
-import withRedirectToLogin from "../../hoc/withRedirectToLogin";
+import {withRedirectToLogin} from "@hoc";
 import {
   getAccountTender,
   getTenderCreator,
   getTenderRequests,
   updateTender
-} from "../../redux/actions/accountTender.action";
-import {selectTenderCreator} from "../../redux/selectors/accountPage.selector";
+} from "@redux/actions/accountTender.action";
+import {selectTenderCreator} from "@redux/selectors/accountPage.selector";
 
 const AccountTenderAPI = ({
                             tender,
