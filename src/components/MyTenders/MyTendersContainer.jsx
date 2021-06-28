@@ -30,9 +30,9 @@ const MyTendersContainer = ({
     return <Spinner/>
   }
 
-  return <TenderList listItems={accountTenders}
+  return <TenderList isAccount
+                     listItems={accountTenders}
                      title={"My tenders"}
-                     isAccount={true}
                      startTender={startTender}
                      cancelTender={cancelTender}
                      retender={retender}

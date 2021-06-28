@@ -29,27 +29,13 @@ const AccountTender = ({
   return (
     <div className="container">
       {!isEditing
-        ? <Tender tenderName={tender.name}
-                  status={tender.status}
-                  budget={tender.budget}
-                  createdDate={tender.createdDate}
-                  yyyy_mm_dd={tender.createdDate.slice(0, 10)}
-                  time={tender.createdDate.slice(11, 16)}
-                  description={tender.description}
-                  contractorName={tenderCreator.name}
-                  companyName={tenderCreator.companyName}
-                  industry={tenderCreator.industry}
-                  city={tenderCreator.city}/>
+        ? <Tender tender={tender}
+                  contractor={tenderCreator}/>
         : <EditTenderForm onSubmit={submitTenderEditing}
                           initialValues={tender}
-                          cancelEditing={toggleIsEditing}
-                          status={tender.status}
-                          yyyy_mm_dd={tender.createdDate.slice(0, 10)}
-                          time={tender.createdDate.slice(11, 16)}
-                          contractorName={tenderCreator.name}
-                          companyName={tenderCreator.companyName}
-                          industry={tenderCreator.industry}
-                          city={tenderCreator.city}/>}
+                          tender={tender}
+                          contractor={tenderCreator}
+                          cancelEditing={toggleIsEditing}/>}
 
       {!isEditing && <Button onClick={toggleIsEditing}>Edit tender</Button>}
 

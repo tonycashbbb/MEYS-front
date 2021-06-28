@@ -16,8 +16,7 @@ const Home = ({
 
   return (
     <main className={s.home__page}>
-      <Sidebar user={user}
-               isAccount={false}/>
+      <Sidebar user={user}/>
       <TenderList title={"Ongoing tenders"}
                   listItems={homeTenders}
                   userId={userId}/>

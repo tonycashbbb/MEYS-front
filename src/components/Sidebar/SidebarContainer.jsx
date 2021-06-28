@@ -6,7 +6,7 @@ import Sidebar from "./Sidebar";
 import {selectAccountUser} from "../../redux/selectors/accountPage.selector";
 
 const SidebarContainer = ({
-                            isAccount,
+                            isAccount = false,
                             userId,
                             user,
                             getUser,

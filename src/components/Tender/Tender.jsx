@@ -2,45 +2,39 @@ import React from "react";
 import s from "./Tender.module.css";
 
 const Tender = ({
-                  tenderName,
-                  status,
-                  budget,
-                  yyyy_mm_dd,
-                  time,
-                  description,
-                  contractorName,
-                  companyName,
-                  industry,
-                  city,
+                  tender,
+                  contractor
                 }) => {
+  const yyyy_mm_dd = tender.createdDate.slice(0, 10)
+  const time = tender.createdDate.slice(11, 16)
 
   return (
     <div className={s.tender}>
       <div className={s.header}>
-        <div className={s.title}>{tenderName}</div>
-        <div className={s.data}>Status: <b>{status}</b></div>
+        <div className={s.title}>{tender.name}</div>
+        <div className={s.data}>Status: <b>{tender.status}</b></div>
       </div>
       <div className={s.row}>
         <div className={s.column}>
           <h2>Information about tender:</h2>
           <ul className={s.info}>
-            <li><span>Budget</span><span>{budget} zl</span></li>
+            <li><span>Budget</span><span>{tender.budget} zl</span></li>
             <li><span>Created date</span><span>{yyyy_mm_dd} - {time}</span></li>
-            <li><span>Contractor</span><span>{contractorName}</span></li>
+            <li><span>Contractor</span><span>{contractor.name}</span></li>
           </ul>
         </div>
         <div className={s.column}>
           <h2>Information about contractor:</h2>
           <ul className={s.info}>
-            <li><span>Company name</span><span>{companyName}</span></li>
-            <li><span>Industry</span><span>{industry}</span></li>
-            <li><span>City</span><span>{city}</span></li>
+            <li><span>Company name</span><span>{contractor.companyName}</span></li>
+            <li><span>Industry</span><span>{contractor.industry}</span></li>
+            <li><span>City</span><span>{contractor.city}</span></li>
           </ul>
         </div>
       </div>
       <div className={s.details}>
         <h2>Description:</h2>
-        <p>{description}</p>
+        <p>{tender.description}</p>
       </div>
     </div>
   )
