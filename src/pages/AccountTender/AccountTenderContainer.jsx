@@ -9,8 +9,8 @@ import {
   getTenderCreator,
   getTenderRequests,
   updateTender
-} from "../../redux/reducers/accountTender-reducer";
-import {selectTenderCreator} from "../../redux/selectors/accountPage-selectors";
+} from "../../redux/actions/accountTender.action";
+import {selectTenderCreator} from "../../redux/selectors/accountPage.selector";
 
 const AccountTenderAPI = ({
                             tender,

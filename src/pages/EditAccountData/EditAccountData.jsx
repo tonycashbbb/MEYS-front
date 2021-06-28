@@ -2,8 +2,8 @@ import React from 'react';
 import s from './EditAccountData.module.css'
 import EditAccountDataForm from "../../components/Form/EditAccountData-Form/EditAccountDataForm";
 import {connect} from "react-redux";
-import {toggleIsEditing, updateAccountData} from "../../redux/reducers/accountPage-reducer";
-import {selectUser} from "../../redux/selectors/auth-selectors";
+import {toggleIsEditing, updateAccountData} from "../../redux/actions/accountPage.action";
+import {selectUser} from "../../redux/selectors/auth.selector";
 import Button from "../../components/ui/Button/Button";
 import {Redirect} from "react-router-dom";
 

@@ -3,12 +3,12 @@ import HomeTender from "./HomeTender";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
-import {getUser} from "../../redux/reducers/accountPage-reducer";
+import {getUser} from "../../redux/actions/accountPage.action";
 import withRedirectToLogin from "../../hoc/withRedirectToLogin";
 import {withSuccessRedirect} from "../../hoc/withSuccessRedirect";
-import {selectUserId} from "../../redux/selectors/auth-selectors";
-import {selectAccountUser} from "../../redux/selectors/accountPage-selectors";
-import {getHomeTender, replyOnTender} from "../../redux/reducers/homeTender-reducer";
+import {selectUserId} from "../../redux/selectors/auth.selector";
+import {selectAccountUser} from "../../redux/selectors/accountPage.selector";
+import {getHomeTender, replyOnTender} from "../../redux/actions/homeTender.action";
 
 class HomePageTenderAPI extends React.Component {
   componentDidMount() {

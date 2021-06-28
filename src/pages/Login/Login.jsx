@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Login.module.css';
 import LoginForm from "../../components/Form/Login-Form/LoginForm";
 import {connect} from "react-redux";
-import {login} from "../../redux/reducers/auth-reducer";
+import {login} from "../../redux/actions/auth.action";
 import {Redirect} from "react-router-dom";
 
 const Login = (props) => {
