@@ -7,7 +7,7 @@ import Accordion from "../ui/Accordion/Accordion";
 import Spinner from "../ui/Spinner/Spinner";
 
 const Sidebar = ({
-                   isAccount,
+                   isAccount = false,
                    user,
                    toggleIsEditing
                  }) => {
