@@ -10,6 +10,7 @@ import {
 import {Spinner} from "@components/ui";
 import {selectUserId} from "@redux/selectors/auth.selector";
 import {selectIsLoaded, selectTenders} from "@redux/selectors/accountPage.selector";
+import {APP_TEXT} from "@components/i18n";
 
 const MyTendersContainer = ({
                               toggleIsRepliesShowing,
@@ -33,7 +34,7 @@ const MyTendersContainer = ({
 
   return <TenderList isAccount
                      listItems={accountTenders}
-                     title={"My tenders"}
+                     title={APP_TEXT.tenderList.accountTitle}
                      startTender={startTender}
                      cancelTender={cancelTender}
                      retender={retender}

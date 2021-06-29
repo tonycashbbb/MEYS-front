@@ -58,6 +58,6 @@ class AuthenticationService {
 export default new AuthenticationService()
 
 export const createContractorAPI = (data) => {
-  instance
+  return instance
     .post("/contractors", data)
 }

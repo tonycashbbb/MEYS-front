@@ -2,6 +2,7 @@ import React from "react";
 import s from "./TenderList.module.css";
 import {NavLink} from "react-router-dom";
 import {Button} from "@components/ui";
+import {APP_TEXT} from "@components/i18n";
 
 const TenderList = ({
                       listItems,
@@ -13,14 +14,19 @@ const TenderList = ({
                       userId,
                       toggleIsRepliesShowing
                     }) => {
-  const statuses = ["RETENDER", "CANCELED", "ARCHIVED"]
+  const {
+    statuses: {FEATURED, ONGOING, CANCELED, ARCHIVED, RETENDER},
+    statusButtons: {start, cancel, retender: retenderText}
+  } = APP_TEXT.tender
+  const statuses = [ARCHIVED, CANCELED, RETENDER]
 
   return (
     <div className={s.content}>
       <div className={s.inner}>
         <div className={s.header}>
           <div className={s.header__title}>{title}</div>
-          {isAccount && <div className={s.header__subtitle} onClick={toggleIsRepliesShowing}>My replies</div>}
+          {isAccount &&
+          <div className={s.header__subtitle} onClick={toggleIsRepliesShowing}>{APP_TEXT.myRepliesList.title}</div>}
         </div>
 
         {listItems.length !== 0
@@ -38,22 +44,22 @@ const TenderList = ({
                 </div>
                 {isAccount && <div className={s.right}>
                   <div className={s.startBtn}>
-                    {tender.status === "FEATURED" && <Button btnColor={"#F4F4F4"}
-                                                             textColor={"#000"}
-                                                             onClick={() => startTender(tender.id, userId)}>Start</Button>}
-                    {tender.status === "ONGOING" && <Button btnColor={"#F4F4F4"}
-                                                            textColor={"#000"}
-                                                            onClick={() => cancelTender(tender.id, userId)}>Cancel</Button>}
+                    {tender.status === FEATURED && <Button btnColor={"#F4F4F4"}
+                                                           textColor={"#000"}
+                                                           onClick={() => startTender(tender.id, userId)}>{start}</Button>}
+                    {tender.status === ONGOING && <Button btnColor={"#F4F4F4"}
+                                                          textColor={"#000"}
+                                                          onClick={() => cancelTender(tender.id, userId)}>{cancel}</Button>}
                     {statuses.includes(tender.status) && <Button btnColor={"#F4F4F4"}
                                                                  textColor={"#000"}
-                                                                 onClick={() => retender(tender.id, userId)}>Retender</Button>}
+                                                                 onClick={() => retender(tender.id, userId)}>{retenderText}</Button>}
                   </div>
                 </div>}
               </li>
             })}
           </ul>
           : <div className={s.noTenders}>
-            No tenders yet
+            {APP_TEXT.tenderList.noTenders}
           </div>}
       </div>
     </div>

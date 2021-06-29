@@ -5,6 +5,7 @@ import {withSuccessRedirect} from "@hoc";
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {createContractor} from "@redux/actions/auth.action";
+import {APP_TEXT} from "@components/i18n";
 
 const CreateAccount = ({createContractor}) => {
 
@@ -16,7 +17,7 @@ const CreateAccount = ({createContractor}) => {
     <div className="container">
       <div className={s.header}>
         <div className={s.title}>
-          To create an account fill the form out:
+          {APP_TEXT.createAccount.title}
         </div>
         <div className={s.form}>
           <CreateContractorForm onSubmit={createContractorSubmit} />

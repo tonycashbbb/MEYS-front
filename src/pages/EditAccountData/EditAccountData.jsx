@@ -4,8 +4,8 @@ import EditAccountDataForm from "@components/Form/EditAccountDataForm/EditAccoun
 import {connect} from "react-redux";
 import {toggleIsEditing, updateAccountData} from "@redux/actions/accountPage.action";
 import {selectUser} from "@redux/selectors/auth.selector";
-import {Button} from "@components/ui";
 import {Redirect} from "react-router-dom";
+import {APP_TEXT} from "@components/i18n";
 
 const EditAccountData = ({
                            user,
@@ -26,15 +26,11 @@ const EditAccountData = ({
   return (
     <div className={s.edit}>
       <div className={"container"}>
-        <div className={s.title}>Edit account data</div>
+        <div className={s.title}>{APP_TEXT.editAccountData.title}</div>
         <EditAccountDataForm onSubmit={editDataSubmit}
                              isEditing={isEditing}
-                             initialValues={user}/>
-        <div className={s.button}>
-          <Button btnColor={"#6498E1"}
-                  btnHover={"#71ACFF"}
-                  onClick={() => toggleIsEditing(false)}>Cancel</Button>
-        </div>
+                             initialValues={user}
+                             cancelEditing={() => toggleIsEditing(false)}/>
       </div>
     </div>
   );

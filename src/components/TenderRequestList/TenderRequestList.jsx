@@ -2,9 +2,10 @@ import React from 'react';
 import s from './TenderRequestList.module.css'
 import {TenderRequestItemContainer} from "@components";
 import {Spinner} from "@components/ui";
+import {APP_TEXT} from "@components/i18n";
 
 const TenderRequestList = ({tenderRequests, tenderStatus}) => {
-  const isTenderGoing = tenderStatus === "ONGOING"
+  const isTenderGoing = tenderStatus === APP_TEXT.tender.statuses.ONGOING
 
   if (!tenderRequests) {
     return <Spinner/>
@@ -12,7 +13,7 @@ const TenderRequestList = ({tenderRequests, tenderStatus}) => {
 
   return (
     <div className={s.request__list}>
-      <h1>Requests:</h1>
+      <h1>{APP_TEXT.tender.requests}</h1>
       {tenderRequests.length !== 0
         ? <ul>
           {tenderRequests.map(({id, userId, tenderId, message, status}) => <TenderRequestItemContainer key={id}
@@ -23,7 +24,7 @@ const TenderRequestList = ({tenderRequests, tenderStatus}) => {
                                                                                                        status={status}
                                                                                                        isTenderGoing={isTenderGoing}/>)}
         </ul>
-        : <div className={s.no__requests}>There is no requests yet</div>}
+        : <div className={s.no__requests}>{APP_TEXT.tender.noRequests}</div>}
 
     </div>
   );
