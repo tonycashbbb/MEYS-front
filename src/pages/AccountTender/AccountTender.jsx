@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
-import Button from "../../components/ui/Button/Button";
-import Tender from "../../components/Tender/Tender";
-import Spinner from "../../components/ui/Spinner/Spinner";
-import TenderRequestList from "../../components/TenderRequestList/TenderRequestList";
-import EditTenderForm from "../../components/Form/EditTender-Form/EditTenderForm";
+import {Button, Spinner} from "@components/ui";
+import {
+  Tender,
+  TenderRequestList
+} from "@components";
+import {EditTenderForm} from '@components/Form'
 
 const AccountTender = ({
                          tender,

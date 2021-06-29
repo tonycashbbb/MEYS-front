@@ -2,9 +2,9 @@ import React from 'react';
 import s from "./LoginForm.module.css";
 import {NavLink} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
-import Button from "../../ui/Button/Button";
+import {Button} from "@components/ui";
 import {required} from "../validators/validators";
-import {Input} from "../Form-controls/FormControls";
+import {Input} from "../FormControls/FormControls";
 
 const LoginForm = (props) => {
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
 import s from './Login.module.css';
-import LoginForm from "../../components/Form/Login-Form/LoginForm";
 import {connect} from "react-redux";
-import {login} from "../../redux/actions/auth.action";
 import {Redirect} from "react-router-dom";
+import {login} from "@redux/actions/auth.action";
+import {LoginForm} from "@components/Form";
 
 const Login = (props) => {
   if (props.isAuth) {

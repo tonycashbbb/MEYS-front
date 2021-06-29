@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './TenderRequestList.module.css'
-import TenderRequestItemContainer from "../TenderRequestItem/TenderRequestItemContainer";
-import Spinner from "../ui/Spinner/Spinner";
+import {TenderRequestItemContainer} from "@components";
+import {Spinner} from "@components/ui";
 
 const TenderRequestList = ({tenderRequests, tenderStatus}) => {
   const isTenderGoing = tenderStatus === "ONGOING"

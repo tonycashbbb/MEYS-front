@@ -1,8 +1,8 @@
 import React from 'react';
-import s from "./CreateUserForm.module.css";
-import Button from "../../ui/Button/Button";
+import s from "./CreateContractorForm.module.css";
+import {Button} from "@components/ui";
 import {Field, reduxForm} from "redux-form";
-import {Input} from "../Form-controls/FormControls";
+import {Input} from "../FormControls/FormControls";
 import {required} from "../validators/validators";
 
 const CreateContractorForm = (props) => {

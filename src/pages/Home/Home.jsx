@@ -1,8 +1,7 @@
 import React from 'react';
 import s from './Home.module.css';
-import TenderList from "../../components/TenderList/TenderList";
-import Spinner from "../../components/ui/Spinner/Spinner";
-import Sidebar from "../../components/Sidebar/Sidebar";
+import {TenderList, Sidebar} from "@components";
+import {Spinner} from "@components/ui";
 
 const Home = ({
                 homeTenders,

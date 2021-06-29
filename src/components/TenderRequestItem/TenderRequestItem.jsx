@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './TenderRequestItem.module.css'
-import Button from "../ui/Button/Button";
+import {Button} from "@components/ui";
 
 const TenderRequestItem = ({
                              requestCreatorName,
