@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
+import './styles/global.scss'
 import {Redirect, Route} from "react-router-dom";
-import {Footer, Header} from "./components";
+import {Footer, Header} from "@components";
 import {
   Account,
   AccountTenderContainer,

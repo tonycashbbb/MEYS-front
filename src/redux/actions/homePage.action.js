@@ -1,5 +1,5 @@
 import {SET_CURRENT_PAGE, SET_TENDERS, SET_TOTAL_COUNT, TOGGLE_IS_LOADED} from "../actionTypes/homePage.actionType";
-import {getTendersAPI} from "../../services/homePage.services";
+import {getTendersAPI} from "@services/homePage.service";
 
 export const setTenders = (tenders) => ({type: SET_TENDERS, tenders})
 export const setTotalCount = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount})

@@ -6,7 +6,7 @@ import {
   Spinner,
   Button
 } from "@components";
-import {getAllTenderRequestsAPI} from "@services/accountPage.services";
+import {getAllTenderRequestsAPI} from "@services/accountPage.service";
 import {APP_TEXT} from "@app/i18n";
 
 import s from './HomeTender.module.css'

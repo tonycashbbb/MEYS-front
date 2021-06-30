@@ -1,5 +1,5 @@
 import {SET_USER_DATA, TOGGLE_IS_AUTH} from "../actionTypes/auth.actionType";
-import authService, {createContractorAPI} from "../../services/auth.services";
+import authService, {createContractorAPI} from "@services/auth.service";
 import {setUser, toggleIsSuccess} from "./accountPage.action";
 import {stopSubmit} from "redux-form";
 

@@ -1,5 +1,5 @@
 import {SET_HOME_TENDER} from "../actionTypes/homeTender.actionType";
-import {getTenderAPI, requestTenderAPI} from "../../services/homePage.services";
+import {getTenderAPI, requestTenderAPI} from "@services/homePage.service";
 import {toggleIsSuccess} from "./accountPage.action";
 
 export const setHomeTender = (tender) => ({type: SET_HOME_TENDER, tender})

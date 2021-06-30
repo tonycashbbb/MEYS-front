@@ -13,7 +13,7 @@ import {
     retenderAPI,
     startTenderAPI,
     updateAccountAPI
-} from "../../services/accountPage.services";
+} from "@services/accountPage.service";
 
 export const setContractorTenders = (contractorTenders) => ({type: SET_CONTRACTOR_TENDERS, contractorTenders})
 export const setMyRepliesList = (allRequests) => ({type: SET_MY_REPLIES, allRequests})
