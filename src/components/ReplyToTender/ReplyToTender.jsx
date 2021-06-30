@@ -1,6 +1,8 @@
 import React from "react"
-import s from './ReplyToTender.module.css'
+
 import ReplyToTenderForm from "../Form/ReplyToTenderForm/ReplyToTenderForm";
+
+import s from './ReplyToTender.module.css'
 
 const ReplyToTender = ({cancel, onSubmitReply}) => {
 

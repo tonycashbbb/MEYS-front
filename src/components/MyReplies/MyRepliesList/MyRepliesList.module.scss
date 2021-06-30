@@ -1,3 +1,5 @@
+@import 'src/styles/variables';
+
 .replies {
     width: 70%;
     margin-top: 45px;
@@ -11,7 +13,7 @@
 .subtitle {
     cursor: pointer;
 
-    color: #CB9AE1;
+    color: $color-purple-primary;
     font-size: 16px;
     font-weight: 600;
     line-height: 50px;

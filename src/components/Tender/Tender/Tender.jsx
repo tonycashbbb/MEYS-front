@@ -1,6 +1,8 @@
 import React from "react";
-import s from "./Tender.module.css";
+
 import {APP_TEXT} from "@app/i18n";
+
+import s from "./Tender.module.scss";
 
 const Tender = ({
                   tender,

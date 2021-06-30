@@ -1,8 +1,11 @@
 import React from "react";
-import s from "./TenderList.module.css";
 import {NavLink} from "react-router-dom";
+
 import {Button} from "@components";
 import {APP_TEXT} from "@app/i18n";
+
+import s from "./TenderList.module.scss";
+import {color} from "@app/styles";
 
 const {
   statuses: {FEATURED, ONGOING, CANCELED, ARCHIVED, RETENDER},
@@ -45,14 +48,14 @@ const TenderList = ({
                 </div>
                 {isAccount && <div className={s.right}>
                   <div className={s.startBtn}>
-                    {tender.status === FEATURED && <Button btnColor={"#F4F4F4"}
-                                                           textColor={"#000"}
+                    {tender.status === FEATURED && <Button btnColor={color.GRAY}
+                                                           textColor={color.BLACK}
                                                            onClick={() => startTender(tender.id, userId)}>{start}</Button>}
-                    {tender.status === ONGOING && <Button btnColor={"#F4F4F4"}
-                                                          textColor={"#000"}
+                    {tender.status === ONGOING && <Button btnColor={color.GRAY}
+                                                          textColor={color.BLACK}
                                                           onClick={() => cancelTender(tender.id, userId)}>{cancel}</Button>}
-                    {statuses.includes(tender.status) && <Button btnColor={"#F4F4F4"}
-                                                                 textColor={"#000"}
+                    {statuses.includes(tender.status) && <Button btnColor={color.GRAY}
+                                                                 textColor={color.BLACK}
                                                                  onClick={() => retender(tender.id, userId)}>{retenderText}</Button>}
                   </div>
                 </div>}

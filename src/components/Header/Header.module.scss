@@ -1,13 +1,14 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
 .header {
     padding: 10px;
-    background-color: #CB9AE1;
+    background-color: $color-purple-primary;
     border-bottom: 1px solid #A37CB5;
 }
 
 .inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include makeFlex();
 
     height: 50px;
 }
@@ -48,13 +49,9 @@
 }
 
 .navigation__item:hover {
-    background-color: #F4F4F4;
+    background-color: $color-gray-background;
 }
 
 .navigation__item:hover a {
-    color: #000;
-}
-
-.active {
-
+    color: $color-black;
 }

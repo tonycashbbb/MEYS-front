@@ -1,5 +1,5 @@
 import React from "react"
-import s from './FormControls.module.css'
+import s from './FormControls.module.scss'
 
 const FormControls = ({meta, children}) => {
   const error = meta.submitFailed && meta.error

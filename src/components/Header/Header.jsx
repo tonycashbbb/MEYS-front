@@ -6,7 +6,7 @@ import {Button} from "@components";
 import {logout} from "@redux/actions/auth.action";
 import {APP_TEXT} from "@app/i18n";
 
-import s from './Header.module.css';
+import s from './Header.module.scss';
 
 const Header = ({isAuth, logout}) => {
   return (
@@ -19,7 +19,7 @@ const Header = ({isAuth, logout}) => {
           <div className={s.navigation}>
             {!isAuth
               ? <div className={s.navigation__item}>
-                  <NavLink to={'/login'} activeClassName={s.active}>{APP_TEXT.header.login}</NavLink>
+                  <NavLink to={'/login'}>{APP_TEXT.header.login}</NavLink>
                 </div>
               : <Button onClick={logout}>{APP_TEXT.header.logout}</Button>}
           </div>

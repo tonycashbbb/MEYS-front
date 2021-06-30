@@ -1,3 +1,5 @@
+@import "src/styles/variables";
+
 .pagination {
     width: 300px;
     margin: 30px auto 0;
@@ -17,10 +19,10 @@
 .selected__page {
     font-weight: 700;
     transform: scale(1.2);
-    color: #CB9AE1;
+    color: $color-purple-primary;
 }
 
 .go {
     font-size: 15px;
-    color: #CB9AE1;
+    color: $color-purple-primary;
 }

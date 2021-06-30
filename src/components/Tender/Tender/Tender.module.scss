@@ -1,3 +1,6 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
 .tender {
     margin: 40px 0 20px;
     border: 2px solid #999;
@@ -38,12 +41,12 @@
 }
 
 .data a {
-    color: #CB9AE1;
+    color: $color-purple-primary;
     text-decoration: underline;
 }
 
 .data a:hover {
-    color: #EEACFF;
+    color: $color-purple-primary-hover;
 }
 
 .row {
@@ -67,8 +70,7 @@
 }
 
 .info li {
-    display: flex;
-    justify-content: space-between;
+    @include makeFlex();
 
     height: 26px;
 
@@ -105,10 +107,9 @@
 }
 
 .buttons {
-    padding-left: 15px;
+    @include makeFlex();
     width: 51%;
-    display: flex;
-    justify-content: space-between;
+    padding-left: 15px;
 }
 
 .status__edit {

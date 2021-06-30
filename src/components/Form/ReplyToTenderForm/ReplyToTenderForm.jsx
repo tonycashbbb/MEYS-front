@@ -1,9 +1,11 @@
 import React from 'react';
-import s from "./ReplyToTenderForm.module.css";
-import Button from "../../ui/Button/Button";
 import {Field, reduxForm} from "redux-form";
-import {Textarea} from "../FormControls/FormControls";
-import {required} from "../../../utils/validators";
+
+import {Textarea, Button} from "@components";
+import {required} from "@app/utils/validators";
+
+import s from "./ReplyToTenderForm.module.scss";
+import {color} from "@app/styles";
 
 const ReplyToTenderForm = (props) => {
   return (
@@ -18,8 +20,8 @@ const ReplyToTenderForm = (props) => {
           <Button>Send</Button>
         </div>
         <div className={s.flex__item}>
-          <Button btnColor={"#6498E1"}
-                  btnHover={"#71ACFF"}
+          <Button btnColor={color.SECONDARY}
+                  btnHover={color.SECONDARY_HOVER}
                   onClick={props.cancel}>Cancel</Button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './MyRepliesListItem.module.css'
+import s from './MyRepliesListItem.module.scss'
 import {NavLink} from "react-router-dom";
 
 const MyRepliesListItem = ({
