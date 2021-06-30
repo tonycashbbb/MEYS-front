@@ -1,15 +1,16 @@
 import React, {useEffect} from 'react';
-import TenderList from "../TenderList/TenderList";
 import {connect} from "react-redux";
 import {
   cancelTender,
   getAccountTenders,
-  retender, setIsLoaded,
+  retender,
+  setIsLoaded,
   startTender
 } from "@redux/actions/accountPage.action";
-import {Spinner} from "@components/ui";
+import {Spinner, TenderList} from "@components";
 import {selectUserId} from "@redux/selectors/auth.selector";
 import {selectIsLoaded, selectTenders} from "@redux/selectors/accountPage.selector";
+import {APP_TEXT} from "@app/i18n";
 
 const MyTendersContainer = ({
                               toggleIsRepliesShowing,
@@ -33,7 +34,7 @@ const MyTendersContainer = ({
 
   return <TenderList isAccount
                      listItems={accountTenders}
-                     title={"My tenders"}
+                     title={APP_TEXT.tenderList.accountTitle}
                      startTender={startTender}
                      cancelTender={cancelTender}
                      retender={retender}

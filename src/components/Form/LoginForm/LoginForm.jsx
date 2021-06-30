@@ -1,31 +1,33 @@
 import React from 'react';
-import s from "./LoginForm.module.css";
 import {NavLink} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
-import {Button} from "@components/ui";
-import {required} from "../validators/validators";
-import {Input} from "../FormControls/FormControls";
+
+import {Input, Button} from "@components";
+import {required} from "@app/utils/validators";
+import {APP_TEXT} from "@app/i18n";
+
+import s from "./LoginForm.module.css";
 
 const LoginForm = (props) => {
   return (
     <form className={s.form} onSubmit={props.handleSubmit}>
       <Field type={"text"}
              name={"username"}
-             placeholder={"Username"}
+             placeholder={APP_TEXT.generalUser.username}
              component={Input}
              validate={[required]}/>
       <Field type={"password"}
              name={"password"}
-             placeholder={"Password"}
+             placeholder={APP_TEXT.generalUser.password}
              component={Input}
              validate={[required]}/>
       {props.error && <div className={s.error__text}>{props.error}</div>}
       <div className={s.login__btn}>
-        <Button>Log in</Button>
+        <Button>{APP_TEXT.login.loginBtn}</Button>
       </div>
       <hr/>
       <div className={s.register}>
-        <NavLink to="/create_account">Create an account</NavLink>
+        <NavLink to="/create_account">{APP_TEXT.login.createBtn}</NavLink>
       </div>
     </form>
   );

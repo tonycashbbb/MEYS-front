@@ -1,10 +1,13 @@
 import React, {useState} from 'react'
-import {Button, Spinner} from "@components/ui";
+
 import {
+  Button,
+  Spinner,
   Tender,
-  TenderRequestList
+  TenderRequestList,
+  EditTenderForm
 } from "@components";
-import {EditTenderForm} from '@components/Form'
+import {APP_TEXT} from "@app/i18n";
 
 const AccountTender = ({
                          tender,
@@ -38,7 +41,7 @@ const AccountTender = ({
                           contractor={tenderCreator}
                           cancelEditing={toggleIsEditing}/>}
 
-      {!isEditing && <Button onClick={toggleIsEditing}>Edit tender</Button>}
+      {!isEditing && <Button onClick={toggleIsEditing}>{APP_TEXT.general.edit} {APP_TEXT.general.tender}</Button>}
 
       <TenderRequestList tenderStatus={tender.status}
                          tenderRequests={tenderRequests}/>

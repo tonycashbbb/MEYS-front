@@ -1,31 +1,33 @@
 import React from "react";
-import s from './CreateTenderForm.module.css'
-import {Button} from "@components/ui";
+
+import {Button, Input, Textarea} from "@components";
 import {Field, reduxForm} from "redux-form";
-import {required} from "../validators/validators";
-import {Input, Textarea} from "../FormControls/FormControls";
+import {required} from "@app/utils/validators";
+import {APP_TEXT} from "@app/i18n";
+
+import s from './CreateTenderForm.module.css'
 
 const CreateTenderForm = (props) => {
   return (
     <form className={s.form} onSubmit={props.handleSubmit}>
       <Field type="text"
              name="name"
-             placeholder="Tender name"
+             placeholder={APP_TEXT.tender.tenderName}
              component={Input}
              validate={[required]}/>
       <Field type="number"
              name="budget"
-             placeholder="Budget"
+             placeholder={APP_TEXT.tender.budget}
              validate={[required]}
              component={Input}/>
       <Field type="text"
              name="description"
-             placeholder="Description"
+             placeholder={APP_TEXT.tender.description}
              validate={[required]}
              component={Textarea}/>
 
       <div className={s.btn}>
-        <Button>Submit</Button>
+        <Button>{APP_TEXT.general.submit}</Button>
       </div>
     </form>
   )

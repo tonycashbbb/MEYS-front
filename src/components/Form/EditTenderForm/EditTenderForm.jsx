@@ -1,8 +1,8 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
-import s from "../../Tender/Tender.module.css";
-import {Button} from "@components/ui";
-import {Input, Textarea} from "../FormControls/FormControls";
+import s from "@components/Tender/Tender/Tender.module.css";
+import {Input, Textarea, Button} from "@components";
+import {APP_TEXT} from "@app/i18n";
 
 const EditTenderForm = ({
                           handleSubmit,
@@ -19,56 +19,56 @@ const EditTenderForm = ({
         <div className={s.title__edit}>
           <Field type="text"
                  name="name"
-                 placeholder="Tender name"
+                 placeholder={APP_TEXT.tender.tenderName}
                  component={Input}/>
         </div>
         <div className={s.data}>
           <div className={s.row}>
-            <div className={s.data}>Status: <b>{tender.status}</b></div>
+            <div className={s.data}>{APP_TEXT.tender.status}: <b>{tender.status}</b></div>
           </div>
         </div>
       </div>
       <div className={s.row}>
         <div className={s.column}>
-          <h2>Information about tender:</h2>
+          <h2>{APP_TEXT.tender.tenderInf}</h2>
           <ul className={s.info}>
             <li>
-              <span>Budget</span>
+              <span>{APP_TEXT.tender.budget}</span>
               <span>
-                <Field type="number "
+                <Field type="number"
                        name="budget"
-                       placeholder="Budget"
+                       placeholder={APP_TEXT.tender.budget}
                        component={Input}/>
               </span>
             </li>
-            <li><span>Created date</span><span>{createdDate} - {createdTime}</span></li>
-            <li><span>Contractor</span><span>{contractor.name}</span></li>
+            <li><span>{APP_TEXT.tender.createdDate}</span><span>{createdDate} - {createdTime}</span></li>
+            <li><span>{APP_TEXT.tender.contractor}</span><span>{contractor.name}</span></li>
           </ul>
         </div>
         <div className={s.column}>
-          <h2>Information about contractor:</h2>
+          <h2>{APP_TEXT.tender.contractorInf}</h2>
           <ul className={s.info}>
-            <li><span>Company name</span><span>{contractor.companyName}</span></li>
-            <li><span>Industry</span><span>{contractor.industry}</span></li>
-            <li><span>City</span><span>{contractor.city}</span></li>
+            <li><span>{APP_TEXT.generalUser.companyName}</span><span>{contractor.companyName}</span></li>
+            <li><span>{APP_TEXT.generalUser.industry}</span><span>{contractor.industry}</span></li>
+            <li><span>{APP_TEXT.generalUser.city}</span><span>{contractor.city}</span></li>
           </ul>
         </div>
       </div>
       <div className={s.details}>
-        <h2>Description:</h2>
+        <h2>{APP_TEXT.tender.description}</h2>
         <Field type="text"
                name="description"
-               placeholder="Description"
+               placeholder={APP_TEXT.tender.description}
                component={Textarea}/>
       </div>
       <div className={s.buttons}>
         <div>
-          <Button>Submit</Button>
+          <Button>{APP_TEXT.general.saveChanges}</Button>
         </div>
         <div>
           <Button btnColor={"#6498E1"}
                   btnHover={"#71ACFF"}
-                  onClick={cancelEditing}>Cancel</Button>
+                  onClick={cancelEditing}>{APP_TEXT.general.cancel}</Button>
         </div>
       </div>
     </form>

@@ -1,9 +1,12 @@
 import React from 'react';
-import s from './Login.module.css';
-import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
+import {connect} from "react-redux";
+
+import {LoginForm} from "@components";
 import {login} from "@redux/actions/auth.action";
-import {LoginForm} from "@components/Form";
+import {APP_TEXT} from "@app/i18n";
+
+import s from './Login.module.css';
 
 const Login = (props) => {
   if (props.isAuth) {
@@ -20,10 +23,8 @@ const Login = (props) => {
         <div className={s.column}>
           <div className={s.row}>
             <div className={s.text}>
-              <div className={s.title}>MEYS</div>
-              <div className={s.description}>
-                MEYS helps you to create tenders and take part in other people tenders as well
-              </div>
+              <div className={s.title}>{APP_TEXT.meys}</div>
+              <div className={s.description}>{APP_TEXT.login.description}</div>
             </div>
 
             <LoginForm onSubmit={onSubmit}/>

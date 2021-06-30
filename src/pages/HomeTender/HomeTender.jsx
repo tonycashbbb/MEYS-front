@@ -1,8 +1,15 @@
 import React, {useEffect, useState} from 'react'
-import s from './HomeTender.module.css'
-import {Spinner, Button} from "@components/ui";
-import {Tender, ReplyToTender} from "@components";
+
+import {
+  Tender,
+  ReplyToTender,
+  Spinner,
+  Button
+} from "@components";
 import {getAllTenderRequestsAPI} from "@services/accountPage.services";
+import {APP_TEXT} from "@app/i18n";
+
+import s from './HomeTender.module.css'
 
 const HomeTender = ({
                       homeTender,
@@ -31,7 +38,7 @@ const HomeTender = ({
           setCanReply(true)
         } else {
           allReplies.forEach(reply => {
-            if (reply.status === "ACCEPTED") {
+            if (reply.status === APP_TEXT.reply.statuses.ACCEPTED) {
               setIsAccepted(true)
             }
           })
@@ -60,14 +67,14 @@ const HomeTender = ({
       <Tender tender={homeTender}
               contractor={contractor}/>
 
-      {canReply && !isReplying && <Button onClick={changeIsReplying}>Reply</Button>}
+      {canReply && !isReplying && <Button onClick={changeIsReplying}>{APP_TEXT.general.reply}</Button>}
       {canReply && isReplying && <ReplyToTender onSubmitReply={onSubmitReply}
                                                 cancel={changeIsReplying}/>}
       {!canReply && <div className={s.replied}>
         {isAccepted
           ? <Button btnColor={"#6498E1"}
-                    btnHover={"#6498E1"}>Accepted</Button>
-          : <Button btnHover={"#CB9AE1"}>Replied</Button>}
+                    btnHover={"#6498E1"}>{APP_TEXT.general.accepted}</Button>
+          : <Button btnHover={"#CB9AE1"}>{APP_TEXT.general.replied}</Button>}
       </div>}
     </div>
   )

@@ -6,7 +6,8 @@
       "@components/*": "src/components/*",
       "@hoc": "src/hoc",
       "@redux/*": "src/redux/*",
-      "@services/*": "src/services/*"
+      "@services/*": "src/services/*",
+      "@app/*": "src/*"
     }
   }
 }

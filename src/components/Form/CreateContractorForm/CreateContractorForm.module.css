@@ -5,8 +5,11 @@
     margin-bottom: 15px;
 }
 
-.btn {
+.btns {
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
+    width: 50%;
 }
 
 .error__text {

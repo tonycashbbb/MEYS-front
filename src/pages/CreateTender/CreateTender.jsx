@@ -1,6 +1,9 @@
 import React from 'react'
+
+import {CreateTenderForm} from "@components";
+import {APP_TEXT} from "@app/i18n";
+
 import s from './CreateTender.module.css'
-import {CreateTenderForm} from "@components/Form";
 
 const CreateTender = ({contractorId, createTender}) => {
   const onSubmit = ({name, budget, description}) => {
@@ -9,9 +12,7 @@ const CreateTender = ({contractorId, createTender}) => {
 
   return (
     <div className="container">
-      <div className={s.title}>
-        To create a tender fill the form out
-      </div>
+      <div className={s.title}>{APP_TEXT.createTender.title}</div>
 
       <CreateTenderForm onSubmit={onSubmit}/>
     </div>

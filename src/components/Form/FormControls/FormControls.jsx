@@ -7,7 +7,6 @@ const FormControls = ({meta, children}) => {
   return (
     <div className={s.formControl + (error ? ' ' + s.error : "")}>
       {children}
-      {/*{error ? <div className={s.errorMessage}>{meta.error}</div> : null}*/}
     </div>
   )
 }

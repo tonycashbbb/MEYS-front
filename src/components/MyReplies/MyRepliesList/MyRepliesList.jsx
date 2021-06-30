@@ -1,7 +1,9 @@
 import React from 'react';
+
+import {MyRepliesListItemContainer, Spinner} from "@components";
+import {APP_TEXT} from "@app/i18n";
+
 import s from './MyRepliesList.module.css'
-import {MyRepliesListItemContainer} from "@components";
-import {Spinner} from "@components/ui";
 
 const MyRepliesList = ({
                          toggleIsRepliesShowing,
@@ -15,8 +17,8 @@ const MyRepliesList = ({
   return (
     <div className={s.replies}>
       <div className={s.header}>
-        <div className={s.subtitle} onClick={toggleIsRepliesShowing}>My tenders</div>
-        <div className={s.title}>My replies</div>
+        <div className={s.subtitle} onClick={toggleIsRepliesShowing}>{APP_TEXT.tenderList.accountTitle}</div>
+        <div className={s.title}>{APP_TEXT.myRepliesList.title}</div>
       </div>
 
       <ul className={s.list}>
@@ -24,7 +26,7 @@ const MyRepliesList = ({
         && myRepliesList.map(({id, tenderId, status}) => <MyRepliesListItemContainer key={id}
                                                                                      tenderId={tenderId}
                                                                                      status={status}/>)}
-        {myRepliesList.length === 0 && <div className={s.no__replies}>No replies yet</div>}
+        {myRepliesList.length === 0 && <div className={s.no__replies}>{APP_TEXT.myRepliesList.noReplies}</div>}
       </ul>
     </div>
   );
