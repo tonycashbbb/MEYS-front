@@ -5,7 +5,7 @@ import {Button} from "@components";
 import {APP_TEXT} from "@app/i18n";
 
 import s from "./TenderList.module.scss";
-import {color} from "@app/styles";
+import theme from "@app/styles";
 
 const {
   statuses: {FEATURED, ONGOING, CANCELED, ARCHIVED, RETENDER},
@@ -48,14 +48,14 @@ const TenderList = ({
                 </div>
                 {isAccount && <div className={s.right}>
                   <div className={s.startBtn}>
-                    {tender.status === FEATURED && <Button btnColor={color.GRAY}
-                                                           textColor={color.BLACK}
+                    {tender.status === FEATURED && <Button btnColor={theme.COLOR.GRAY}
+                                                           textColor={theme.COLOR.BLACK}
                                                            onClick={() => startTender(tender.id, userId)}>{start}</Button>}
-                    {tender.status === ONGOING && <Button btnColor={color.GRAY}
-                                                          textColor={color.BLACK}
+                    {tender.status === ONGOING && <Button btnColor={theme.COLOR.GRAY}
+                                                          textColor={theme.COLOR.BLACK}
                                                           onClick={() => cancelTender(tender.id, userId)}>{cancel}</Button>}
-                    {statuses.includes(tender.status) && <Button btnColor={color.GRAY}
-                                                                 textColor={color.BLACK}
+                    {statuses.includes(tender.status) && <Button btnColor={theme.COLOR.GRAY}
+                                                                 textColor={theme.COLOR.BLACK}
                                                                  onClick={() => retender(tender.id, userId)}>{retenderText}</Button>}
                   </div>
                 </div>}

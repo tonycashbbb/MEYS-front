@@ -5,7 +5,7 @@ import {Textarea, Button} from "@components";
 import {required} from "@app/utils/validators";
 
 import s from "./ReplyToTenderForm.module.scss";
-import {color} from "@app/styles";
+import theme from "@app/styles";
 
 const ReplyToTenderForm = (props) => {
   return (
@@ -20,8 +20,8 @@ const ReplyToTenderForm = (props) => {
           <Button>Send</Button>
         </div>
         <div className={s.flex__item}>
-          <Button btnColor={color.SECONDARY}
-                  btnHover={color.SECONDARY_HOVER}
+          <Button btnColor={theme.COLOR.SECONDARY}
+                  btnHover={theme.COLOR.SECONDARY_HOVER}
                   onClick={props.cancel}>Cancel</Button>
         </div>
       </div>

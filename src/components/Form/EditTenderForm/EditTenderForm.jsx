@@ -1,9 +1,11 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
-import s from "@components/Tender/Tender/Tender.module.scss";
+
 import {Input, Textarea, Button} from "@components";
 import {APP_TEXT} from "@app/i18n";
-import {color} from "@app/styles";
+
+import s from "@components/Tender/Tender/Tender.module.scss";
+import theme from "@app/styles";
 
 const EditTenderForm = ({
                           handleSubmit,
@@ -67,8 +69,8 @@ const EditTenderForm = ({
           <Button>{APP_TEXT.general.saveChanges}</Button>
         </div>
         <div>
-          <Button btnColor={color.SECONDARY}
-                  btnHover={color.SECONDARY_HOVER}
+          <Button btnColor={theme.COLOR.SECONDARY}
+                  btnHover={theme.COLOR.SECONDARY_HOVER}
                   onClick={cancelEditing}>{APP_TEXT.general.cancel}</Button>
         </div>
       </div>

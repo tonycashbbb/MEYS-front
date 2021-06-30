@@ -6,7 +6,7 @@ import {required} from "@app/utils/validators";
 import {APP_TEXT} from "@app/i18n";
 
 import s from "../CreateContractorForm/CreateContractorForm.module.scss";
-import {color} from "@app/styles";
+import theme from "@app/styles";
 
 const EditAccountDataForm = ({handleSubmit, cancelEditing}) => {
 
@@ -49,8 +49,8 @@ const EditAccountDataForm = ({handleSubmit, cancelEditing}) => {
              component={Input}/>
       <div className={s.btns}>
         <Button>{APP_TEXT.general.saveChanges}</Button>
-        <Button btnColor={color.SECONDARY}
-                btnHover={color.SECONDARY_HOVER}
+        <Button btnColor={theme.COLOR.SECONDARY}
+                btnHover={theme.COLOR.SECONDARY_HOVER}
                 onClick={cancelEditing}>{APP_TEXT.general.cancel}</Button>
       </div>
     </form>
