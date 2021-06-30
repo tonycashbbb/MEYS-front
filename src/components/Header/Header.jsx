@@ -1,10 +1,12 @@
 import React from 'react';
-import s from './Header.module.css';
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux";
-import {Button} from "@components/ui";
+
+import {Button} from "@components";
 import {logout} from "@redux/actions/auth.action";
-import {APP_TEXT} from "@components/i18n";
+import {APP_TEXT} from "@app/i18n";
+
+import s from './Header.module.css';
 
 const Header = ({isAuth, logout}) => {
   return (

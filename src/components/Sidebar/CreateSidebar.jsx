@@ -1,7 +1,9 @@
 import React from 'react';
-import s from "./Sidebar.module.css";
 import {NavLink} from "react-router-dom";
-import {APP_TEXT} from "@components/i18n";
+
+import {APP_TEXT} from "@app/i18n";
+
+import s from "./Sidebar.module.css";
 
 const CreateSidebar = () => {
   return (

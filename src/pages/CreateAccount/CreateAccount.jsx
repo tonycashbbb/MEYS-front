@@ -1,11 +1,13 @@
 import React from 'react'
-import s from './CreateAccount.module.css'
-import {CreateContractorForm} from "@components/Form";
-import {withSuccessRedirect} from "@hoc";
 import {compose} from "redux";
 import {connect} from "react-redux";
+
+import {CreateContractorForm} from "@components";
+import {withSuccessRedirect} from "@hoc";
 import {createContractor} from "@redux/actions/auth.action";
-import {APP_TEXT} from "@components/i18n";
+import {APP_TEXT} from "@app/i18n";
+
+import s from './CreateAccount.module.css'
 
 const CreateAccount = ({createContractor}) => {
 

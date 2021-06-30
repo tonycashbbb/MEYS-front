@@ -1,11 +1,13 @@
 import React from 'react';
-import s from './EditAccountData.module.css'
-import EditAccountDataForm from "@components/Form/EditAccountDataForm/EditAccountDataForm";
+import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
+
+import {EditAccountDataForm} from "@components";
 import {toggleIsEditing, updateAccountData} from "@redux/actions/accountPage.action";
 import {selectUser} from "@redux/selectors/auth.selector";
-import {Redirect} from "react-router-dom";
-import {APP_TEXT} from "@components/i18n";
+import {APP_TEXT} from "@app/i18n";
+
+import s from './EditAccountData.module.css'
 
 const EditAccountData = ({
                            user,

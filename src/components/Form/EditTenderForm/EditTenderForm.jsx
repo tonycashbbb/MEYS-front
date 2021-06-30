@@ -1,9 +1,8 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
-import s from "../../Tender/Tender.module.css";
-import {Button} from "@components/ui";
-import {Input, Textarea} from "../FormControls/FormControls";
-import {APP_TEXT} from "@components/i18n";
+import s from "@components/Tender/Tender/Tender.module.css";
+import {Input, Textarea, Button} from "@components";
+import {APP_TEXT} from "@app/i18n";
 
 const EditTenderForm = ({
                           handleSubmit,

@@ -1,8 +1,13 @@
 import React from 'react';
+
+import {
+  TenderList,
+  Sidebar,
+  Spinner
+} from "@components";
+import {APP_TEXT} from "@app/i18n";
+
 import s from './Home.module.css';
-import {TenderList, Sidebar} from "@components";
-import {Spinner} from "@components/ui";
-import {APP_TEXT} from "@components/i18n";
 
 const Home = ({
                 homeTenders,

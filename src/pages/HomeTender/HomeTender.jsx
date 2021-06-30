@@ -1,9 +1,15 @@
 import React, {useEffect, useState} from 'react'
-import s from './HomeTender.module.css'
-import {Spinner, Button} from "@components/ui";
-import {Tender, ReplyToTender} from "@components";
+
+import {
+  Tender,
+  ReplyToTender,
+  Spinner,
+  Button
+} from "@components";
 import {getAllTenderRequestsAPI} from "@services/accountPage.services";
-import {APP_TEXT} from "@components/i18n";
+import {APP_TEXT} from "@app/i18n";
+
+import s from './HomeTender.module.css'
 
 const HomeTender = ({
                       homeTender,

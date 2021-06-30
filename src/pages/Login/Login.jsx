@@ -1,10 +1,12 @@
 import React from 'react';
-import s from './Login.module.css';
-import {LoginForm} from "@components/Form";
-import {connect} from "react-redux";
-import {login} from "@redux/actions/auth.action";
 import {Redirect} from "react-router-dom";
-import {APP_TEXT} from "@components/i18n";
+import {connect} from "react-redux";
+
+import {LoginForm} from "@components";
+import {login} from "@redux/actions/auth.action";
+import {APP_TEXT} from "@app/i18n";
+
+import s from './Login.module.css';
 
 const Login = (props) => {
   if (props.isAuth) {

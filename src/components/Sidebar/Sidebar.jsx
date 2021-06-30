@@ -3,19 +3,20 @@ import s from "./Sidebar.module.css";
 import {NavLink} from "react-router-dom";
 import PersonalDataSidebar from "./PersonalDataSidebar";
 import CreateSidebar from "./CreateSidebar";
-import {Accordion, Spinner} from "@components/ui";
-import {APP_TEXT} from "@components/i18n";
+import {Accordion, Spinner} from "@components";
+import {APP_TEXT} from "@app/i18n";
+
+const {
+  logged,
+  myProfile,
+  personalData
+} = APP_TEXT.sidebar
 
 const Sidebar = ({
                    isAccount = false,
                    user,
                    toggleIsEditing
                  }) => {
-  const {
-    logged,
-    myProfile,
-    personalData
-  } = APP_TEXT.sidebar
 
   if (!user) {
     return <Spinner/>

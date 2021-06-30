@@ -1,10 +1,11 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
+
+import {Button, Input} from "@components";
+import {required} from "@app/utils/validators";
+import {APP_TEXT} from "@app/i18n";
+
 import s from "../CreateContractorForm/CreateContractorForm.module.css";
-import {Button} from "@components/ui";
-import {Input} from "../FormControls/FormControls";
-import {required} from "../validators/validators";
-import {APP_TEXT} from "@components/i18n";
 
 const EditAccountDataForm = ({handleSubmit, cancelEditing}) => {
 

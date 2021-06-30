@@ -1,7 +1,9 @@
 import React from 'react';
-import s from './Footer.module.css';
 import {NavLink} from "react-router-dom";
-import {APP_TEXT} from "@components/i18n";
+
+import {APP_TEXT} from "@app/i18n";
+
+import s from './Footer.module.css';
 
 export const Footer = () => {
   return (

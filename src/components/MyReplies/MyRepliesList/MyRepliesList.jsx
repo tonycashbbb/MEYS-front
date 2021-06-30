@@ -1,8 +1,9 @@
 import React from 'react';
+
+import {MyRepliesListItemContainer, Spinner} from "@components";
+import {APP_TEXT} from "@app/i18n";
+
 import s from './MyRepliesList.module.css'
-import {MyRepliesListItemContainer} from "@components";
-import {Spinner} from "@components/ui";
-import {APP_TEXT} from "@components/i18n";
 
 const MyRepliesList = ({
                          toggleIsRepliesShowing,

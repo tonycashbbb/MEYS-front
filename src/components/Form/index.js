@@ -5,6 +5,8 @@ import EditTenderForm from "./EditTenderForm/EditTenderForm";
 import LoginForm from "./LoginForm/LoginForm";
 import ReplyToTenderForm from "./ReplyToTenderForm/ReplyToTenderForm";
 
+export * from './FormControls'
+
 export {
   CreateContractorForm,
   CreateTenderForm,

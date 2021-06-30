@@ -1,10 +1,11 @@
 import React from "react";
-import s from './CreateTenderForm.module.css'
-import {Button} from "@components/ui";
+
+import {Button, Input, Textarea} from "@components";
 import {Field, reduxForm} from "redux-form";
-import {required} from "../validators/validators";
-import {Input, Textarea} from "../FormControls/FormControls";
-import {APP_TEXT} from "@components/i18n";
+import {required} from "@app/utils/validators";
+import {APP_TEXT} from "@app/i18n";
+
+import s from './CreateTenderForm.module.css'
 
 const CreateTenderForm = (props) => {
   return (

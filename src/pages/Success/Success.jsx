@@ -1,9 +1,11 @@
 import React from 'react';
-import s from './Success.module.css'
-import success from '../../assets/Success-2.gif'
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {APP_TEXT} from "@components/i18n";
+
+import success from '@app/assets/Success-2.gif'
+import {APP_TEXT} from "@app/i18n";
+
+import s from './Success.module.css'
 
 const Success = () => {
   const isAuth = useSelector(state => state.auth.isAuth)

@@ -1,7 +1,9 @@
 import React from 'react';
+
+import {Button} from "@components";
+import {APP_TEXT} from "@app/i18n";
+
 import s from "./Sidebar.module.css";
-import {Button} from "@components/ui";
-import {APP_TEXT} from "@components/i18n";
 
 const {
   email,

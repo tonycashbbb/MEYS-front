@@ -1,17 +1,18 @@
 import Header from "./Header/Header";
-import MyRepliesListContainer from "./MyRepliesList/MyRepliesListContainer";
-import MyRepliesListItemContainer from "./MyRepliesListItem/MyRepliesListItemContainer";
+import MyRepliesListContainer from "./MyReplies/MyRepliesList/MyRepliesListContainer";
+import MyRepliesListItemContainer from "./MyReplies/MyRepliesListItem/MyRepliesListItemContainer";
 import MyTendersContainer from "./MyTenders/MyTendersContainer";
 import Paginator from "./Paginator/Paginator";
 import ReplyToTender from "./ReplyToTender/ReplyToTender";
 import Sidebar from "./Sidebar/Sidebar";
 import SidebarContainer from "./Sidebar/SidebarContainer";
-import Tender from "./Tender/Tender";
-import TenderList from "./TenderList/TenderList";
-import TenderRequestItemContainer from "./TenderRequestItem/TenderRequestItemContainer";
-import TenderRequestList from "./TenderRequestList/TenderRequestList";
+import Tender from "./Tender/Tender/Tender";
+import TenderList from "./Tender/TenderList/TenderList";
+import TenderRequestItemContainer from "./Tender/TenderRequestItem/TenderRequestItemContainer";
+import TenderRequestList from "./Tender/TenderRequestList/TenderRequestList";
 
 export * from './ui'
+export * from './Form'
 
 export {Footer} from "./Footer/Footer";
 
