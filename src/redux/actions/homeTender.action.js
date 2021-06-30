@@ -1,6 +1,6 @@
-import {SET_HOME_TENDER} from "../actionTypes/homeTender.actionType";
-import {getTenderAPI, requestTenderAPI} from "../../services/homePage.services";
-import {toggleIsSuccess} from "./accountPage.action";
+import {SET_HOME_TENDER} from "@redux/actionTypes";
+import {toggleIsSuccess} from "@redux/actions";
+import {getTenderAPI, requestTenderAPI} from "@services";
 
 export const setHomeTender = (tender) => ({type: SET_HOME_TENDER, tender})
 

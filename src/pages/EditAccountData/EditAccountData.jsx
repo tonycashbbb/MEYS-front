@@ -3,8 +3,8 @@ import {Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 
 import {EditAccountDataForm} from "@components";
-import {toggleIsEditing, updateAccountData} from "@redux/actions/accountPage.action";
-import {selectUser} from "@redux/selectors/auth.selector";
+import {toggleIsEditing, updateAccountData} from "@redux/actions";
+import {selectUser} from "@app/selectors";
 import {APP_TEXT} from "@app/i18n";
 
 import s from './EditAccountData.module.css'

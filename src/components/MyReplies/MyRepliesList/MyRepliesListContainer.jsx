@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
+
 import MyRepliesList from "./MyRepliesList";
-import {getMyRepliesList} from "@redux/actions/accountPage.action";
-import {selectIsLoaded, selectMyRepliesList} from "@redux/selectors/accountPage.selector";
+import {getMyRepliesList} from "@redux/actions";
+import {selectIsLoaded, selectMyRepliesList} from "@app/selectors";
 
 const MyRepliesListContainer = ({
                                   toggleIsRepliesShowing,

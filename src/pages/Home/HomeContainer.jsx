@@ -1,17 +1,19 @@
 import React, {useEffect} from 'react';
-import Home from "./Home";
 import {connect} from "react-redux";
-import {getHomeTenders} from "@redux/actions/homePage.action";
 import {compose} from "redux";
+
+import Home from "./Home";
 import {withRedirectToLogin} from "@hoc";
+import {getHomeTenders} from "@redux/actions";
 import {
   selectCurrentPage,
   selectHomeTenders,
   selectHomeIsLoaded,
   selectPageSize,
   selectTotalCount,
-} from "@redux/selectors/homePage.selector";
-import {selectUserId, selectUser} from "@redux/selectors/auth.selector";
+  selectUserId,
+  selectUser
+} from "@app/selectors";
 
 const HomePageAPI = ({
                        homeTenders,

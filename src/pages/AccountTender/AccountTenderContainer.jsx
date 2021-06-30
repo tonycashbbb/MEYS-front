@@ -1,16 +1,17 @@
 import React, {useEffect} from 'react'
-import AccountTender from "./AccountTender";
-import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 import {compose} from "redux";
+
+import AccountTender from "./AccountTender";
 import {withRedirectToLogin} from "@hoc";
 import {
   getAccountTender,
   getTenderCreator,
   getTenderRequests,
   updateTender
-} from "@redux/actions/accountTender.action";
-import {selectTenderCreator} from "@redux/selectors/accountPage.selector";
+} from "@redux/actions";
+import {selectTenderCreator} from "@app/selectors";
 
 const AccountTenderAPI = ({
                             tender,

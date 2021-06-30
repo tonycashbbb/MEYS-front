@@ -1,15 +1,19 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
+
+import {Spinner, TenderList} from "@components";
 import {
   cancelTender,
   getAccountTenders,
   retender,
   setIsLoaded,
   startTender
-} from "@redux/actions/accountPage.action";
-import {Spinner, TenderList} from "@components";
-import {selectUserId} from "@redux/selectors/auth.selector";
-import {selectIsLoaded, selectTenders} from "@redux/selectors/accountPage.selector";
+} from "@redux/actions";
+import {
+  selectUserId,
+  selectIsLoaded,
+  selectTenders
+} from "@app/selectors";
 import {APP_TEXT} from "@app/i18n";
 
 const MyTendersContainer = ({

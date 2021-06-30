@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {getTenderAPI} from "@services/homePage.services";
+import {getTenderAPI} from "@services/homePage.service";
 import MyRepliesListItem from "./MyRepliesListItem";
 import spinner from "@app/assets/Spinner.gif";
 

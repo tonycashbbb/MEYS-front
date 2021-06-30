@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
+
 import Sidebar from "./Sidebar";
-import {getUser, toggleIsEditing} from "@redux/actions/accountPage.action";
-import {selectUserId} from "@redux/selectors/auth.selector";
-import {selectAccountUser} from "@redux/selectors/accountPage.selector";
+import {getUser, toggleIsEditing} from "@redux/actions";
+import {selectUserId, selectAccountUser} from "@app/selectors";
 
 const SidebarContainer = ({
                             isAccount = false,

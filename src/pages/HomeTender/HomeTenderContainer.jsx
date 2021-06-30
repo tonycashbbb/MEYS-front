@@ -1,13 +1,12 @@
 import React from 'react'
-import HomeTender from "./HomeTender";
-import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 import {compose} from "redux";
-import {getUser} from "@redux/actions/accountPage.action";
+
+import HomeTender from "./HomeTender";
 import {withSuccessRedirect, withRedirectToLogin} from "@hoc";
-import {selectUserId} from "@redux/selectors/auth.selector";
-import {selectAccountUser} from "@redux/selectors/accountPage.selector";
-import {getHomeTender, replyOnTender} from "@redux/actions/homeTender.action";
+import {getUser, getHomeTender, replyOnTender} from "@redux/actions";
+import {selectUserId, selectAccountUser} from "@app/selectors";
 
 class HomePageTenderAPI extends React.Component {
   componentDidMount() {

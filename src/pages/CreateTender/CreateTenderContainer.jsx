@@ -1,9 +1,10 @@
 import CreateTender from "./CreateTender";
 import {connect} from "react-redux";
 import {compose} from "redux";
+
 import {withSuccessRedirect, withRedirectToLogin} from "@hoc";
-import {createTender} from "@redux/actions/accountPage.action";
-import {selectUserId} from "@redux/selectors/auth.selector";
+import {createTender} from "@redux/actions";
+import {selectUserId} from "@app/selectors";
 
 const mapStateToProps = (state) => ({
   contractorId: selectUserId(state)
