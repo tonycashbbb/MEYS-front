@@ -2,13 +2,7 @@ import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 
 import {Spinner, TenderList} from "@components";
-import {
-  cancelTender,
-  getAccountTenders,
-  retender,
-  setIsLoaded,
-  startTender
-} from "@redux/actions";
+import {AccountPageActions} from "@redux/actions";
 import {
   selectUserId,
   selectIsLoaded,
@@ -52,10 +46,12 @@ const mapStateToProps = (state) => ({
   isLoaded: selectIsLoaded(state),
 })
 
-export default connect(mapStateToProps, {
-  getAccountTenders,
-  startTender,
-  cancelTender,
-  retender,
-  setIsLoaded,
-})(MyTendersContainer);
+const mapDispatchToProps = (dispatch) => ({
+  getAccountTenders: (contractorId) => dispatch(AccountPageActions.getAccountTenders(contractorId)),
+  startTender: (tenderId, contractorId) => dispatch(AccountPageActions.startTender(tenderId, contractorId)),
+  cancelTender: (tenderId, contractorId) => dispatch(AccountPageActions.cancelTender(tenderId, contractorId)),
+  retender: (tenderId, contractorId) => dispatch(AccountPageActions.retender(tenderId, contractorId)),
+  setIsLoaded: (isLoaded) => dispatch(AccountPageActions.setIsLoaded(isLoaded)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyTendersContainer);

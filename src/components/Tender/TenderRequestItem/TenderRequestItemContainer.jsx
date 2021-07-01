@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 
 import TenderRequestItem from "./TenderRequestItem";
 import {selectRequestCreator} from "@app/selectors";
-import {acceptTenderRequest} from "@redux/actions";
+import {AccountTenderActions} from "@redux/actions";
 import {getContractorAPI} from "@services";
 
 import spinner from "@app/assets/Spinner.gif";
@@ -53,5 +53,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   getContractorAPI,
-  acceptTenderRequest
+  acceptTenderRequest: AccountTenderActions.acceptTenderRequest
 })(TenderRequestItemContainer);

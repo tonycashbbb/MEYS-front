@@ -1,7 +1,7 @@
 import {stopSubmit} from "redux-form";
 
 import {SET_USER_DATA, TOGGLE_IS_AUTH} from "@redux/actionTypes";
-import {setUser, toggleIsSuccess} from "@redux/actions";
+import {AccountPageActions} from "@redux/actions";
 import authService, {createContractorAPI} from "@services";
 
 export const setUserData = (userData) => ({type: SET_USER_DATA, userData})
@@ -12,7 +12,7 @@ export const getLoggedInUser = () => (dispatch) => {
     .then((user) => {
       dispatch(setUserData(user))
       dispatch(toggleIsAuth(true))
-      dispatch(setUser(user))
+      dispatch(AccountPageActions.setUser(user))
     })
 }
 export const login = (username, password) => async (dispatch) => {
@@ -39,8 +39,8 @@ export const logout = () => (dispatch) => {
 export const createContractor = (userData) => async (dispatch) => {
   const res = await createContractorAPI(userData)
   if (res.status === 200) {
-    dispatch(toggleIsSuccess(true))
-    dispatch(toggleIsSuccess(false))
+    dispatch(AccountPageActions.toggleIsSuccess(true))
+    dispatch(AccountPageActions.toggleIsSuccess(false))
   } else {
       dispatch(stopSubmit("createContractor", {_error: "Creation failed"}))
   }

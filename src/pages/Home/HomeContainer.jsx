@@ -4,7 +4,7 @@ import {compose} from "redux";
 
 import Home from "./Home";
 import {withRedirectToLogin} from "@hoc";
-import {getHomeTenders} from "@redux/actions";
+import {HomePageActions} from "@redux/actions";
 import {
   selectCurrentPage,
   selectHomeTenders,
@@ -55,8 +55,11 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  getHomeTenders: () => dispatch(HomePageActions.getHomeTenders())
+})
 
 export default compose(
-  connect(mapStateToProps, {getHomeTenders}),
+  connect(mapStateToProps, mapDispatchToProps),
   withRedirectToLogin,
 )(HomePageAPI)

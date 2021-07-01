@@ -1,7 +1,9 @@
 import React from 'react';
-import s from './TenderRequestItem.module.css'
+
 import {Button} from "@components";
 import {APP_TEXT} from "@app/i18n";
+
+import s from './TenderRequestItem.module.css'
 
 const TenderRequestItem = ({
                              requestCreatorName,
