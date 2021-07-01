@@ -6,7 +6,7 @@ import {LoginForm} from "@components";
 import {login} from "@redux/actions/auth.action";
 import {APP_TEXT} from "@app/i18n";
 
-import s from './Login.module.css';
+import s from './Login.module.scss';
 
 const Login = (props) => {
   if (props.isAuth) {

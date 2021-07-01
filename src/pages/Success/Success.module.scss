@@ -1,3 +1,5 @@
+@import 'src/styles/variables';
+
 .success {
     margin-top: 60px;
     margin-bottom: 60px;
@@ -26,7 +28,7 @@
 }
 
 .back a {
-    color: #CB9AE1;
+    color: $color-purple-primary;
     font-size: 25px;
 
     transition: color 0.2s linear;

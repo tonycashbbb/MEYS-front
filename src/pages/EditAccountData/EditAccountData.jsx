@@ -7,7 +7,7 @@ import {toggleIsEditing, updateAccountData} from "@redux/actions/accountPage.act
 import {selectUser} from "@redux/selectors/auth.selector";
 import {APP_TEXT} from "@app/i18n";
 
-import s from './EditAccountData.module.css'
+import s from './EditAccountData.module.scss'
 
 const EditAccountData = ({
                            user,

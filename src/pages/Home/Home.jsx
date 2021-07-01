@@ -7,7 +7,7 @@ import {
 } from "@components";
 import {APP_TEXT} from "@app/i18n";
 
-import s from './Home.module.css';
+import s from './Home.module.scss';
 
 const Home = ({
                 homeTenders,

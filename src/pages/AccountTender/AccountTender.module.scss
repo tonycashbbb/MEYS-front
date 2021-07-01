@@ -1,6 +1,10 @@
+@import 'src/styles/variables';
+
+$color-gray: #999;
+
 .tender {
     margin: 40px 0 25px;
-    border: 2px solid #999;
+    border: 2px solid $color-gray;
     border-radius: 20px;
     padding: 20px;
 }
@@ -21,12 +25,12 @@
 }
 
 .data a {
-    color: #CB9AE1;
+    color: $color-purple-primary;
     text-decoration: underline;
 }
 
 .data a:hover {
-    color: #EEACFF;
+    color: $color-purple-primary-hover;
 }
 
 .row {
@@ -44,15 +48,15 @@
 
 .info {
     padding: 10px;
-    border-top: 2px solid #999;
-    border-bottom: 2px solid #999;
+    border-top: 2px solid $color-gray;
+    border-bottom: 2px solid $color-gray;
     font-size: 17px;
 }
 
 .info li {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid $color-gray;
     margin-bottom: 10px;
 }
 
@@ -78,7 +82,7 @@
     width: 332px;
     border-radius: 20px;
     border: none;
-    background-color: #CB9AE1;
+    background-color: $color-purple-primary;
 
     font-size: 17px;
     font-weight: 500;

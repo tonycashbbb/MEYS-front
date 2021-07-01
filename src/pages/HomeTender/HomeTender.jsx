@@ -9,7 +9,7 @@ import {
 import {getAllTenderRequestsAPI} from "@services/accountPage.service";
 import {APP_TEXT} from "@app/i18n";
 
-import s from './HomeTender.module.css'
+import s from './HomeTender.module.scss'
 import theme from "@app/styles";
 
 const HomeTender = ({
