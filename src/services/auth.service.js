@@ -55,7 +55,7 @@ class AuthenticationService {
   }
 }
 
-export default new AuthenticationService()
+export const authService = new AuthenticationService()
 
 export const createContractorAPI = (data) => {
   return instance

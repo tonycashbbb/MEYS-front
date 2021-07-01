@@ -2,7 +2,7 @@ import {stopSubmit} from "redux-form";
 
 import {SET_USER_DATA, TOGGLE_IS_AUTH} from "@redux/actionTypes";
 import {AccountPageActions} from "@redux/actions";
-import authService, {createContractorAPI} from "@services";
+import {createContractorAPI, authService} from "@services";
 
 export const setUserData = (userData) => ({type: SET_USER_DATA, userData})
 export const toggleIsAuth = (isAuth) => ({type: TOGGLE_IS_AUTH, isAuth})
