@@ -1,15 +1,13 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
-import {
-  cancelTender,
-  getAccountTenders,
-  retender,
-  setIsLoaded,
-  startTender
-} from "@redux/actions/accountPage.action";
+
 import {Spinner, TenderList} from "@components";
-import {selectUserId} from "@redux/selectors/auth.selector";
-import {selectIsLoaded, selectTenders} from "@redux/selectors/accountPage.selector";
+import {AccountPageActions} from "@redux/actions";
+import {
+  selectUserId,
+  selectIsLoaded,
+  selectTenders
+} from "@app/selectors";
 import {APP_TEXT} from "@app/i18n";
 
 const MyTendersContainer = ({
@@ -48,10 +46,12 @@ const mapStateToProps = (state) => ({
   isLoaded: selectIsLoaded(state),
 })
 
-export default connect(mapStateToProps, {
-  getAccountTenders,
-  startTender,
-  cancelTender,
-  retender,
-  setIsLoaded,
-})(MyTendersContainer);
+const mapDispatchToProps = (dispatch) => ({
+  getAccountTenders: (contractorId) => dispatch(AccountPageActions.getAccountTenders(contractorId)),
+  startTender: (tenderId, contractorId) => dispatch(AccountPageActions.startTender(tenderId, contractorId)),
+  cancelTender: (tenderId, contractorId) => dispatch(AccountPageActions.cancelTender(tenderId, contractorId)),
+  retender: (tenderId, contractorId) => dispatch(AccountPageActions.retender(tenderId, contractorId)),
+  setIsLoaded: (isLoaded) => dispatch(AccountPageActions.setIsLoaded(isLoaded)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyTendersContainer);

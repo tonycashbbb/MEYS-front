@@ -7,7 +7,7 @@ export const ENG = {
     cancel: "Cancel",
     reply: "Reply",
     replied: "Replied",
-    accept: "Accepted",
+    accept: "Accept",
     accepted: "Accepted",
     tender: "tender",
     data: "data"
@@ -87,9 +87,6 @@ export const ENG = {
     noData: "No data about a company",
     tenderBar: "Tender bar",
     createTender: "Create tender"
-  },
-  editAccountData: {
-    title: "Edit account data"
   },
   createTender: {
     title: "To create a tender fill the form out"

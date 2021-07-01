@@ -1,4 +1,4 @@
-import instance from "./services";
+import instance from "./instance.service";
 
 export const getContractorAPI = (contractorId) => {
   return instance

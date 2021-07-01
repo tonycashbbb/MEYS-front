@@ -1,4 +1,4 @@
-import instance from "./services";
+import instance from "./instance.service";
 
 const USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
 

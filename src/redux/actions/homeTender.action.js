@@ -1,6 +1,6 @@
-import {SET_HOME_TENDER} from "../actionTypes/homeTender.actionType";
-import {getTenderAPI, requestTenderAPI} from "../../services/homePage.services";
-import {toggleIsSuccess} from "./accountPage.action";
+import {SET_HOME_TENDER} from "@redux/actionTypes";
+import {AccountPageActions} from "@redux/actions";
+import {getTenderAPI, requestTenderAPI} from "@services";
 
 export const setHomeTender = (tender) => ({type: SET_HOME_TENDER, tender})
 
@@ -11,8 +11,9 @@ export const getHomeTender = (tenderId) => (dispatch) => {
         })
 }
 export const replyOnTender = (userId, tenderId, message) => async (dispatch) => {
-    await requestTenderAPI(userId, tenderId, message)
-
-    dispatch(toggleIsSuccess(true))
-    dispatch(toggleIsSuccess(false))
+    const res = await requestTenderAPI(userId, tenderId, message)
+    if (res.status === 200) {
+        dispatch(AccountPageActions.toggleIsSuccess(true))
+        dispatch(AccountPageActions.toggleIsSuccess(false))
+    }
 }

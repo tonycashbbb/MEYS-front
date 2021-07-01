@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
+
 import MyRepliesList from "./MyRepliesList";
-import {getMyRepliesList} from "@redux/actions/accountPage.action";
-import {selectIsLoaded, selectMyRepliesList} from "@redux/selectors/accountPage.selector";
+import {AccountPageActions} from "@redux/actions";
+import {selectIsLoaded, selectMyRepliesList} from "@app/selectors";
 
 const MyRepliesListContainer = ({
                                   toggleIsRepliesShowing,
@@ -25,4 +26,8 @@ const mapStateToProps = (state) => ({
   isLoaded: selectIsLoaded(state)
 })
 
-export default connect(mapStateToProps, {getMyRepliesList})(MyRepliesListContainer);
+const mapDispatchToProps = (dispatch) => ({
+  getMyRepliesList: () => dispatch(AccountPageActions.getMyRepliesList())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyRepliesListContainer);
