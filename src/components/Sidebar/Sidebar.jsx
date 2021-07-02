@@ -14,8 +14,7 @@ const {
 
 const Sidebar = ({
                    isAccount = false,
-                   user,
-                   toggleIsEditing
+                   user
                  }) => {
 
   if (!user) {
@@ -36,7 +35,7 @@ const Sidebar = ({
               <li><NavLink to="/account">{myProfile}</NavLink></li>
             </ul>
             : <Accordion title={personalData}>
-              <PersonalDataSidebar user={user} toggleIsEditing={toggleIsEditing}/>
+              <PersonalDataSidebar user={user}/>
             </Accordion>}
         </div>
 

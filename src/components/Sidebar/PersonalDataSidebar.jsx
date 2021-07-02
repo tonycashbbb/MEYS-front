@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {Button} from "@components";
 import {APP_TEXT} from "@app/i18n";
 
 import s from "./Sidebar.module.scss";
@@ -15,8 +14,7 @@ const {
 } = APP_TEXT.generalUser
 
 const PersonalDataSidebar = ({
-                               user,
-                               toggleIsEditing
+                               user
                              }) => {
 
   return (
@@ -29,7 +27,6 @@ const PersonalDataSidebar = ({
           <li><span>{nip}:</span> {user.nip}</li>
           <li><span>{city}:</span> {user.city}</li>
           <li><span>{region}:</span> {user.region}</li>
-          <li><Button onClick={() => toggleIsEditing(true)}>{APP_TEXT.general.edit} {APP_TEXT.general.data}</Button></li>
         </ul>
         : <li>{APP_TEXT.sidebar.noData}</li>}
     </div>

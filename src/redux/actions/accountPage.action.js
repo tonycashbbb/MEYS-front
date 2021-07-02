@@ -1,9 +1,10 @@
 import {
-    SET_CONTRACTOR_TENDERS, SET_IS_LOADED,
+    SET_CONTRACTOR_TENDERS,
+    SET_IS_LOADED,
     SET_MY_REPLIES,
     SET_USER, TOGGLE_IS_EDITING,
     TOGGLE_IS_SUCCESS
-} from "../actionTypes/accountPage.actionType";
+} from "@redux/actionTypes";
 import {
     cancelTenderAPI,
     createTenderAPI,
@@ -13,7 +14,7 @@ import {
     retenderAPI,
     startTenderAPI,
     updateAccountAPI
-} from "@services/accountPage.service";
+} from "@services";
 
 export const setContractorTenders = (contractorTenders) => ({type: SET_CONTRACTOR_TENDERS, contractorTenders})
 export const setMyRepliesList = (allRequests) => ({type: SET_MY_REPLIES, allRequests})

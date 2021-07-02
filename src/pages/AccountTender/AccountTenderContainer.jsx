@@ -1,16 +1,12 @@
 import React, {useEffect} from 'react'
-import AccountTender from "./AccountTender";
-import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 import {compose} from "redux";
+
+import AccountTender from "./AccountTender";
 import {withRedirectToLogin} from "@hoc";
-import {
-  getAccountTender,
-  getTenderCreator,
-  getTenderRequests,
-  updateTender
-} from "@redux/actions/accountTender.action";
-import {selectTenderCreator} from "@redux/selectors/accountPage.selector";
+import {AccountTenderActions} from "@redux/actions";
+import {selectTenderCreator} from "@app/selectors";
 
 const AccountTenderAPI = ({
                             tender,
@@ -50,8 +46,15 @@ const mapStateToProps = (state) => ({
   tenderRequests: state.accountTender.tenderRequests,
 })
 
+const mapDispatchToProps = (dispatch) => ({
+  getAccountTender: (tenderId) => dispatch(AccountTenderActions.getAccountTender(tenderId)),
+  getTenderCreator: (tenderCreatorId) => dispatch(AccountTenderActions.getTenderCreator(tenderCreatorId)),
+  getTenderRequests: (tenderId) => dispatch(AccountTenderActions.getTenderRequests(tenderId)),
+  updateTender: (tenderData) => dispatch(AccountTenderActions.updateTender(tenderData))
+})
+
 export default compose(
-  connect(mapStateToProps, {getAccountTender, getTenderCreator, getTenderRequests, updateTender}),
+  connect(mapStateToProps, mapDispatchToProps),
   withRedirectToLogin,
   withRouter
 )(AccountTenderAPI)

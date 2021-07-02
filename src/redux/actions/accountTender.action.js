@@ -1,11 +1,15 @@
-import {SET_ACCOUNT_TENDER, SET_TENDER_CREATOR, SET_TENDER_REQUESTS} from "../actionTypes/accountTender.actionType";
-import {getTenderAPI} from "@services/homePage.service";
 import {
+    SET_ACCOUNT_TENDER,
+    SET_TENDER_CREATOR,
+    SET_TENDER_REQUESTS
+} from "@redux/actionTypes";
+import {
+    getTenderAPI,
     acceptTenderRequestAPI,
     getContractorAPI,
     getTenderRequestsAPI,
     updateTenderAPI
-} from "@services/accountPage.service";
+} from "@services";
 
 export const setAccountTender = (tender) => ({type: SET_ACCOUNT_TENDER, tender})
 export const setTenderRequests = (tenderRequests) => ({type: SET_TENDER_REQUESTS, tenderRequests})

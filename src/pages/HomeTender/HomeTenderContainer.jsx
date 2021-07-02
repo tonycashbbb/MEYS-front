@@ -5,10 +5,8 @@ import {compose} from "redux";
 
 import HomeTender from "./HomeTender";
 import {withSuccessRedirect, withRedirectToLogin} from "@hoc";
-import {getUser} from "@redux/actions/accountPage.action";
-import {selectUserId} from "@redux/selectors/auth.selector";
-import {selectAccountUser} from "@redux/selectors/accountPage.selector";
-import {getHomeTender, replyOnTender} from "@redux/actions/homeTender.action";
+import {HomeTenderActions, AccountPageActions} from "@redux/actions";
+import {selectUserId, selectAccountUser} from "@app/selectors";
 
 class HomePageTenderAPI extends React.Component {
   componentDidMount() {
@@ -32,8 +30,16 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getHomeTender: (tenderId) => dispatch(HomeTenderActions.getHomeTender(tenderId)),
+    getUser: (userId) => dispatch(AccountPageActions.getUser(userId)),
+    replyOnTender: (userId, tenderId, message) => dispatch(HomeTenderActions.replyOnTender(userId, tenderId, message))
+  }
+}
+
 export default compose(
-  connect(mapStateToProps, {getHomeTender, getUser, replyOnTender}),
+  connect(mapStateToProps, mapDispatchToProps),
   withRedirectToLogin,
   withSuccessRedirect,
   withRouter

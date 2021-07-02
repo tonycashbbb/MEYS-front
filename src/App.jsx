@@ -9,13 +9,13 @@ import {
   CreateTenderContainer,
   HomeContainer,
   HomeTenderContainer,
-  IntroPage,
-  Login, Success
+  Login,
+  Success
 } from "./pages";
 
 import './styles/global.scss'
 
-const EditAccountData = React.lazy(() => import("./pages/EditAccountData/EditAccountData"))
+const IntroPage = React.lazy(() => import("./pages/IntroPage/IntroPage"))
 
 const App = () => {
 
@@ -36,8 +36,6 @@ const App = () => {
 
           <Route exact path={"/account"} component={Account}/>
           <Route path={"/account/tenders/:id"} component={AccountTenderContainer}/>
-
-          <Route path={"/account/edit"} component={EditAccountData}/>
 
           <Route path={"/create_tender"} component={CreateTenderContainer}/>
           <Route path={"/success"} component={Success}/>
