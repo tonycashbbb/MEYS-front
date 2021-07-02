@@ -1,25 +1,20 @@
 # Introducing to MEYS
 MEYS is a platform, where everyone can either find a tender for himself or create his own.
 
-# Technologies
-MEYS contains such libraries as:
-* `axios`
-* `redux`
-* `redux-thunk`
-* `redux-form`
-* `reselect`  
-* `styled-components`
+## Technologies
+* `ReactJS`
+* `Redux`
 
-# Installation
-In the project directory, you should open a terminal and install all dependencies, which is needed to be able to run the project.
-### `npm install`
-
-# Running
-In the project directory use:
-### `npm start`
+## Running
+1. Install NodeJS if not intalled yet.
+1. Run `npm install` to install all dependencies.
+1. Run `npm start` to start development server.
 
 Runs the app in the development mode.
 Open http://localhost:3000 to view it in the browser.
+
+## Building
+Run `npm run build` to build the project.
 
 ## Available Scripts
 
@@ -29,16 +24,6 @@ In the project directory, you can run:
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
 
