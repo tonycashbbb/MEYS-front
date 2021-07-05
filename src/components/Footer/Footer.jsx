@@ -6,6 +6,7 @@ import {APP_TEXT} from "@app/i18n";
 import classes from './Footer.module.scss';
 
 export const Footer = () => {
+
   return (
     <footer className={classes.footer}>
       <div className="container">

@@ -1,6 +1,8 @@
 export const ENG = {
   meys: "MEYS",
   general: {
+    tender: "tender",
+    data: "data",
     edit: "Edit",
     submit: "Submit",
     saveChanges: "Save changes",
@@ -9,8 +11,7 @@ export const ENG = {
     replied: "Replied",
     accept: "Accept",
     accepted: "Accepted",
-    tender: "tender",
-    data: "data"
+    create: "Create"
   },
   generalUser: {
     username: "Username",
@@ -53,6 +54,9 @@ export const ENG = {
       DECLINED: "DECLINED"
     }
   },
+  dialog: {
+    title: "Confirmation"
+  },
   header: {
     login: "Log in",
     logout: "Log out"
@@ -89,7 +93,8 @@ export const ENG = {
     createTender: "Create tender"
   },
   createTender: {
-    title: "To create a tender fill the form out"
+    title: "To create a tender fill the form out",
+    dialogDescription: "Are you sure you want to create a tender?"
   },
   success: {
     createTenderSuccess: "Tender has been created",
