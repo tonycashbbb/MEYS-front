@@ -1,0 +1,27 @@
+@import "src/styles/variables";
+
+@mixin makeFlex() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin linkAsButton() {
+  padding: 10px 20px;
+  font-size: 27px;
+  line-height: 27px;
+  width: 332px;
+  border-radius: 20px;
+  margin-top: 15px;
+  text-align: center;
+  background-color: #6498E1;
+}
+
+@mixin makeListItem() {
+  border-radius: 20px;
+  background-color: $color-gray-background;
+  font-size: 20px;
+  color: #212529;
+  padding: 7px 35px 10px;
+  margin-top: 15px;
+}

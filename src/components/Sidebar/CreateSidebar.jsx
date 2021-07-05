@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 import {APP_TEXT} from "@app/i18n";
 
-import s from "./Sidebar.module.css";
+import s from "./Sidebar.module.scss";
 
 const CreateSidebar = () => {
   return (

@@ -1,10 +1,22 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
 .tender {
-    margin: 40px 0 25px;
+    margin: 40px 0 20px;
     border: 2px solid #999;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
     border-radius: 20px;
     padding: 20px;
+    font-size: 17px;
+}
+
+.tender input {
+    padding: 0 5px;
+    width: 150px;
+    text-align: center;
+}
+
+.data input {
+    margin: 0 5px;
 }
 
 .header {
@@ -18,17 +30,23 @@
     margin-bottom: 10px;
 }
 
+.title__edit input {
+    min-width: 260px;
+    max-width: 260px;
+    padding: 5px;
+}
+
 .data {
     font-size: 15px;
 }
 
 .data a {
-    color: #CB9AE1;
+    color: $color-purple-primary;
     text-decoration: underline;
 }
 
 .data a:hover {
-    color: #EEACFF;
+    color: $color-purple-primary-hover;
 }
 
 .row {
@@ -45,21 +63,34 @@
 }
 
 .info {
-    padding: 10px;
+    padding: 10px 10px 5px;
     border-top: 2px solid #999;
     border-bottom: 2px solid #999;
     font-size: 17px;
 }
 
 .info li {
-    display: flex;
-    justify-content: space-between;
+    @include makeFlex();
+
+    height: 26px;
+
     border-bottom: 1px solid #999;
     margin-bottom: 10px;
 }
 
+.info li:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+}
+
 .info li span {
     display: block;
+}
+
+.info li span input {
+    margin-bottom: 0;
+    position: relative;
+    top: -5px;
 }
 
 .details {
@@ -75,18 +106,12 @@
     line-height: 23px;
 }
 
-.tender__btn {
-    padding: 7px 20px;
-    width: 332px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    border: none;
-    background-color: #CB9AE1;
+.buttons {
+    @include makeFlex();
+    width: 51%;
+    padding-left: 15px;
+}
 
-    font-size: 17px;
-    font-weight: 500;
-    color: #fff;
-
-    transition: background-color 0.2s linear;
+.status__edit {
+    padding-top: 6px;
 }

@@ -1,11 +1,12 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
 .auth {
     height: 100%;
 }
 
 .row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include makeFlex();
 }
 
 .column {
@@ -21,7 +22,7 @@
 }
 
 .title {
-    color: #CB9AE1;
+    color: $color-purple-primary;
     font-size: 34px;
     font-weight: 700;
     margin-bottom: 10px;

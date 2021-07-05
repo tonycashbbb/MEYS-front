@@ -7,7 +7,7 @@ import {withSuccessRedirect} from "@hoc";
 import {createContractor} from "@redux/actions/auth.action";
 import {APP_TEXT} from "@app/i18n";
 
-import s from './CreateAccount.module.css'
+import s from './CreateAccount.module.scss'
 
 const CreateAccount = ({createContractor}) => {
 

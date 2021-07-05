@@ -1,0 +1,104 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.content {
+    width: 70%;
+}
+
+.inner {
+    padding: 30px;
+}
+
+.header {
+    display: flex;
+    position: relative;
+
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.header__title {
+    color: #212529;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.header__subtitle {
+    position: absolute;
+    left: 210px;
+    color: $color-purple-primary;
+
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+
+    line-height: 50px;
+}
+
+.header__subtitle:hover {
+    text-decoration: underline;
+}
+
+.list {
+    margin-top: 20px;
+}
+
+.list li {
+    @include makeFlex();
+    @include makeListItem();
+}
+
+.list li:first-child {
+    margin-top: 0;
+}
+
+.left {
+    width: 60%;
+}
+
+.right {
+    min-width: 100px;
+}
+
+.startBtn button {
+    width: 100px;
+}
+
+.trash {
+    cursor: pointer;
+
+    transition: color 0.1s linear;
+}
+
+.trash:hover {
+    color: $color-purple-primary;
+}
+
+.list__title {
+    margin-bottom: 10px;
+}
+
+.list__title a {
+    color: #000;
+    font-size: 22px;
+}
+
+.list__title a:hover {
+    text-decoration: underline;
+}
+
+.subtitle {
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.description {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.noTenders {
+    margin-top: 35px;
+    font-weight: 500;
+    font-size: 18px;
+}

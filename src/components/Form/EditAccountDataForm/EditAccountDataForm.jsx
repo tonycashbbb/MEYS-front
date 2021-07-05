@@ -1,15 +1,17 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
 
-import {Input, Button} from "@components";
+import {Button, Input} from "@components";
 import {required} from "@app/utils/validators";
 import {APP_TEXT} from "@app/i18n";
 
-import s from "./CreateContractorForm.module.scss";
+import s from "../CreateContractorForm/CreateContractorForm.module.scss";
+import theme from "@app/styles";
 
-const CreateContractorForm = (props) => {
+const EditAccountDataForm = ({handleSubmit, cancelEditing}) => {
+
   return (
-    <form className={s.form} onSubmit={props.handleSubmit}>
+    <form className={s.form} onSubmit={handleSubmit}>
       <Field type="text"
              name="name"
              placeholder={APP_TEXT.generalUser.username}
@@ -18,11 +20,6 @@ const CreateContractorForm = (props) => {
       <Field type="email"
              name="email"
              placeholder={APP_TEXT.generalUser.email}
-             validate={[required]}
-             component={Input}/>
-      <Field type="password"
-             name="password"
-             placeholder={APP_TEXT.generalUser.password}
              validate={[required]}
              component={Input}/>
       <Field type="text"
@@ -50,14 +47,16 @@ const CreateContractorForm = (props) => {
              placeholder={APP_TEXT.generalUser.city}
              validate={[required]}
              component={Input}/>
-      {props.error && <div className={s.error__text}>{props.error}</div>}
-      <div className={s.btn}>
-        <Button>{APP_TEXT.general.submit}</Button>
+      <div className={s.btns}>
+        <Button>{APP_TEXT.general.saveChanges}</Button>
+        <Button btnColor={theme.COLOR.SECONDARY}
+                btnHover={theme.COLOR.SECONDARY_HOVER}
+                onClick={cancelEditing}>{APP_TEXT.general.cancel}</Button>
       </div>
     </form>
   );
 };
 
 export default reduxForm({
-  form: "createContractor"
-})(CreateContractorForm);
+  form: 'EditPersonalData'
+})(EditAccountDataForm);

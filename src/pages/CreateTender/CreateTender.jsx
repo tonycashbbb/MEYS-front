@@ -3,7 +3,7 @@ import React from 'react'
 import {CreateTenderForm} from "@components";
 import {APP_TEXT} from "@app/i18n";
 
-import s from './CreateTender.module.css'
+import s from './CreateTender.module.scss'
 
 const CreateTender = ({contractorId, createTender}) => {
   const onSubmit = ({name, budget, description}) => {

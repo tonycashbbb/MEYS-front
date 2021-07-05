@@ -9,7 +9,8 @@ import {
 import {getAllTenderRequestsAPI} from "@services/accountPage.service";
 import {APP_TEXT} from "@app/i18n";
 
-import s from './HomeTender.module.css'
+import s from './HomeTender.module.scss'
+import theme from "@app/styles";
 
 const HomeTender = ({
                       homeTender,
@@ -72,9 +73,9 @@ const HomeTender = ({
                                                 cancel={changeIsReplying}/>}
       {!canReply && <div className={s.replied}>
         {isAccepted
-          ? <Button btnColor={"#6498E1"}
-                    btnHover={"#6498E1"}>{APP_TEXT.general.accepted}</Button>
-          : <Button btnHover={"#CB9AE1"}>{APP_TEXT.general.replied}</Button>}
+          ? <Button btnColor={theme.COLOR.SECONDARY}
+                    btnHover={theme.COLOR.SECONDARY_HOVER}>{APP_TEXT.general.accepted}</Button>
+          : <Button btnHover={theme.COLOR.PRIMARY}>{APP_TEXT.general.replied}</Button>}
       </div>}
     </div>
   )

@@ -6,7 +6,7 @@ import {Input, Button} from "@components";
 import {required} from "@app/utils/validators";
 import {APP_TEXT} from "@app/i18n";
 
-import s from "./LoginForm.module.css";
+import s from "./LoginForm.module.scss";
 
 const LoginForm = (props) => {
   return (

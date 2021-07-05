@@ -1,0 +1,26 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
+.footer {
+  margin-top: 20px;
+  padding: 10px;
+
+  border-top: 1px solid $color-purple-primary;
+  background-color: $color-gray-background;
+}
+
+.inner {
+  line-height: 50px;
+}
+
+.footer__links {
+  @include makeFlex();
+}
+
+.footer__links li a {
+  color: $color-purple-primary;
+}
+
+.footer__links li a:hover {
+  text-decoration: underline;
+}

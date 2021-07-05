@@ -1,17 +1,20 @@
+@import 'src/styles/variables';
+@import 'src/styles/mixins';
+
 .form input {
+    font-size: 17px;
+
     display: block;
     width: 100%;
     padding: 14px 16px;
     margin-bottom: 10px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
+
     border-radius: 20px;
-    border: 2px solid #DFDFDF;
-    font-size: 17px;
+    border: 2px solid $color-gray-inputs;
 }
 
 .form input:focus {
-    border: 2px solid #CB9AE1;
+    border: 2px solid $color-purple-primary;
 }
 
 .link {
@@ -21,7 +24,7 @@
 
 .link a {
     font-size: 16px;
-    color: #CB9AE1;
+    color: $color-purple-primary;
 }
 
 .link a:hover {
@@ -29,20 +32,13 @@
 }
 
 .register {
-    padding: 10px 20px;
-    font-size: 27px;
-    line-height: 27px;
-    width: 332px;
-    border-radius: 20px;
-    margin-top: 15px;
-    text-align: center;
-    background-color: #6498E1;
+    @include linkAsButton();
 
     transition: background-color 0.2s linear;
 }
 
 .register:hover {
-    background-color: #71ACFF;
+    background-color: $color-purple-secondary-hover;
 }
 
 .register a {
@@ -63,12 +59,12 @@
 
 hr {
     margin: 20px 0;
-    border: 1px solid #DFDFDF;
+    border: 1px solid $color-gray-inputs;
 }
 
 .error__text {
     padding: 10px;
     font-size: 17px;
-    color: indianred;
+    color: $color-error;
     font-weight: 500;
 }

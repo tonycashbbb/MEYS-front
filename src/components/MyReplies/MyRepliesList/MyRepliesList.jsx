@@ -3,7 +3,7 @@ import React from 'react';
 import {MyRepliesListItemContainer, Spinner} from "@components";
 import {APP_TEXT} from "@app/i18n";
 
-import s from './MyRepliesList.module.css'
+import s from './MyRepliesList.module.scss'
 
 const MyRepliesList = ({
                          toggleIsRepliesShowing,

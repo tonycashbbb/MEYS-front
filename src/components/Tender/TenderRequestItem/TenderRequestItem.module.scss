@@ -1,0 +1,26 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.request {
+    @include makeFlex();
+
+    padding: 10px 35px 20px;
+    border: 2px solid #999;
+    border-radius: 20px;
+    margin: 20px 0 12px;
+}
+
+.name {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.status {
+    margin-top: 8px;
+    font-size: 17px;
+}
+
+.description {
+    font-size: 17px;
+    margin-top: 20px;
+}

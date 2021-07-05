@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import success from '@app/assets/Success-2.gif'
 import {APP_TEXT} from "@app/i18n";
 
-import s from './Success.module.css'
+import s from './Success.module.scss'
 
 const Success = () => {
   const isAuth = useSelector(state => state.auth.isAuth)

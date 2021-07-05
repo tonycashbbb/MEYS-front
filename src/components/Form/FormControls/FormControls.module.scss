@@ -1,3 +1,5 @@
+@import "src/styles/variables";
+
 .formControl {
     display: flex;
     position: relative;
@@ -6,14 +8,17 @@
 .formControl input {
     display: block;
     width: 100%;
+
+    font-size: 17px;
+
     padding: 14px 16px;
     margin-bottom: 10px;
     border-radius: 20px;
-    border: 2px solid #DFDFDF;
-    font-size: 17px;
+
+    border: 2px solid $color-gray-inputs;
 }
 .formControl input:focus {
-    border: 2px solid #CB9AE1;
+    border: 2px solid $color-purple-primary;
 }
 
 .formControl textarea {
@@ -25,22 +30,20 @@
     padding: 14px 16px;
 
     border-radius: 20px;
-    border: 2px solid #DFDFDF;
+    border: 2px solid $color-gray-inputs;
 
     font-size: 17px;
     resize: none;
 }
 
 .formControl textarea:focus {
-    border: 2px solid #CB9AE1;
+    border: 2px solid $color-purple-primary;
 }
 
-
 /* Handle error */
-
 .error input,
 .error textarea {
-    border-color: indianred;
+    border-color: $color-error;
 }
 
 .errorMessage {
@@ -51,5 +54,5 @@
 
     font-size: 17px;
     font-weight: 500;
-    color: indianred;
+    color: $color-error;
 }

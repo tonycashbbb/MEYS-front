@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
-import s from './Account.module.css';
 import {useSelector} from "react-redux";
 import {Redirect} from "react-router-dom";
+
 import {
   MyRepliesListContainer,
   MyTendersContainer,
   SidebarContainer
 } from "@components";
 import {withRedirectToLogin} from "@hoc";
+
+import s from './Account.module.scss';
 
 const Account = () => {
   const [isRepliesShowing, setIsRepliesShowing] = useState(false)

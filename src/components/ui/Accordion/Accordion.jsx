@@ -9,9 +9,9 @@ const Accordion = (props) => {
   const accordionContent = useRef(null);
 
   const toggleAccordion = () => {
-    setActive(active === "" ? "active" : "");
-    setRotate(active === "active" ? "accordion__icon" : "accordion__icon rotate");
-    setHeight(active === "active" ? "0px" : `${accordionContent.current.scrollHeight}px`);
+    setActive(active === "" ? "accordion_active" : "");
+    setRotate(active === "accordion_active" ? "accordion__icon" : "accordion__icon rotate");
+    setHeight(active === "accordion_active" ? "0px" : `${accordionContent.current.scrollHeight}px`);
   }
 
   return (

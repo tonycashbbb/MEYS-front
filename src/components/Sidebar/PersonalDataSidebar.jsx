@@ -2,7 +2,7 @@ import React from 'react';
 
 import {APP_TEXT} from "@app/i18n";
 
-import s from "./Sidebar.module.css";
+import s from "./Sidebar.module.scss";
 
 const {
   email,

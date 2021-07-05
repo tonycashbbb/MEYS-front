@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
 import {Redirect, Route} from "react-router-dom";
-import {Footer, Header} from "./components";
+
+import {Footer, Header} from "@components";
 import {
   Account,
   AccountTenderContainer,
@@ -12,6 +12,8 @@ import {
   Login,
   Success
 } from "./pages";
+
+import './styles/global.scss'
 
 const IntroPage = React.lazy(() => import("./pages/IntroPage/IntroPage"))
 
