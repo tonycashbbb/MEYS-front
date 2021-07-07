@@ -4,9 +4,9 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 
 import EditTender from "./EditTender";
-import {selectTenderCreator} from "@app/selectors";
+import {selectIsSuccess, selectTenderCreator} from "@app/selectors";
 import {AccountTenderActions} from "@redux/actions";
-import {withRedirectToLogin, withSuccessRedirect} from "@hoc";
+import {withRedirectToLogin} from "@hoc";
 
 const EditTenderContainer = ({
                                tender,
@@ -17,6 +17,7 @@ const EditTenderContainer = ({
                                getTenderRequests,
                                updateTender,
                                formValues,
+                               isSuccess,
                                ...props
                              }) => {
   const tenderEditId = props.match.params.id
@@ -44,6 +45,7 @@ const EditTenderContainer = ({
       tenderRequests={tenderRequests}
       formValues={formValues}
       updateTender={updateTender}
+      isSuccess={isSuccess}
     />
   )
 };
@@ -52,7 +54,8 @@ const mapStateToProps = (state) => ({
   tender: state.accountTender.tender,
   tenderCreator: selectTenderCreator(state),
   tenderRequests: state.accountTender.tenderRequests,
-  formValues: state.form.updateTender ? state.form.updateTender.values : null
+  formValues: state.form.updateTender ? state.form.updateTender.values : null,
+  isSuccess: selectIsSuccess(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -63,7 +66,6 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default compose(
-  withSuccessRedirect,
   withRedirectToLogin,
   withRouter,
   connect(mapStateToProps, mapDispatchToProps),

@@ -1,35 +1,40 @@
 import React from 'react'
-import {compose} from "redux";
 import {connect} from "react-redux";
 
-import {CreateContractorForm} from "@components";
-import {withSuccessRedirect} from "@hoc";
-import {createContractor} from "@redux/actions/auth.action";
+import {CreateContractorForm, Success} from "@components";
+import {AuthActions} from "@redux/actions";
+import {selectIsSuccess} from "@app/selectors";
 import {APP_TEXT} from "@app/i18n";
 
 import s from './CreateAccount.module.scss'
 
-const CreateAccount = ({createContractor}) => {
+const CreateAccount = ({createContractor, isSuccess}) => {
 
   const createContractorSubmit = (userData) => {
     createContractor(userData)
   }
 
+  if (isSuccess) {
+    return <Success title={APP_TEXT.success.createAccount.title}/>
+  }
+
   return (
     <div className="container">
-      <div className={s.header}>
-        <div className={s.title}>
-          {APP_TEXT.createAccount.title}
-        </div>
-        <div className={s.form}>
-          <CreateContractorForm onSubmit={createContractorSubmit} />
-        </div>
+      <div className={s.inner}>
+        <div className={s.title}>{APP_TEXT.createAccount.title}</div>
+
+        <CreateContractorForm onSubmit={createContractorSubmit} />
       </div>
     </div>
   )
 }
 
-export default compose(
-  connect(null, {createContractor}),
-  withSuccessRedirect,
-)(CreateAccount)
+const mapStateToProps = (state) => ({
+  isSuccess: selectIsSuccess(state),
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  createContractor: (userData) => dispatch(AuthActions.createContractor(userData))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateAccount)

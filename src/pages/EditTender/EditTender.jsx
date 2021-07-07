@@ -1,17 +1,23 @@
 import React from 'react';
 
-import {EditTenderForm, TenderRequestList} from "@components";
+import {EditTenderForm, TenderRequestList, Success} from "@components";
+import {APP_TEXT} from "@app/i18n";
 
 const EditTender = ({
                       tender,
                       tenderCreator,
                       tenderRequests,
                       formValues,
-                      updateTender
+                      updateTender,
+                      isSuccess
                     }) => {
 
   const submitTenderEditing = (formData) => {
     updateTender(formData)
+  }
+
+  if (isSuccess) {
+    return <Success title={APP_TEXT.success.updateTender.title}/>
   }
 
   return (

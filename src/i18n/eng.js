@@ -94,11 +94,20 @@ export const ENG = {
     title: "To create a tender fill the form out",
   },
   success: {
-    createTenderSuccess: "Tender has been created",
-    createAccountSuccess: "Account has been created",
-    goBackToHome: "Go back to the home page",
-    goBackToLogin: "Go back to the login page",
-    success: "success"
+    createTender: {
+      title: "Tender has been created",
+    },
+    updateTender: {
+      title: "Tender has been modified",
+    },
+    createAccount: {
+      title: "Account has been created",
+    },
+    replyToTender: {
+      title: "Reply has been sent",
+    },
+    goBackText: "Go back",
+    successAlt: "Success image"
   },
   confirmation: {
     unsavedChanges: {

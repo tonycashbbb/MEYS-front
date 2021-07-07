@@ -7,15 +7,25 @@
     margin-bottom: 15px;
 }
 
-.btns {
-    @include makeFlex();
-    margin-top: 20px;
-    width: 50%;
-}
-
 .error__text {
     padding: 10px;
     font-size: 17px;
     color: indianred;
     font-weight: 500;
+}
+
+.form {
+    margin-top: 40px;
+}
+
+.form input {
+    padding: 14px 16px;
+}
+
+.buttons {
+    @include makeFlex();
+
+    width: 50.5%;
+
+    margin-top: 20px;
 }

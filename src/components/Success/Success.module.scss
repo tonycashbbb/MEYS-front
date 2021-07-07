@@ -1,4 +1,4 @@
-@import 'src/styles/variables';
+@import '../../styles/variables';
 
 .success {
     margin-top: 60px;
@@ -27,13 +27,6 @@
     margin-top: 50px;
 }
 
-.back a {
-    color: $color-purple-primary;
-    font-size: 25px;
-
-    transition: color 0.2s linear;
-}
-
-.back a:hover {
-    text-decoration: underline;
+.back button {
+    width: 200px;
 }

@@ -9,8 +9,7 @@ import {
   CreateTenderContainer,
   HomeContainer,
   HomeTenderContainer,
-  Login,
-  Success
+  Login
 } from "./pages";
 
 import './styles/global.scss'
@@ -40,7 +39,6 @@ const App = () => {
           <Route path={"/account/tenders/:id/edit"} component={EditTenderContainer}/>
 
           <Route path={"/create_tender"} component={CreateTenderContainer}/>
-          <Route path={"/success"} component={Success}/>
         </React.Suspense>
 
       </div>

@@ -4,9 +4,10 @@ import {
   Tender,
   ReplyToTender,
   Spinner,
-  Button
+  Button,
+  Success
 } from "@components";
-import {getAllTenderRequestsAPI} from "@services/accountPage.service";
+import {getAllTenderRequestsAPI} from "@services";
 import {APP_TEXT} from "@app/i18n";
 
 import s from './HomeTender.module.scss'
@@ -17,7 +18,8 @@ const HomeTender = ({
                       getUser,
                       contractor,
                       userId,
-                      replyOnTender
+                      replyOnTender,
+                      isSuccess
                     }) => {
   const [isReplying, setIsReplying] = useState(false)
   const [canReply, setCanReply] = useState(true)
@@ -61,6 +63,10 @@ const HomeTender = ({
 
   if (!homeTender || !contractor) {
     return <Spinner/>
+  }
+
+  if (isSuccess) {
+    return <Success title={APP_TEXT.success.replyToTender.title}/>
   }
 
   return (

@@ -41,7 +41,6 @@ export const createTender = (name, budget, description, contractorId) => (dispat
         .then(res => {
             if (res.status === 200) {
                 dispatch(toggleIsSuccess(true))
-                dispatch(toggleIsSuccess(false))
             }
         })
 }

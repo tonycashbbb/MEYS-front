@@ -4,9 +4,9 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 
 import HomeTender from "./HomeTender";
-import {withSuccessRedirect, withRedirectToLogin} from "@hoc";
+import {withRedirectToLogin} from "@hoc";
 import {HomeTenderActions, AccountPageActions} from "@redux/actions";
-import {selectUserId, selectAccountUser} from "@app/selectors";
+import {selectUserId, selectAccountUser, selectIsSuccess} from "@app/selectors";
 
 class HomePageTenderAPI extends React.Component {
   componentDidMount() {
@@ -18,7 +18,8 @@ class HomePageTenderAPI extends React.Component {
                        getUser={this.props.getUser}
                        contractor={this.props.contractor}
                        userId={this.props.userId}
-                       replyOnTender={this.props.replyOnTender}/>
+                       replyOnTender={this.props.replyOnTender}
+                       isSuccess={this.props.isSuccess}/>
   }
 }
 
@@ -26,7 +27,8 @@ const mapStateToProps = (state) => {
   return {
     homeTender: state.homeTender.tender,
     contractor: selectAccountUser(state),
-    userId: selectUserId(state)
+    userId: selectUserId(state),
+    isSuccess: selectIsSuccess(state),
   }
 }
 
@@ -41,6 +43,5 @@ const mapDispatchToProps = (dispatch) => {
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   withRedirectToLogin,
-  withSuccessRedirect,
   withRouter
 )(HomePageTenderAPI)

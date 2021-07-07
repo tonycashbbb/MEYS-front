@@ -41,6 +41,5 @@ export const updateTender = (tenderData) => async (dispatch) => {
     if (res.status === 200) {
         dispatch(getAccountTender(tenderData.id))
         dispatch(AccountPageActions.toggleIsSuccess(true))
-        dispatch(AccountPageActions.toggleIsSuccess(false))
     }
 }

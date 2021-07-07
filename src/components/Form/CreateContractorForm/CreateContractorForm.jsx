@@ -1,4 +1,5 @@
 import React from 'react';
+import {useHistory} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
 
 import {Input, Button} from "@components";
@@ -6,8 +7,16 @@ import {required} from "@app/utils/validators";
 import {APP_TEXT} from "@app/i18n";
 
 import s from "./CreateContractorForm.module.scss";
+import theme from "@app/styles";
 
 const CreateContractorForm = (props) => {
+  const history = useHistory()
+
+  const onCancel = (e) => {
+    e.preventDefault()
+    history.goBack()
+  }
+
   return (
     <form className={s.form} onSubmit={props.handleSubmit}>
       <Field type="text"
@@ -51,8 +60,11 @@ const CreateContractorForm = (props) => {
              validate={[required]}
              component={Input}/>
       {props.error && <div className={s.error__text}>{props.error}</div>}
-      <div className={s.btn}>
+      <div className={s.buttons}>
         <Button>{APP_TEXT.general.submit}</Button>
+        <Button onClick={onCancel}
+                btnColor={theme.COLOR.SECONDARY}
+                btnHover={theme.COLOR.SECONDARY_HOVER}>{APP_TEXT.general.cancel}</Button>
       </div>
     </form>
   );

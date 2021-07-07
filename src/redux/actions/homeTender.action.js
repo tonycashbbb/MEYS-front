@@ -12,8 +12,8 @@ export const getHomeTender = (tenderId) => (dispatch) => {
 }
 export const replyOnTender = (userId, tenderId, message) => async (dispatch) => {
     const res = await requestTenderAPI(userId, tenderId, message)
+
     if (res.status === 200) {
         dispatch(AccountPageActions.toggleIsSuccess(true))
-        dispatch(AccountPageActions.toggleIsSuccess(false))
     }
 }

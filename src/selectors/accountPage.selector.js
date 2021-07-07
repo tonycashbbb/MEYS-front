@@ -27,3 +27,7 @@ export const selectTenderCreator = state => {
 export const selectRequestCreator = state => {
   return state.accountTender.requestCreator
 }
+
+export const selectIsSuccess = state => {
+  return state.accountPage.isSuccess
+}
