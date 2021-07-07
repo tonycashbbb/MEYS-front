@@ -25,3 +25,114 @@
   padding: 7px 35px 10px;
   margin-top: 15px;
 }
+
+@mixin makeTender() {
+  .tender {
+    margin: 40px 0 20px;
+    border: 2px solid #999;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 17px;
+  }
+
+  .tender input {
+    padding: 0 5px;
+    width: 150px;
+    text-align: center;
+  }
+
+  .data input {
+    margin: 0 5px;
+  }
+
+  .header {
+    padding: 0 15px 40px;
+  }
+
+  .title {
+    color: #212529;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .title__edit input {
+    min-width: 260px;
+    max-width: 260px;
+    padding: 5px;
+  }
+
+  .data {
+    font-size: 15px;
+  }
+
+  .data a {
+    color: $color-purple-primary;
+    text-decoration: underline;
+  }
+
+  .data a:hover {
+    color: $color-purple-primary-hover;
+  }
+
+  .row {
+    display: flex;
+  }
+
+  .column {
+    width: 47%;
+    padding: 5px 15px;
+  }
+
+  .column h2 {
+    margin-bottom: 15px;
+  }
+
+  .info {
+    padding: 10px 10px 5px;
+    border-top: 2px solid #999;
+    border-bottom: 2px solid #999;
+    font-size: 17px;
+  }
+
+  .info li {
+    @include makeFlex();
+
+    height: 26px;
+
+    border-bottom: 1px solid #999;
+    margin-bottom: 10px;
+  }
+
+  .info li:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .info li span {
+    display: block;
+  }
+
+  .details {
+    padding: 40px 15px 20px;
+  }
+
+  .details h2 {
+    margin-bottom: 15px;
+  }
+
+  .details p {
+    font-size: 16px;
+    line-height: 23px;
+  }
+
+  .buttons {
+    @include makeFlex();
+    width: 51%;
+    padding-left: 15px;
+  }
+
+  .status__edit {
+    padding-top: 6px;
+  }
+}

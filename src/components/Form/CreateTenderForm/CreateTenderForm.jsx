@@ -1,31 +1,28 @@
 import React from "react";
+import {useHistory} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
 
-import {Button, Input, Textarea, DialogAlert} from "@components";
+import {Button, Input, Textarea, DialogContainer} from "@components";
+import theme from "@app/styles";
 import {required} from "@app/utils/validators";
 import {APP_TEXT} from "@app/i18n";
 
-import s from './CreateTenderForm.module.css'
+import s from './CreateTenderForm.module.scss';
+import {RouteLeavingGuard} from "@app/components/ui/Dialog/RouteLeavingGuard";
 
-const CreateTenderForm = (props) => {
-  const [open, setOpen] = React.useState(false);
+const CreateTenderForm = ({formValue = {}, ...props}) => {
+  const history = useHistory()
 
-  const handleClickOpen = (e) => {
+  const handleClickCancel = (e) => {
     e.preventDefault()
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const onSubmit = () => {
-    props.handleSubmit()
+    history.goBack();
   }
+
+  const isEdited = JSON.stringify(formValue) !== JSON.stringify({})
 
   return (
     <>
-      <form className={s.form} onSubmit={onSubmit}>
+      <form className={s.form} onSubmit={props.handleSubmit}>
         <Field type="text"
                name="name"
                placeholder={APP_TEXT.tender.tenderName}
@@ -42,17 +39,16 @@ const CreateTenderForm = (props) => {
                validate={[required]}
                component={Textarea}/>
 
-        <div className={s.btn}>
-          <Button onClick={handleClickOpen}>{APP_TEXT.general.submit}</Button>
+        <div className={s.buttons}>
+          <Button>{APP_TEXT.general.submit}</Button>
+          <Button onClick={handleClickCancel}
+                  btnColor={theme.COLOR.SECONDARY}
+                  btnHover={theme.COLOR.SECONDARY_HOVER}>{APP_TEXT.general.cancel}</Button>
         </div>
       </form>
-      <DialogAlert title={APP_TEXT.dialog.title}
-                   description={APP_TEXT.createTender.dialogDescription}
-                   buttonNegativeText={APP_TEXT.general.cancel}
-                   buttonPositiveText={APP_TEXT.general.create}
-                   open={open}
-                   handleClose={handleClose}
-                   handleOK={onSubmit}/>
+
+      <DialogContainer when={isEdited} confirmation={APP_TEXT.confirmation.unsavedChanges}/>
+      {/*<RouteLeavingGuard when={isEdited} confirmation={APP_TEXT.confirmation.unsavedChanges}/>*/}
     </>
   )
 }

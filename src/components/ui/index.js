@@ -1,11 +1,11 @@
 import Accordion from "./Accordion/Accordion";
 import Button from "./Button/Button";
 import Spinner from "./Spinner/Spinner";
-import DialogAlert from "./DialogAlert/DialogAlert";
+import DialogContainer from "./Dialog/DialogContainer";
 
 export {
   Accordion,
   Button,
   Spinner,
-  DialogAlert
+  DialogContainer
 }

@@ -18,9 +18,11 @@ const AccountTenderAPI = ({
                             updateTender,
                             ...props
                           }) => {
+  const tenderId = props.match.params.id
+
   useEffect(() => {
-    getAccountTender(props.match.params.id)
-  }, [getAccountTender, props.match.params.id])
+    getAccountTender(tenderId)
+  }, [getAccountTender, tenderId])
 
   useEffect(() => {
     if (tender) {
@@ -34,7 +36,8 @@ const AccountTenderAPI = ({
     }
   }, [getTenderRequests, tender])
 
-  return <AccountTender tender={tender}
+  return <AccountTender tenderId={tenderId}
+                        tender={tender}
                         tenderCreator={tenderCreator}
                         tenderRequests={tenderRequests}
                         updateTender={updateTender}/>

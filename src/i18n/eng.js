@@ -11,7 +11,8 @@ export const ENG = {
     replied: "Replied",
     accept: "Accept",
     accepted: "Accepted",
-    create: "Create"
+    create: "Create",
+    confirm: "Confirm"
   },
   generalUser: {
     username: "Username",
@@ -54,9 +55,6 @@ export const ENG = {
       DECLINED: "DECLINED"
     }
   },
-  dialog: {
-    title: "Confirmation"
-  },
   header: {
     login: "Log in",
     logout: "Log out"
@@ -94,7 +92,6 @@ export const ENG = {
   },
   createTender: {
     title: "To create a tender fill the form out",
-    dialogDescription: "Are you sure you want to create a tender?"
   },
   success: {
     createTenderSuccess: "Tender has been created",
@@ -103,4 +100,10 @@ export const ENG = {
     goBackToLogin: "Go back to the login page",
     success: "success"
   },
+  confirmation: {
+    unsavedChanges: {
+      title: 'Cancel changes?',
+      description: 'All changes will be lost',
+    },
+  }
 }

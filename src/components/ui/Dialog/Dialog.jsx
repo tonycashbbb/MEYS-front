@@ -2,47 +2,47 @@ import React from 'react';
 
 import {
   Button,
-  Dialog,
+  Dialog as MaterialDialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle
 } from "@material-ui/core";
+import {APP_TEXT} from "@app/i18n";
 
-const DialogAlert = ({
-                       title,
-                       description,
-                       buttonNegativeText,
-                       buttonPositiveText,
-                       open,
-                       handleClose,
-                       handleOK
-                     }) => {
+const Dialog = ({
+                  open,
+                  confirmation,
+                  handleClose,
+                  handleConfirm,
+                  cancelButtonText,
+                  confirmButtonText,
+                }) => {
   return (
-    <Dialog
+    <MaterialDialog
       open={open}
       onClose={handleClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">
-        {title}
+        {confirmation.title}
       </DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-          {description}
+          {confirmation.description}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose} color="primary">
-          {buttonNegativeText}
+          {cancelButtonText || APP_TEXT.general.cancel}
         </Button>
-        <Button onClick={handleOK} color="primary" autoFocus>
-          {buttonPositiveText}
+        <Button onClick={handleConfirm} color="primary" autoFocus>
+          {confirmButtonText || APP_TEXT.general.confirm}
         </Button>
       </DialogActions>
-    </Dialog>
+    </MaterialDialog>
   );
 };
 
-export default DialogAlert;
+export default Dialog;
