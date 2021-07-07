@@ -21,13 +21,12 @@ const TenderRequestItemContainer = ({
   const [requestCreator, setRequestCreator] = useState({name: "no name"})
 
   useEffect(() => {
-    const fetchRequestCreator = async () => {
+    (async function(){
       if (requestCreatorId) {
         const requestCreator = await getContractorAPI(requestCreatorId)
         setRequestCreator(requestCreator)
       }
-    }
-    fetchRequestCreator()
+    }())
   }, [getRequestCreator, requestCreatorId])
 
   const acceptTenderRequestSubmit = () => {

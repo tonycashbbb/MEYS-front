@@ -32,7 +32,7 @@ const HomeTender = ({
   }, [homeTender, getUser])
 
   useEffect(() => {
-    const fetchData = async () => {
+    (async function(){
       if (homeTender) {
         const allReplies = await getAllTenderRequestsAPI()
         const bufArr = allReplies.filter(reply => reply.tenderId === homeTender.id && reply.userId === userId)
@@ -48,8 +48,7 @@ const HomeTender = ({
           setCanReply(false)
         }
       }
-    }
-    fetchData()
+    }())
   }, [userId, homeTender])
 
   const changeIsReplying = () => {
