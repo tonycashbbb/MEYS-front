@@ -80,7 +80,7 @@ const EditTenderForm = ({
         </div>
         <div className={s.buttons}>
           <div>
-            <Button>{APP_TEXT.general.saveChanges}</Button>
+            <Button>{APP_TEXT.general.save}</Button>
           </div>
           <div>
             <Button btnColor={theme.COLOR.SECONDARY}

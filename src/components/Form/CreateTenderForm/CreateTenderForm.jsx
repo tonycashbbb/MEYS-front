@@ -9,13 +9,16 @@ import {APP_TEXT} from "@app/i18n";
 
 import s from './CreateTenderForm.module.scss';
 import {RouteLeavingGuard} from "@app/components/ui/Dialog/RouteLeavingGuard";
+// import history from '@app/history';
 
 const CreateTenderForm = ({formValue = {}, ...props}) => {
   const history = useHistory()
 
   const handleClickCancel = (e) => {
-    e.preventDefault()
-    history.goBack();
+    // e.preventDefault()
+    // history.back()
+    history.goBack()
+    // history.push('/account')
   }
 
   const isEdited = JSON.stringify(formValue) !== JSON.stringify({})
@@ -40,7 +43,7 @@ const CreateTenderForm = ({formValue = {}, ...props}) => {
                component={Textarea}/>
 
         <div className={s.buttons}>
-          <Button>{APP_TEXT.general.submit}</Button>
+          <Button>{APP_TEXT.general.create}</Button>
           <Button onClick={handleClickCancel}
                   btnColor={theme.COLOR.SECONDARY}
                   btnHover={theme.COLOR.SECONDARY_HOVER}>{APP_TEXT.general.cancel}</Button>

@@ -8,7 +8,11 @@ import {APP_TEXT} from "@app/i18n";
 
 import s from './CreateAccount.module.scss'
 
-const CreateAccount = ({createContractor, isSuccess}) => {
+const CreateAccount = ({
+                         createContractor,
+                         isSuccess,
+                         formValues
+                       }) => {
 
   const createContractorSubmit = (userData) => {
     createContractor(userData)
@@ -23,7 +27,7 @@ const CreateAccount = ({createContractor, isSuccess}) => {
       <div className={s.inner}>
         <div className={s.title}>{APP_TEXT.createAccount.title}</div>
 
-        <CreateContractorForm onSubmit={createContractorSubmit} />
+        <CreateContractorForm onSubmit={createContractorSubmit} formValues={formValues}/>
       </div>
     </div>
   )
@@ -31,6 +35,7 @@ const CreateAccount = ({createContractor, isSuccess}) => {
 
 const mapStateToProps = (state) => ({
   isSuccess: selectIsSuccess(state),
+  formValues: state.form.createContractor ? state.form.createContractor.values : null
 })
 
 const mapDispatchToProps = (dispatch) => ({

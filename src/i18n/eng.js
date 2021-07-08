@@ -5,7 +5,7 @@ export const ENG = {
     data: "data",
     edit: "Edit",
     submit: "Submit",
-    saveChanges: "Save changes",
+    save: "Save",
     cancel: "Cancel",
     reply: "Reply",
     replied: "Replied",

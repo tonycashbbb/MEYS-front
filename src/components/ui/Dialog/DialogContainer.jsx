@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useHistory, Prompt} from "react-router-dom";
 
 import Dialog from "./Dialog";
+import history from '@app/history';
 
 const DialogContainer = ({when, confirmation}) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false)
@@ -26,10 +27,6 @@ const DialogContainer = ({when, confirmation}) => {
 
   const closePopup = (path = null) => {
     setIsPopupVisible(false)
-
-    // if (path) {
-    //   history.push(path)
-    // }
   }
 
   const handleBlockedNavigation = (nextLocation) => {
@@ -49,7 +46,6 @@ const DialogContainer = ({when, confirmation}) => {
 
       history.goBack()
       // history.push(path)
-      // closePopup(path)
     }
 
     closePopup()
