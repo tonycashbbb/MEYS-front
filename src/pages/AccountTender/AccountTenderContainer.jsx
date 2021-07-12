@@ -5,7 +5,7 @@ import {compose} from "redux";
 import AccountTender from "./AccountTender";
 import {withRedirectToLogin} from "@hoc";
 import {AccountTenderActions} from "@redux/actions";
-import {selectIsEditing, selectIsSuccess, selectTenderCreator} from "@app/selectors";
+import {selectIsSuccess, selectTenderCreator} from "@app/selectors";
 
 const AccountTenderAPI = ({
                             tender,
@@ -20,11 +20,10 @@ const AccountTenderAPI = ({
                             updateTender,
                             formValues,
                             isSuccess,
-                            isEditing,
-                            setIsEditing,
-                            ...props
+                            match
                           }) => {
-  const tenderId = props.match.params.id
+  const tenderId = match.params.id
+  const isEditing = match.path === '/account/tenders/:id/edit'
 
   useEffect(() => {
     getAccountTender(tenderId)
@@ -55,8 +54,7 @@ const AccountTenderAPI = ({
                         updateTender={updateTender}
                         formValues={formValues}
                         isSuccess={isSuccess}
-                        isEditing={isEditing}
-                        setIsEditing={setIsEditing}/>
+                        isEditing={isEditing}/>
 }
 
 const mapStateToProps = (state) => ({
@@ -65,7 +63,6 @@ const mapStateToProps = (state) => ({
   tenderRequests: state.accountTender.tenderRequests,
   formValues: state.form.updateTender ? state.form.updateTender.values : null,
   isSuccess: selectIsSuccess(state),
-  isEditing: selectIsEditing(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -76,7 +73,6 @@ const mapDispatchToProps = (dispatch) => ({
   getTenderRequests: (tenderId) => dispatch(AccountTenderActions.getTenderRequests(tenderId)),
   clearTenderRequests: () => dispatch(AccountTenderActions.setTenderRequests(null)),
   updateTender: (tenderData) => dispatch(AccountTenderActions.updateTender(tenderData)),
-  setIsEditing: (isEditing) => dispatch(AccountTenderActions.setIsEditing(isEditing))
 })
 
 export default compose(

@@ -11,7 +11,7 @@ import {
 import {APP_TEXT} from "@app/i18n";
 
 const MyTendersContainer = ({
-                              toggleIsRepliesShowing,
+                              showReplies,
                               userId,
                               accountTenders,
                               getAccountTenders,
@@ -40,7 +40,7 @@ const MyTendersContainer = ({
                      cancelTender={cancelTender}
                      retender={retender}
                      userId={userId}
-                     toggleIsRepliesShowing={toggleIsRepliesShowing}/>
+                     showReplies={showReplies}/>
 };
 
 const mapStateToProps = (state) => ({

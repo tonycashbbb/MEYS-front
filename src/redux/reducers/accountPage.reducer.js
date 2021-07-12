@@ -3,7 +3,7 @@ import {
     SET_MY_REPLIES,
     SET_USER,
     TOGGLE_IS_SUCCESS,
-    SET_CONTRACTOR_TENDERS
+    SET_CONTRACTOR_TENDERS,
 } from "@redux/actionTypes"
 
 const initState = {

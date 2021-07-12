@@ -13,7 +13,8 @@ export const EN_US = {
     accepted: "Accepted",
     create: "Create",
     confirm: "Confirm",
-    send: "Send"
+    send: "Send",
+    back: "Back"
   },
   generalUser: {
     username: "Username",
@@ -112,8 +113,8 @@ export const EN_US = {
   },
   confirmation: {
     unsavedChanges: {
-      title: 'Cancel changes?',
-      description: 'The changes will be lost. Do you want to exit?',
+      title: 'Unsaved changes',
+      description: 'Are you sure you want to leave? The changes will be lost',
     },
   }
 }

@@ -2,14 +2,12 @@ import {
   SET_TENDER_CREATOR,
   SET_TENDER_REQUESTS,
   SET_ACCOUNT_TENDER,
-  SET_IS_EDITING
 } from "@redux/actionTypes"
 
 const initState = {
   tender: null,
   tenderCreator: null,
   tenderRequests: null,
-  isEditing: false
 }
 
 const accountTenderReducer = (state = initState, action) => {
@@ -28,11 +26,6 @@ const accountTenderReducer = (state = initState, action) => {
       return {
         ...state,
         tenderCreator: action.tenderCreator
-      }
-    case SET_IS_EDITING:
-      return {
-        ...state,
-        isEditing: action.isEditing
       }
     default:
       return state

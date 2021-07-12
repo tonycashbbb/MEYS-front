@@ -11,7 +11,6 @@ import {
   selectAccountUser,
   selectIsSuccess,
   selectHomeTender,
-  selectIsReplying
 } from "@app/selectors";
 
 class HomePageTenderAPI extends React.Component {
@@ -19,22 +18,24 @@ class HomePageTenderAPI extends React.Component {
     this.props.getHomeTender(this.props.match.params.id)
   }
 
-  // componentWillUnmount() {
-  //   this.props.clearHomeTender()
-  // }
+  componentWillUnmount() {
+    this.props.clearHomeTender()
+  }
 
   render() {
+    const isReplying = this.props.match.path === '/home/tenders/:id/reply'
+    const isRepliesCancel = this.props.match.path === '/account/replies/:id'
+
     return <HomeTender tenderId={this.props.match.params.id}
                        homeTender={this.props.homeTender}
                        getUser={this.props.getUser}
                        clearUser={this.props.clearUser}
                        contractor={this.props.contractor}
                        userId={this.props.userId}
-                       isReplying={this.props.isReplying}
-                       setIsReplying={this.props.setIsReplying}
                        replyOnTender={this.props.replyOnTender}
                        isSuccess={this.props.isSuccess}
-                       currentUrl={this.props.match}/>
+                       isReplying={isReplying}
+                       isRepliesCancel={isRepliesCancel}/>
   }
 }
 
@@ -43,8 +44,7 @@ const mapStateToProps = (state) => {
     homeTender: selectHomeTender(state),
     contractor: selectAccountUser(state),
     userId: selectUserId(state),
-    isSuccess: selectIsSuccess(state),
-    isReplying: selectIsReplying(state)
+    isSuccess: selectIsSuccess(state)
   }
 }
 
@@ -54,7 +54,6 @@ const mapDispatchToProps = (dispatch) => {
     clearHomeTender: () => dispatch(HomeTenderActions.setHomeTender(null)),
     getUser: (userId) => dispatch(AccountPageActions.getUser(userId)),
     clearUser: () => dispatch(AccountPageActions.setUser(null)),
-    setIsReplying: (isReplying) => dispatch(HomeTenderActions.setIsReplying(isReplying)),
     replyOnTender: (userId, tenderId, message) => dispatch(HomeTenderActions.replyOnTender(userId, tenderId, message))
   }
 }

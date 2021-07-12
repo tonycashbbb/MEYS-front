@@ -1,3 +1,14 @@
+@import 'src/styles/mixins';
+
+.buttons {
+    @include makeFlex();
+    width: 48%;
+}
+
 .replied button {
     cursor: inherit;
+}
+
+.repliesCancel {
+
 }

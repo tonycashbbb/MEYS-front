@@ -1,8 +1,7 @@
-import {SET_HOME_TENDER, SET_IS_REPLYING} from "@redux/actionTypes";
+import {SET_HOME_TENDER} from "@redux/actionTypes";
 
 const initState = {
-  tender: null,
-  isReplying: false
+  tender: null
 }
 
 const homeTenderReducer = (state = initState, action) => {
@@ -11,11 +10,6 @@ const homeTenderReducer = (state = initState, action) => {
       return {
         ...state,
         tender: action.tender
-      }
-    case SET_IS_REPLYING:
-      return {
-        ...state,
-        isReplying: action.isReplying
       }
     default:
       return state

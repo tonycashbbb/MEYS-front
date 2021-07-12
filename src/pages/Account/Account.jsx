@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import {
   MyRepliesListContainer,
@@ -6,21 +6,26 @@ import {
   SidebarContainer
 } from "@components";
 import {withRedirectToLogin} from "@hoc";
+import history from "@app/history";
 
 import s from './Account.module.scss';
 
-const Account = () => {
-  const [isRepliesShowing, setIsRepliesShowing] = useState(false)
+const Account = (props) => {
+  const isRepliesShowing = props.match.path === "/account/replies"
 
-  const toggleIsRepliesShowing = () => {
-    setIsRepliesShowing(!isRepliesShowing)
+  const showReplies = () => {
+    history.push("/account/replies")
+  }
+
+  const showTenders = () => {
+    history.push("/account/tenders")
   }
 
   return (
     <div className={s.account__page}>
       <SidebarContainer isAccount/>
-      {!isRepliesShowing && <MyTendersContainer toggleIsRepliesShowing={toggleIsRepliesShowing}/>}
-      {isRepliesShowing && <MyRepliesListContainer toggleIsRepliesShowing={toggleIsRepliesShowing}/>}
+      {!isRepliesShowing && <MyTendersContainer showReplies={showReplies}/>}
+      {isRepliesShowing && <MyRepliesListContainer showTenders={showTenders}/>}
     </div>
   );
 }

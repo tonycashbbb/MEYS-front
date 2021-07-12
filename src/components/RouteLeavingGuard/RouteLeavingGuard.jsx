@@ -24,7 +24,6 @@ class RouteLeavingGuard extends React.Component {
   }
 
   showPopup = (location) => {
-    debugger
     this.setState({
       popupVisible: true,
       lastLocation: location,

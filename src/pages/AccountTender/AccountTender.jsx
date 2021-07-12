@@ -19,22 +19,18 @@ const AccountTender = ({
                          formValues,
                          isSuccess,
                          isEditing,
-                         setIsEditing
                        }) => {
   const onIsEditing = () => {
     history.push(`/account/tenders/${tenderId}/edit`)
-    setIsEditing(true)
   }
 
   const offIsEditing = (e) => {
     e.preventDefault()
     history.push(`/account/tenders/${tenderId}`)
-    setIsEditing(false)
   }
 
   const submitTenderEditing = (tenderData) => {
     updateTender(tenderData)
-    setIsEditing(false)
   }
 
   if (!tender || !tenderCreator) {
@@ -54,8 +50,7 @@ const AccountTender = ({
                           initialValues={tender}
                           formValues={formValues}
                           contractor={tenderCreator}
-                          onCancel={offIsEditing}
-                          setIsEditing={setIsEditing}/>}
+                          onCancel={offIsEditing}/>}
 
       {!isEditing && <Button onClick={onIsEditing}>{APP_TEXT.general.edit} {APP_TEXT.general.tender}</Button>}
 

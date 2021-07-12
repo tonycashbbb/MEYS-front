@@ -17,7 +17,7 @@ const Header = ({isAuth, logout, ...props}) => {
       <div className="container">
         <div className={s.inner}>
           <div className={s.logo}>
-            <NavLink to="/home"><h2>{APP_TEXT.meys}</h2></NavLink>
+            <NavLink to="/home/tenders"><h2>{APP_TEXT.meys}</h2></NavLink>
           </div>
           <div className={s.navigation}>
             {!isAuth

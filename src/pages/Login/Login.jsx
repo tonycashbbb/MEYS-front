@@ -10,7 +10,7 @@ import s from './Login.module.scss';
 
 const Login = (props) => {
   if (props.isAuth) {
-    return <Redirect to={'/home'} />
+    return <Redirect to={"/home/tenders"} />
   }
 
   const onSubmit = ({username, password}) => {

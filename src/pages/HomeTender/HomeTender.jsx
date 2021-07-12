@@ -21,10 +21,11 @@ const HomeTender = ({
                       clearUser,
                       contractor,
                       userId,
-                      isReplying,
                       setIsReplying,
                       replyOnTender,
                       isSuccess,
+                      isReplying,
+                      isRepliesCancel
                     }) => {
   const [canReply, setCanReply] = useState(true)
   const [isAccepted, setIsAccepted] = useState(false)
@@ -34,7 +35,7 @@ const HomeTender = ({
       getUser(homeTender.contractorId)
     }
 
-    // return () => clearUser()
+    return () => clearUser()
   }, [clearUser, homeTender, getUser])
 
   useEffect(() => {
@@ -59,19 +60,19 @@ const HomeTender = ({
 
   const onIsReplying = () => {
     history.push(`/home/tenders/${tenderId}/reply`)
-    setIsReplying(true)
   }
 
   const offIsReplying = (e) => {
     e.preventDefault()
-    // history.goBack()
     history.push(`/home/tenders/${tenderId}`)
-    setIsReplying(false)
   }
 
   const onSubmitReply = (replyData) => {
     replyOnTender(userId, homeTender.id, replyData.replyText)
-    setIsReplying(false)
+  }
+
+  const onRepliesCancel = () => {
+    history.goBack()
   }
 
   if (!homeTender || !contractor) {
@@ -91,12 +92,19 @@ const HomeTender = ({
       {canReply && isReplying && <ReplyToTender onSubmitReply={onSubmitReply}
                                                 cancel={offIsReplying}
                                                 setIsReplying={setIsReplying}/>}
-      {!canReply && <div className={s.replied}>
-        {isAccepted
-          ? <Button btnColor={theme.COLOR.SECONDARY}
-                    btnHover={theme.COLOR.SECONDARY_HOVER}>{APP_TEXT.general.accepted}</Button>
-          : <Button btnHover={theme.COLOR.PRIMARY}>{APP_TEXT.general.replied}</Button>}
-      </div>}
+      <div className={s.buttons}>
+        {!canReply && <div className={s.replied}>
+          {isAccepted
+            ? <Button btnHover={theme.COLOR.PRIMARY}>{APP_TEXT.general.accepted}</Button>
+            : <Button btnHover={theme.COLOR.PRIMARY}>{APP_TEXT.general.replied}</Button>}
+        </div>}
+        <div className={s.repliesCancel}>
+          {isRepliesCancel && <Button onClick={onRepliesCancel}
+                                      btnColor={theme.COLOR.SECONDARY}
+                                      btnHover={theme.COLOR.SECONDARY_HOVER}>{APP_TEXT.general.back}</Button>}
+        </div>
+      </div>
+
     </div>
   )
 }

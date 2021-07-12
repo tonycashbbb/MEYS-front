@@ -1,6 +1,5 @@
 import {
     SET_ACCOUNT_TENDER,
-    SET_IS_EDITING,
     SET_TENDER_CREATOR,
     SET_TENDER_REQUESTS
 } from "@redux/actionTypes";
@@ -16,7 +15,6 @@ import {AccountPageActions} from "@redux/actions";
 export const setAccountTender = (tender) => ({type: SET_ACCOUNT_TENDER, tender})
 export const setTenderRequests = (tenderRequests) => ({type: SET_TENDER_REQUESTS, tenderRequests})
 export const setTenderCreator = (tenderCreator) => ({type: SET_TENDER_CREATOR, tenderCreator})
-export const setIsEditing = (isEditing) => ({type: SET_IS_EDITING, isEditing})
 
 export const getAccountTender = (tenderId) => async (dispatch) => {
     const tender = await getTenderAPI(tenderId)

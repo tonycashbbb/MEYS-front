@@ -32,7 +32,7 @@ const Sidebar = ({
 
           {!isAccount
             ? <ul className={s.links}>
-              <li><NavLink to="/account">{myProfile}</NavLink></li>
+              <li><NavLink to="/account/tenders">{myProfile}</NavLink></li>
             </ul>
             : <Accordion title={personalData}>
               <PersonalDataSidebar user={user}/>

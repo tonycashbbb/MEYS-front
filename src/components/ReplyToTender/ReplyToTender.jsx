@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React from "react"
 import {connect} from "react-redux";
 
 import {ReplyToTenderForm} from "@components";
@@ -10,11 +10,7 @@ const ReplyToTender = ({
                          cancel,
                          onSubmitReply,
                          formValues,
-                         setIsReplying,
                        }) => {
-  useEffect(() => {
-    return () => setIsReplying(false)
-  }, [setIsReplying])
 
   return (
     <div className={s.replyToTender}>

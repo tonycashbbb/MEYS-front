@@ -27,17 +27,20 @@ const App = () => {
           <Route path={"/intro"} component={IntroPage}/>
 
           <Route path={"/login"} component={Login}/>
-          <Route path={"/create_account"} component={CreateAccount}/>
+          <Route path={"/create"} component={CreateAccount}/>
 
-          <Route exact path={"/home"} component={HomeContainer}/>
+          <Route exact path={"/home/tenders"} component={HomeContainer}/>
           <Route exact path={"/home/tenders/:id"} component={HomeTenderContainer}/>
           <Route path={"/home/tenders/:id/reply"} component={HomeTenderContainer}/>
 
-          <Route exact path={"/account"} component={Account}/>
+          <Route exact path={"/account/tenders"} component={Account}/>
           <Route exact path={"/account/tenders/:id"} component={AccountTenderContainer}/>
           <Route path={"/account/tenders/:id/edit"} component={AccountTenderContainer}/>
 
-          <Route path={"/create_tender"} component={CreateTenderContainer}/>
+          <Route exact path={"/account/replies"} component={Account}/>
+          <Route path={"/account/replies/:id"} component={HomeTenderContainer}/>
+
+          <Route exact path={"/account/create"} component={CreateTenderContainer}/>
         </React.Suspense>
       </main>
       <Footer/>

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Field, reduxForm} from "redux-form";
 
 import {Input, Textarea, Button, RouteLeavingGuard} from "@components";
@@ -13,12 +13,7 @@ const EditTenderForm = ({
                           contractor,
                           initialValues,
                           formValues,
-                          setIsEditing
                         }) => {
-  useEffect(() => {
-    return () => setIsEditing(false)
-  }, [setIsEditing])
-
   const createdDate = initialValues.createdDate.slice(0, 10)
   const createdTime = initialValues.createdDate.slice(11, 16)
 
