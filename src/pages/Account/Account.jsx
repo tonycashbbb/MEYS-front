@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import {useSelector} from "react-redux";
-import {Redirect} from "react-router-dom";
 
 import {
   MyRepliesListContainer,
@@ -13,14 +11,9 @@ import s from './Account.module.scss';
 
 const Account = () => {
   const [isRepliesShowing, setIsRepliesShowing] = useState(false)
-  const isEditing = useSelector(state => state.accountPage.isEditing)
 
   const toggleIsRepliesShowing = () => {
     setIsRepliesShowing(!isRepliesShowing)
-  }
-
-  if (isEditing) {
-    return <Redirect to={"/account/edit"}/>
   }
 
   return (

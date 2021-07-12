@@ -31,3 +31,7 @@ export const selectRequestCreator = state => {
 export const selectIsSuccess = state => {
   return state.accountPage.isSuccess
 }
+
+export const selectIsEditing = state => {
+  return state.accountTender.isEditing
+}

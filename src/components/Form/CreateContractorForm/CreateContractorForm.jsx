@@ -1,21 +1,19 @@
 import React from 'react';
-import {useHistory} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
 
-import {Input, Button, DialogContainer} from "@components";
+import {Input, Button, RouteLeavingGuard} from "@components";
 import {required} from "@app/utils/validators";
 import {APP_TEXT} from "@app/i18n";
+import history from "@app/history";
 
-import s from "./CreateContractorForm.module.scss";
 import theme from "@app/styles";
+import s from "./CreateContractorForm.module.scss";
 
 const CreateContractorForm = ({
                                 formValues = {},
                                 handleSubmit,
                                 error
                               }) => {
-  const history = useHistory()
-
   const onCancel = (e) => {
     e.preventDefault()
     history.goBack()
@@ -75,7 +73,7 @@ const CreateContractorForm = ({
        </div>
      </form>
 
-     <DialogContainer when={isEdited} confirmation={APP_TEXT.confirmation.unsavedChanges} />
+     <RouteLeavingGuard when={isEdited} confirmation={APP_TEXT.confirmation.unsavedChanges}/>
    </>
   );
 };

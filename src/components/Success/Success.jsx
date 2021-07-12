@@ -1,11 +1,11 @@
 import React from 'react';
-import {useHistory} from "react-router-dom";
 import {connect} from "react-redux";
 
 import {Button} from "@components";
 import {AccountPageActions} from '@redux/actions'
 import success from '@app/assets/Success-2.gif'
 import {APP_TEXT} from "@app/i18n";
+import history from "@app/history";
 
 import s from './Success.module.scss'
 
@@ -13,8 +13,6 @@ const Success = ({
                    title,
                    toggleIsSuccess
                  }) => {
-  const history = useHistory()
-
   const onGoBack = () => {
     toggleIsSuccess(false)
     history.goBack()

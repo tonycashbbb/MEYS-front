@@ -15,6 +15,7 @@ const MyTendersContainer = ({
                               userId,
                               accountTenders,
                               getAccountTenders,
+                              clearAccountTenders,
                               isLoaded,
                               startTender,
                               cancelTender,
@@ -24,7 +25,9 @@ const MyTendersContainer = ({
 
   useEffect(() => {
     getAccountTenders(userId)
-  }, [getAccountTenders, userId, setIsLoaded])
+
+    return () => clearAccountTenders()
+  }, [clearAccountTenders, getAccountTenders, userId, setIsLoaded])
 
   if (!isLoaded) {
     return <Spinner/>
@@ -48,6 +51,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getAccountTenders: (contractorId) => dispatch(AccountPageActions.getAccountTenders(contractorId)),
+  clearAccountTenders: () => dispatch(AccountPageActions.setAccountTenders([])),
   startTender: (tenderId, contractorId) => dispatch(AccountPageActions.startTender(tenderId, contractorId)),
   cancelTender: (tenderId, contractorId) => dispatch(AccountPageActions.cancelTender(tenderId, contractorId)),
   retender: (tenderId, contractorId) => dispatch(AccountPageActions.retender(tenderId, contractorId)),

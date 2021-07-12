@@ -1,4 +1,4 @@
-export const ENG = {
+export const EN_US = {
   meys: "MEYS",
   general: {
     tender: "tender",
@@ -12,7 +12,8 @@ export const ENG = {
     accept: "Accept",
     accepted: "Accepted",
     create: "Create",
-    confirm: "Confirm"
+    confirm: "Confirm",
+    send: "Send"
   },
   generalUser: {
     username: "Username",
@@ -112,7 +113,7 @@ export const ENG = {
   confirmation: {
     unsavedChanges: {
       title: 'Cancel changes?',
-      description: 'All changes will be lost',
+      description: 'The changes will be lost. Do you want to exit?',
     },
   }
 }

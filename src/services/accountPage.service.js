@@ -48,11 +48,6 @@ export const updateTenderAPI = (tenderData) => {
     .put(`tenders`, tenderData)
 }
 
-export const updateAccountAPI = (accountData) => {
-  return instance
-    .put(`/contractors`, accountData)
-}
-
 export const getAllTenderRequestsAPI = () => {
   return instance
     .get(`/tenderRequest/all`)

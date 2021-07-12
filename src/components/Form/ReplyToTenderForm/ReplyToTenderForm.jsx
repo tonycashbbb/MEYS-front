@@ -1,12 +1,12 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
 
-import {Textarea, Button, DialogContainer} from "@components";
+import {Textarea, Button, RouteLeavingGuard} from "@components";
 import {required} from "@app/utils/validators";
-
-import s from "./ReplyToTenderForm.module.scss";
-import theme from "@app/styles";
 import {APP_TEXT} from "@app/i18n";
+
+import theme from "@app/styles";
+import s from "./ReplyToTenderForm.module.scss";
 
 const ReplyToTenderForm = ({
                              formValues = {},
@@ -24,16 +24,17 @@ const ReplyToTenderForm = ({
                component={Textarea}/>
         <div className={s.flex}>
           <div className={s.flex__item}>
-            <Button>Send</Button>
+            <Button>{APP_TEXT.general.send}</Button>
           </div>
           <div className={s.flex__item}>
             <Button btnColor={theme.COLOR.SECONDARY}
                     btnHover={theme.COLOR.SECONDARY_HOVER}
-                    onClick={props.cancel}>Cancel</Button>
+                    onClick={props.cancel}>{APP_TEXT.general.cancel}</Button>
           </div>
         </div>
       </form>
-      <DialogContainer when={isEdited} confirmation={APP_TEXT.confirmation.unsavedChanges}/>
+
+      <RouteLeavingGuard when={isEdited} confirmation={APP_TEXT.confirmation.unsavedChanges}/>
     </>
   );
 };

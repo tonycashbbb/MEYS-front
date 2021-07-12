@@ -1,11 +1,11 @@
-import {SET_USER_DATA, TOGGLE_IS_AUTH} from "../actionTypes/auth.actionType";
+import {SET_USER_DATA, TOGGLE_IS_AUTH} from "@redux/actionTypes";
 
 const initialState = {
   user: null,
   isAuth: false,
 }
 
-export const authReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER_DATA:
       return {
@@ -21,3 +21,5 @@ export const authReducer = (state = initialState, action) => {
       return state
   }
 }
+
+export default authReducer

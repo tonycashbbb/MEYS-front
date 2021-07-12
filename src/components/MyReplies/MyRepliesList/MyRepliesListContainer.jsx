@@ -8,13 +8,16 @@ import {selectIsLoaded, selectMyRepliesList} from "@app/selectors";
 const MyRepliesListContainer = ({
                                   toggleIsRepliesShowing,
                                   getMyRepliesList,
+                                  clearMyRepliesList,
                                   myRepliesList,
                                   isLoaded
                                 }) => {
 
   useEffect(() => {
     getMyRepliesList()
-  }, [getMyRepliesList])
+
+    return () => clearMyRepliesList()
+  }, [clearMyRepliesList, getMyRepliesList])
 
   return <MyRepliesList toggleIsRepliesShowing={toggleIsRepliesShowing}
                         myRepliesList={myRepliesList}
@@ -27,7 +30,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  getMyRepliesList: () => dispatch(AccountPageActions.getMyRepliesList())
+  getMyRepliesList: () => dispatch(AccountPageActions.getMyRepliesList()),
+  clearMyRepliesList: () => dispatch(AccountPageActions.setMyRepliesList([])),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyRepliesListContainer);

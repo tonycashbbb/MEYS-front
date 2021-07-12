@@ -1,7 +1,8 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {connect} from "react-redux";
 
 import {ReplyToTenderForm} from "@components";
+import {APP_TEXT} from "@app/i18n";
 
 import s from './ReplyToTender.module.css'
 
@@ -9,11 +10,15 @@ const ReplyToTender = ({
                          cancel,
                          onSubmitReply,
                          formValues,
+                         setIsReplying,
                        }) => {
+  useEffect(() => {
+    return () => setIsReplying(false)
+  }, [setIsReplying])
 
   return (
     <div className={s.replyToTender}>
-      <h1>Replying:</h1>
+      <h1>{APP_TEXT.general.reply}</h1>
 
       <ReplyToTenderForm onSubmit={onSubmitReply}
                          cancel={cancel}

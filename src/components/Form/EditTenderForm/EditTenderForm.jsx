@@ -1,21 +1,23 @@
-import React from 'react';
-import {useHistory} from "react-router-dom";
+import React, {useEffect} from 'react';
 import {Field, reduxForm} from "redux-form";
 
-import {Input, Textarea, Button, DialogContainer} from "@components";
+import {Input, Textarea, Button, RouteLeavingGuard} from "@components";
 import {APP_TEXT} from "@app/i18n";
 
-import s from "./EditTenderForm.module.scss";
 import theme from "@app/styles";
+import s from "./EditTenderForm.module.scss";
 
 const EditTenderForm = ({
                           handleSubmit,
-                          cancelEditing,
+                          onCancel,
                           contractor,
                           initialValues,
-                          formValues
+                          formValues,
+                          setIsEditing
                         }) => {
-  const history = useHistory()
+  useEffect(() => {
+    return () => setIsEditing(false)
+  }, [setIsEditing])
 
   const createdDate = initialValues.createdDate.slice(0, 10)
   const createdTime = initialValues.createdDate.slice(11, 16)
@@ -23,11 +25,6 @@ const EditTenderForm = ({
   const isEdited = formValues
     ? JSON.stringify(formValues) !== JSON.stringify(initialValues)
     : false
-
-  const onCancel = (e) => {
-    e.preventDefault()
-    history.goBack()
-  }
 
   return (
     <>
@@ -90,7 +87,7 @@ const EditTenderForm = ({
         </div>
       </form>
 
-      <DialogContainer when={isEdited} confirmation={APP_TEXT.confirmation.unsavedChanges} />
+      <RouteLeavingGuard when={isEdited} confirmation={APP_TEXT.confirmation.unsavedChanges}/>
     </>
   );
 };

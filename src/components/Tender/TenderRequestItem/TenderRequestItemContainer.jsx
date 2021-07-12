@@ -18,7 +18,7 @@ const TenderRequestItemContainer = ({
                                       getRequestCreator,
                                       acceptTenderRequest
                                     }) => {
-  const [requestCreator, setRequestCreator] = useState({name: "no name"})
+  const [requestCreator, setRequestCreator] = useState({})
 
   useEffect(() => {
     (async function(){
@@ -33,7 +33,7 @@ const TenderRequestItemContainer = ({
     acceptTenderRequest(tenderRequestId, tenderId)
   }
 
-  if (!requestCreator) {
+  if (!requestCreator.name) {
     return <div>
       <img src={spinner} alt="spinner" height={"121px"}/>
     </div>

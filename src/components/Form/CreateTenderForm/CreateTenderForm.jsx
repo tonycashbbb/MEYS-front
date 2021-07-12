@@ -1,24 +1,21 @@
 import React from "react";
-import {useHistory} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
 
-import {Button, Input, Textarea, DialogContainer} from "@components";
-import theme from "@app/styles";
+import {Button, Input, Textarea, RouteLeavingGuard} from "@components";
 import {required} from "@app/utils/validators";
 import {APP_TEXT} from "@app/i18n";
+import history from '@app/history';
 
+import theme from "@app/styles";
 import s from './CreateTenderForm.module.scss';
-import {RouteLeavingGuard} from "@app/components/ui/Dialog/RouteLeavingGuard";
-// import history from '@app/history';
 
-const CreateTenderForm = ({formValue = {}, ...props}) => {
-  const history = useHistory()
-
+const CreateTenderForm = ({
+                            formValue = {},
+                            ...props
+                          }) => {
   const handleClickCancel = (e) => {
-    // e.preventDefault()
-    // history.back()
+    e.preventDefault()
     history.goBack()
-    // history.push('/account')
   }
 
   const isEdited = JSON.stringify(formValue) !== JSON.stringify({})
@@ -50,8 +47,7 @@ const CreateTenderForm = ({formValue = {}, ...props}) => {
         </div>
       </form>
 
-      <DialogContainer when={isEdited} confirmation={APP_TEXT.confirmation.unsavedChanges}/>
-      {/*<RouteLeavingGuard when={isEdited} confirmation={APP_TEXT.confirmation.unsavedChanges}/>*/}
+      <RouteLeavingGuard when={isEdited} confirmation={APP_TEXT.confirmation.unsavedChanges}/>
     </>
   )
 }

@@ -1,10 +1,10 @@
 import React, {Fragment} from 'react';
 import {Prompt} from 'react-router-dom';
 
-import Dialog from './Dialog';
+import {Dialog} from '@components';
 import history from '@app/history';
 
-export class RouteLeavingGuard extends React.Component {
+class RouteLeavingGuard extends React.Component {
   state = {
     popupVisible: false,
     lastLocation: null,
@@ -24,6 +24,7 @@ export class RouteLeavingGuard extends React.Component {
   }
 
   showPopup = (location) => {
+    debugger
     this.setState({
       popupVisible: true,
       lastLocation: location,
@@ -62,7 +63,6 @@ export class RouteLeavingGuard extends React.Component {
   };
 
   render() {
-    // debugger
     const {when, confirmation} = this.props;
 
     return (
@@ -78,3 +78,5 @@ export class RouteLeavingGuard extends React.Component {
     );
   }
 }
+
+export default RouteLeavingGuard

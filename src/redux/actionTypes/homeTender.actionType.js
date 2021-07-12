@@ -1,1 +1,2 @@
 export const SET_HOME_TENDER = 'SET_HOME_TENDER'
+export const SET_IS_REPLYING = 'SET_IS_REPLYING'

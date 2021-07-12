@@ -9,19 +9,23 @@ import {
 } from "@components";
 import {getAllTenderRequestsAPI} from "@services";
 import {APP_TEXT} from "@app/i18n";
+import history from "@app/history";
 
-import s from './HomeTender.module.scss'
 import theme from "@app/styles";
+import s from './HomeTender.module.scss'
 
 const HomeTender = ({
+                      tenderId,
                       homeTender,
                       getUser,
+                      clearUser,
                       contractor,
                       userId,
+                      isReplying,
+                      setIsReplying,
                       replyOnTender,
-                      isSuccess
+                      isSuccess,
                     }) => {
-  const [isReplying, setIsReplying] = useState(false)
   const [canReply, setCanReply] = useState(true)
   const [isAccepted, setIsAccepted] = useState(false)
 
@@ -29,10 +33,12 @@ const HomeTender = ({
     if (homeTender) {
       getUser(homeTender.contractorId)
     }
-  }, [homeTender, getUser])
+
+    // return () => clearUser()
+  }, [clearUser, homeTender, getUser])
 
   useEffect(() => {
-    (async function(){
+    (async function () {
       if (homeTender) {
         const allReplies = await getAllTenderRequestsAPI()
         const bufArr = allReplies.filter(reply => reply.tenderId === homeTender.id && reply.userId === userId)
@@ -51,8 +57,16 @@ const HomeTender = ({
     }())
   }, [userId, homeTender])
 
-  const changeIsReplying = () => {
-    setIsReplying(!isReplying)
+  const onIsReplying = () => {
+    history.push(`/home/tenders/${tenderId}/reply`)
+    setIsReplying(true)
+  }
+
+  const offIsReplying = (e) => {
+    e.preventDefault()
+    // history.goBack()
+    history.push(`/home/tenders/${tenderId}`)
+    setIsReplying(false)
   }
 
   const onSubmitReply = (replyData) => {
@@ -73,9 +87,10 @@ const HomeTender = ({
       <Tender tender={homeTender}
               contractor={contractor}/>
 
-      {canReply && !isReplying && <Button onClick={changeIsReplying}>{APP_TEXT.general.reply}</Button>}
+      {canReply && !isReplying && <Button onClick={onIsReplying}>{APP_TEXT.general.reply}</Button>}
       {canReply && isReplying && <ReplyToTender onSubmitReply={onSubmitReply}
-                                                cancel={changeIsReplying}/>}
+                                                cancel={offIsReplying}
+                                                setIsReplying={setIsReplying}/>}
       {!canReply && <div className={s.replied}>
         {isAccepted
           ? <Button btnColor={theme.COLOR.SECONDARY}
