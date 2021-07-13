@@ -14,7 +14,6 @@ export const EN_US = {
     create: "Create",
     confirm: "Confirm",
     send: "Send",
-    back: "Back"
   },
   generalUser: {
     username: "Username",
@@ -94,7 +93,7 @@ export const EN_US = {
     createTender: "Create tender"
   },
   createTender: {
-    title: "To create a tender fill the form out",
+    title: "Create a tender",
   },
   success: {
     createTender: {
@@ -116,6 +115,22 @@ export const EN_US = {
     unsavedChanges: {
       title: 'Unsaved changes',
       description: 'Are you sure you want to leave? The changes will be lost',
+    },
+  },
+  error: {
+    backHome: "Back home",
+    unexpected: {
+      title: 'Something went wrong.',
+      description: 'An unexpected error has occurred.\nPlease refresh the page or return to Home page.',
+    },
+    not_found: {
+      title: 'Page Not Found',
+      description: 'Sorry, the page you are looking for cannot be accessed.\nPlease return to Home page.',
+    },
+    access_forbidden: {
+      title: 'Access Forbidden',
+      description:
+        "Sorry, you don't have permission to access this page.\nPlease contact admin or return to Home page.",
     },
   }
 }

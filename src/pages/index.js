@@ -6,6 +6,7 @@ import HomeContainer from "./Home/HomeContainer";
 import HomeTenderContainer from "./HomeTender/HomeTenderContainer";
 import IntroPage from "./IntroPage/IntroPage";
 import Login from "./Login/Login";
+import Error from "./Error/Error";
 
 export {
   Account,
@@ -15,5 +16,6 @@ export {
   HomeContainer,
   HomeTenderContainer,
   IntroPage,
-  Login
+  Login,
+  Error
 }
