@@ -1,6 +1,4 @@
-import React, {useState} from 'react';
-import {useSelector} from "react-redux";
-import {Redirect} from "react-router-dom";
+import React from 'react';
 
 import {
   MyRepliesListContainer,
@@ -8,26 +6,27 @@ import {
   SidebarContainer
 } from "@components";
 import {withRedirectToLogin} from "@hoc";
+import history from "@app/history";
 
 import s from './Account.module.scss';
 
-const Account = () => {
-  const [isRepliesShowing, setIsRepliesShowing] = useState(false)
-  const isEditing = useSelector(state => state.accountPage.isEditing)
+const Account = (props) => {
+  let isRepliesShowing = props.match.path.indexOf("replies")
+  isRepliesShowing = isRepliesShowing !== -1
 
-  const toggleIsRepliesShowing = () => {
-    setIsRepliesShowing(!isRepliesShowing)
+  const showReplies = () => {
+    history.push("/account/replies")
   }
 
-  if (isEditing) {
-    return <Redirect to={"/account/edit"}/>
+  const showTenders = () => {
+    history.push("/account/tenders")
   }
 
   return (
     <div className={s.account__page}>
       <SidebarContainer isAccount/>
-      {!isRepliesShowing && <MyTendersContainer toggleIsRepliesShowing={toggleIsRepliesShowing}/>}
-      {isRepliesShowing && <MyRepliesListContainer toggleIsRepliesShowing={toggleIsRepliesShowing}/>}
+      {!isRepliesShowing && <MyTendersContainer showReplies={showReplies}/>}
+      {isRepliesShowing && <MyRepliesListContainer showTenders={showTenders}/>}
     </div>
   );
 }

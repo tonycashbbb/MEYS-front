@@ -12,7 +12,7 @@ const CreateSidebar = () => {
         <div className={s.sidebar__title}>{APP_TEXT.sidebar.tenderBar}</div>
       </div>
       <ul className={s.links}>
-        <li><NavLink to="/create_tender">{APP_TEXT.sidebar.createTender}</NavLink></li>
+        <li><NavLink to="/account/create">{APP_TEXT.sidebar.createTender}</NavLink></li>
       </ul>
     </div>
   );

@@ -4,8 +4,8 @@ import {NavLink} from "react-router-dom";
 import {Button} from "@components";
 import {APP_TEXT} from "@app/i18n";
 
-import s from "./TenderList.module.scss";
 import theme from "@app/styles";
+import s from "./TenderList.module.scss";
 
 const {
   statuses: {FEATURED, ONGOING, CANCELED, ARCHIVED, RETENDER},
@@ -20,7 +20,7 @@ const TenderList = ({
                       cancelTender,
                       retender,
                       userId,
-                      toggleIsRepliesShowing
+                      showReplies
                     }) => {
   const statuses = [ARCHIVED, CANCELED, RETENDER]
 
@@ -30,7 +30,7 @@ const TenderList = ({
         <div className={s.header}>
           <div className={s.header__title}>{title}</div>
           {isAccount &&
-          <div className={s.header__subtitle} onClick={toggleIsRepliesShowing}>{APP_TEXT.myRepliesList.title}</div>}
+          <div className={s.header__subtitle} onClick={showReplies}>{APP_TEXT.myRepliesList.title}</div>}
         </div>
 
         {listItems.length !== 0

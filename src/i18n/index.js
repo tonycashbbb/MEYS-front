@@ -1,2 +1,2 @@
-import {ENG} from './eng';
-export const APP_TEXT = ENG
+import {EN_US} from './EN_US';
+export const APP_TEXT = EN_US

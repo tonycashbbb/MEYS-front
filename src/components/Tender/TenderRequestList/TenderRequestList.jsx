@@ -17,13 +17,15 @@ const TenderRequestList = ({tenderRequests, tenderStatus}) => {
       <h1>{APP_TEXT.tender.requests}</h1>
       {tenderRequests.length !== 0
         ? <ul>
-          {tenderRequests.map(({id, userId, tenderId, message, status}) => <TenderRequestItemContainer key={id}
-                                                                                                       tenderRequestId={id}
-                                                                                                       tenderId={tenderId}
-                                                                                                       requestCreatorId={userId}
-                                                                                                       message={message}
-                                                                                                       status={status}
-                                                                                                       isTenderGoing={isTenderGoing}/>)}
+          {tenderRequests.map(({id, userId, tenderId, message, status}) => {
+            return <TenderRequestItemContainer key={id}
+                                               tenderRequestId={id}
+                                               tenderId={tenderId}
+                                               requestCreatorId={userId}
+                                               message={message}
+                                               status={status}
+                                               isTenderGoing={isTenderGoing}/>
+          })}
         </ul>
         : <div className={s.no__requests}>{APP_TEXT.tender.noRequests}</div>}
 

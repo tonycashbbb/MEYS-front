@@ -38,10 +38,10 @@ export const logout = () => (dispatch) => {
 }
 export const createContractor = (userData) => async (dispatch) => {
   const res = await createContractorAPI(userData)
+
   if (res.status === 200) {
     dispatch(AccountPageActions.toggleIsSuccess(true))
-    dispatch(AccountPageActions.toggleIsSuccess(false))
   } else {
-      dispatch(stopSubmit("createContractor", {_error: "Creation failed"}))
+      dispatch(stopSubmit("createContractor", {_error: "Something went wrong"}))
   }
 }

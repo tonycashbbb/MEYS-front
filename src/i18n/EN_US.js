@@ -1,16 +1,20 @@
-export const ENG = {
+export const EN_US = {
   meys: "MEYS",
   general: {
+    tender: "tender",
+    data: "data",
     edit: "Edit",
     submit: "Submit",
-    saveChanges: "Save changes",
+    save: "Save",
     cancel: "Cancel",
     reply: "Reply",
     replied: "Replied",
     accept: "Accept",
     accepted: "Accepted",
-    tender: "tender",
-    data: "data"
+    create: "Create",
+    confirm: "Confirm",
+    send: "Send",
+    back: "Back"
   },
   generalUser: {
     username: "Username",
@@ -48,6 +52,7 @@ export const ENG = {
     }
   },
   reply: {
+    placeholder: "Write your reply",
     statuses: {
       ACCEPTED: "ACCEPTED",
       DECLINED: "DECLINED"
@@ -89,13 +94,28 @@ export const ENG = {
     createTender: "Create tender"
   },
   createTender: {
-    title: "To create a tender fill the form out"
+    title: "To create a tender fill the form out",
   },
   success: {
-    createTenderSuccess: "Tender has been created",
-    createAccountSuccess: "Account has been created",
-    goBackToHome: "Go back to the home page",
-    goBackToLogin: "Go back to the login page",
-    success: "success"
+    createTender: {
+      title: "Tender has been created",
+    },
+    updateTender: {
+      title: "Tender has been modified",
+    },
+    createAccount: {
+      title: "Account has been created",
+    },
+    replyToTender: {
+      title: "Reply has been sent",
+    },
+    goBackText: "Go back",
+    successAlt: "Success image"
   },
+  confirmation: {
+    unsavedChanges: {
+      title: 'Unsaved changes',
+      description: 'Are you sure you want to leave? The changes will be lost',
+    },
+  }
 }

@@ -2,7 +2,7 @@ import {
     SET_CONTRACTOR_TENDERS,
     SET_IS_LOADED,
     SET_MY_REPLIES,
-    SET_USER, TOGGLE_IS_EDITING,
+    SET_USER,
     TOGGLE_IS_SUCCESS
 } from "@redux/actionTypes";
 import {
@@ -13,20 +13,18 @@ import {
     getContractorTendersAPI,
     retenderAPI,
     startTenderAPI,
-    updateAccountAPI
 } from "@services";
 
-export const setContractorTenders = (contractorTenders) => ({type: SET_CONTRACTOR_TENDERS, contractorTenders})
+export const setAccountTenders = (contractorTenders) => ({type: SET_CONTRACTOR_TENDERS, contractorTenders})
 export const setMyRepliesList = (allRequests) => ({type: SET_MY_REPLIES, allRequests})
 export const setUser = (user) => ({type: SET_USER, user})
 export const toggleIsSuccess = (isSuccess) => ({type: TOGGLE_IS_SUCCESS, isSuccess})
-export const toggleIsEditing = (isEditing) => ({type: TOGGLE_IS_EDITING, isEditing})
 export const setIsLoaded = (isLoaded) => ({type: SET_IS_LOADED, isLoaded})
 
 export const getAccountTenders = (contractorId) => (dispatch) => {
     getContractorTendersAPI(contractorId)
         .then(tenders => {
-            dispatch(setContractorTenders(tenders))
+            dispatch(setAccountTenders(tenders))
             dispatch(setIsLoaded(true))
         })
 }
@@ -41,7 +39,6 @@ export const createTender = (name, budget, description, contractorId) => (dispat
         .then(res => {
             if (res.status === 200) {
                 dispatch(toggleIsSuccess(true))
-                dispatch(toggleIsSuccess(false))
             }
         })
 }
@@ -56,10 +53,6 @@ export const cancelTender = (tenderId, contractorId) => async (dispatch) => {
 export const retender = (tenderId, contractorId) => async (dispatch) => {
     await retenderAPI(tenderId)
     dispatch(getAccountTenders(contractorId))
-}
-export const updateAccountData = (accountData) => async (dispatch) => {
-    dispatch(toggleIsEditing(false))
-    await updateAccountAPI(accountData)
 }
 export const getMyRepliesList = () => async (dispatch) => {
     const res = await getAllTenderRequestsAPI()

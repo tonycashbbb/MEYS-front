@@ -1,10 +1,10 @@
-import {SET_HOME_TENDER} from "../actionTypes/homeTender.actionType";
+import {SET_HOME_TENDER} from "@redux/actionTypes";
 
 const initState = {
-  tender: null,
+  tender: null
 }
 
-export const homeTenderReducer = (state = initState, action) => {
+const homeTenderReducer = (state = initState, action) => {
   switch (action.type) {
     case SET_HOME_TENDER:
       return {
@@ -15,3 +15,5 @@ export const homeTenderReducer = (state = initState, action) => {
       return state
   }
 }
+
+export default homeTenderReducer

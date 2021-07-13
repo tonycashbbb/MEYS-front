@@ -6,7 +6,7 @@ import {APP_TEXT} from "@app/i18n";
 import s from './MyRepliesList.module.scss'
 
 const MyRepliesList = ({
-                         toggleIsRepliesShowing,
+                         showTenders,
                          myRepliesList
                        }) => {
 
@@ -17,7 +17,7 @@ const MyRepliesList = ({
   return (
     <div className={s.replies}>
       <div className={s.header}>
-        <div className={s.subtitle} onClick={toggleIsRepliesShowing}>{APP_TEXT.tenderList.accountTitle}</div>
+        <div className={s.subtitle} onClick={showTenders}>{APP_TEXT.tenderList.accountTitle}</div>
         <div className={s.title}>{APP_TEXT.myRepliesList.title}</div>
       </div>
 

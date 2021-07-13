@@ -10,6 +10,8 @@ import Tender from "./Tender/Tender/Tender";
 import TenderList from "./Tender/TenderList/TenderList";
 import TenderRequestItemContainer from "./Tender/TenderRequestItem/TenderRequestItemContainer";
 import TenderRequestList from "./Tender/TenderRequestList/TenderRequestList";
+import Success from "@app/components/Success/Success";
+import RouteLeavingGuard from "@app/components/RouteLeavingGuard/RouteLeavingGuard";
 
 export * from './ui'
 export * from './Form'
@@ -29,4 +31,6 @@ export {
   TenderList,
   TenderRequestItemContainer,
   TenderRequestList,
+  Success,
+  RouteLeavingGuard
 }

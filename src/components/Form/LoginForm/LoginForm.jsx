@@ -27,7 +27,7 @@ const LoginForm = (props) => {
       </div>
       <hr/>
       <div className={s.register}>
-        <NavLink to="/create_account">{APP_TEXT.login.createBtn}</NavLink>
+        <NavLink to="/create">{APP_TEXT.login.createBtn}</NavLink>
       </div>
     </form>
   );

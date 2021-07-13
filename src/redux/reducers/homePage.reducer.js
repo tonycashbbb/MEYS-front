@@ -1,4 +1,9 @@
-import {SET_CURRENT_PAGE, SET_TENDERS, SET_TOTAL_COUNT, TOGGLE_IS_LOADED} from "../actionTypes/homePage.actionType";
+import {
+  SET_CURRENT_PAGE,
+  SET_TENDERS,
+  SET_TOTAL_COUNT,
+  TOGGLE_IS_LOADED
+} from "@redux/actionTypes";
 
 const initState = {
   tenders: [],
@@ -8,7 +13,7 @@ const initState = {
   currentPage: 1,
 }
 
-export const homePageReducer = (state = initState, action) => {
+const homePageReducer = (state = initState, action) => {
   switch (action.type) {
     case SET_TENDERS:
       return {
@@ -35,3 +40,5 @@ export const homePageReducer = (state = initState, action) => {
       return state
   }
 }
+
+export default homePageReducer

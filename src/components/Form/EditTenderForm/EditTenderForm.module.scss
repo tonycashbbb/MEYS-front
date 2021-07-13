@@ -1,0 +1,14 @@
+@import "src/styles/mixins";
+
+@include makeTender();
+
+.info li span input {
+  position: relative;
+  top: -5px;
+  margin-bottom: 0;
+  padding: 4px 15px;
+}
+
+.title__edit input {
+  padding: 8px 15px;
+}

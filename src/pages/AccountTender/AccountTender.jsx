@@ -1,33 +1,44 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import {
   Button,
-  Spinner,
+  EditTenderForm,
+  Spinner, Success,
   Tender,
-  TenderRequestList,
-  EditTenderForm
+  TenderRequestList
 } from "@components";
 import {APP_TEXT} from "@app/i18n";
+import history from "@app/history";
 
 const AccountTender = ({
+                         tenderId,
                          tender,
                          tenderCreator,
                          tenderRequests,
-                         updateTender
+                         updateTender,
+                         formValues,
+                         isSuccess,
+                         isEditing,
                        }) => {
-  const [isEditing, setIsEditing] = useState(false)
+  const onIsEditing = () => {
+    history.push(`/account/tenders/${tenderId}/edit`)
+  }
 
-  const toggleIsEditing = () => {
-    setIsEditing(!isEditing)
+  const offIsEditing = (e) => {
+    e.preventDefault()
+    history.push(`/account/tenders/${tenderId}`)
   }
 
   const submitTenderEditing = (tenderData) => {
     updateTender(tenderData)
-    setIsEditing(!isEditing)
   }
 
   if (!tender || !tenderCreator) {
     return <Spinner/>
+  }
+
+  if (isSuccess) {
+    return <Success title={APP_TEXT.success.updateTender.title}/>
   }
 
   return (
@@ -37,11 +48,11 @@ const AccountTender = ({
                   contractor={tenderCreator}/>
         : <EditTenderForm onSubmit={submitTenderEditing}
                           initialValues={tender}
-                          tender={tender}
+                          formValues={formValues}
                           contractor={tenderCreator}
-                          cancelEditing={toggleIsEditing}/>}
+                          onCancel={offIsEditing}/>}
 
-      {!isEditing && <Button onClick={toggleIsEditing}>{APP_TEXT.general.edit} {APP_TEXT.general.tender}</Button>}
+      {!isEditing && <Button onClick={onIsEditing}>{APP_TEXT.general.edit} {APP_TEXT.general.tender}</Button>}
 
       <TenderRequestList tenderStatus={tender.status}
                          tenderRequests={tenderRequests}/>

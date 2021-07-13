@@ -11,13 +11,12 @@ const MyRepliesListItemContainer = ({
   const [tender, setTender] = useState(null)
 
   useEffect(() => {
-    const fetchTender = async () => {
+    (async function(){
       if (tenderId) {
         const tender = await getTenderAPI(tenderId)
         setTender(tender)
       }
-    }
-    fetchTender()
+    }())
   }, [tenderId])
 
   if (!tender) {

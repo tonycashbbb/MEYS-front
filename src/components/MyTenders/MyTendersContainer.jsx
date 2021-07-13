@@ -11,10 +11,11 @@ import {
 import {APP_TEXT} from "@app/i18n";
 
 const MyTendersContainer = ({
-                              toggleIsRepliesShowing,
+                              showReplies,
                               userId,
                               accountTenders,
                               getAccountTenders,
+                              clearAccountTenders,
                               isLoaded,
                               startTender,
                               cancelTender,
@@ -24,9 +25,11 @@ const MyTendersContainer = ({
 
   useEffect(() => {
     getAccountTenders(userId)
-  }, [getAccountTenders, userId, setIsLoaded])
 
-  if (!isLoaded) {
+    return () => clearAccountTenders()
+  }, [clearAccountTenders, getAccountTenders, userId, setIsLoaded])
+
+  if (accountTenders.length === 0) {
     return <Spinner/>
   }
 
@@ -37,7 +40,7 @@ const MyTendersContainer = ({
                      cancelTender={cancelTender}
                      retender={retender}
                      userId={userId}
-                     toggleIsRepliesShowing={toggleIsRepliesShowing}/>
+                     showReplies={showReplies}/>
 };
 
 const mapStateToProps = (state) => ({
@@ -48,6 +51,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getAccountTenders: (contractorId) => dispatch(AccountPageActions.getAccountTenders(contractorId)),
+  clearAccountTenders: () => dispatch(AccountPageActions.setAccountTenders([])),
   startTender: (tenderId, contractorId) => dispatch(AccountPageActions.startTender(tenderId, contractorId)),
   cancelTender: (tenderId, contractorId) => dispatch(AccountPageActions.cancelTender(tenderId, contractorId)),
   retender: (tenderId, contractorId) => dispatch(AccountPageActions.retender(tenderId, contractorId)),

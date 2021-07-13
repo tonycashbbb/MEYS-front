@@ -3,7 +3,7 @@ import s from "./Sidebar.module.scss";
 import {NavLink} from "react-router-dom";
 import PersonalDataSidebar from "./PersonalDataSidebar";
 import CreateSidebar from "./CreateSidebar";
-import {Accordion, Spinner} from "@components";
+import {Accordion} from "@components";
 import {APP_TEXT} from "@app/i18n";
 
 const {
@@ -17,10 +17,6 @@ const Sidebar = ({
                    user
                  }) => {
 
-  if (!user) {
-    return <Spinner/>
-  }
-
   return (
     <div className={s.sidebar}>
       <div className={s.inner}>
@@ -32,7 +28,7 @@ const Sidebar = ({
 
           {!isAccount
             ? <ul className={s.links}>
-              <li><NavLink to="/account">{myProfile}</NavLink></li>
+              <li><NavLink to="/account/tenders">{myProfile}</NavLink></li>
             </ul>
             : <Accordion title={personalData}>
               <PersonalDataSidebar user={user}/>

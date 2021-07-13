@@ -1,13 +1,15 @@
-import CreateTender from "./CreateTender";
 import {connect} from "react-redux";
 import {compose} from "redux";
 
-import {withSuccessRedirect, withRedirectToLogin} from "@hoc";
+import CreateTender from "./CreateTender";
+import {withRedirectToLogin} from "@hoc";
 import {AccountPageActions} from "@redux/actions";
-import {selectUserId} from "@app/selectors";
+import {selectIsSuccess, selectUserId} from "@app/selectors";
 
 const mapStateToProps = (state) => ({
-  contractorId: selectUserId(state)
+  contractorId: selectUserId(state),
+  isSuccess: selectIsSuccess(state),
+  formValue: state.form.createTender ? state.form.createTender.values : null
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -18,6 +20,5 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  withSuccessRedirect,
   withRedirectToLogin
 )(CreateTender)

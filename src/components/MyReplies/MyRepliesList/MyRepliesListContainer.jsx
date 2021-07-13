@@ -6,17 +6,19 @@ import {AccountPageActions} from "@redux/actions";
 import {selectIsLoaded, selectMyRepliesList} from "@app/selectors";
 
 const MyRepliesListContainer = ({
-                                  toggleIsRepliesShowing,
+                                  showTenders,
                                   getMyRepliesList,
+                                  clearMyRepliesList,
                                   myRepliesList,
                                   isLoaded
                                 }) => {
-
   useEffect(() => {
     getMyRepliesList()
-  }, [getMyRepliesList])
 
-  return <MyRepliesList toggleIsRepliesShowing={toggleIsRepliesShowing}
+    return () => clearMyRepliesList()
+  }, [clearMyRepliesList, getMyRepliesList])
+
+  return <MyRepliesList showTenders={showTenders}
                         myRepliesList={myRepliesList}
                         isLoaded={isLoaded}/>
 };
@@ -27,7 +29,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  getMyRepliesList: () => dispatch(AccountPageActions.getMyRepliesList())
+  getMyRepliesList: () => dispatch(AccountPageActions.getMyRepliesList()),
+  clearMyRepliesList: () => dispatch(AccountPageActions.setMyRepliesList([])),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyRepliesListContainer);

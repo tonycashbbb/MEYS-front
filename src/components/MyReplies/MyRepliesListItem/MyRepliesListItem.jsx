@@ -10,7 +10,7 @@ const MyRepliesListItem = ({
 
   return <li className={s.reply}>
     <div className={s.tender}>
-      <NavLink to={`/home/tenders/${tenderId}`}>{tenderName}</NavLink>
+      <NavLink to={`/account/replies/${tenderId}`}>{tenderName}</NavLink>
     </div>
     <div className={s.status}>
       {status}

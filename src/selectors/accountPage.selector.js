@@ -5,7 +5,7 @@ const _getTenders = state => {
 }
 
 export const selectTenders = createSelector(_getTenders, (tenders) => {
-  return tenders.filter(t => true)
+  return tenders.filter(() => true)
 })
 
 export const selectAccountUser = state => {
@@ -26,4 +26,8 @@ export const selectTenderCreator = state => {
 
 export const selectRequestCreator = state => {
   return state.accountTender.requestCreator
+}
+
+export const selectIsSuccess = state => {
+  return state.accountPage.isSuccess
 }

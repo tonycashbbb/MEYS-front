@@ -10,6 +10,7 @@ import {
     getTenderRequestsAPI,
     updateTenderAPI
 } from "@services";
+import {AccountPageActions} from "@redux/actions";
 
 export const setAccountTender = (tender) => ({type: SET_ACCOUNT_TENDER, tender})
 export const setTenderRequests = (tenderRequests) => ({type: SET_TENDER_REQUESTS, tenderRequests})
@@ -36,7 +37,9 @@ export const acceptTenderRequest = (tenderRequestId, tenderId) => async (dispatc
 }
 export const updateTender = (tenderData) => async (dispatch) => {
     const res = await updateTenderAPI(tenderData)
+
     if (res.status === 200) {
         dispatch(getAccountTender(tenderData.id))
+        dispatch(AccountPageActions.toggleIsSuccess(true))
     }
 }

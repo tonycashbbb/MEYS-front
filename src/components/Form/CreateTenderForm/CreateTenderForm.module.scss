@@ -1,3 +1,5 @@
+@import 'src/styles/mixins.scss';
+
 .form {
     border: 2px solid #999;
     border-radius: 20px;
@@ -5,6 +7,12 @@
     margin-bottom: 15px;
 }
 
-.btn {
+.form input {
+    padding: 14px 16px;
+}
+
+.buttons {
+    @include makeFlex();
     margin-top: 10px;
+    width: 50%;
 }

@@ -1,11 +1,10 @@
 import {
-    TOGGLE_IS_EDITING,
     SET_IS_LOADED,
     SET_MY_REPLIES,
     SET_USER,
     TOGGLE_IS_SUCCESS,
-    SET_CONTRACTOR_TENDERS
-} from "../actionTypes/accountPage.actionType"
+    SET_CONTRACTOR_TENDERS,
+} from "@redux/actionTypes"
 
 const initState = {
     items: [],
@@ -13,10 +12,9 @@ const initState = {
     myRepliesList: null,
     isLoaded: false,
     isSuccess: false,
-    isEditing: false,
 }
 
-export const accountPageReducer = (state = initState, action) => {
+const accountPageReducer = (state = initState, action) => {
     switch (action.type) {
         case SET_CONTRACTOR_TENDERS:
             return {
@@ -39,11 +37,6 @@ export const accountPageReducer = (state = initState, action) => {
                 ...state,
                 user: action.user
             }
-        case TOGGLE_IS_EDITING:
-            return {
-                ...state,
-                isEditing: action.isEditing
-            }
         case SET_MY_REPLIES:
             return {
                 ...state,
@@ -53,3 +46,5 @@ export const accountPageReducer = (state = initState, action) => {
             return state
     }
 }
+
+export default accountPageReducer
