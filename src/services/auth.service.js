@@ -66,6 +66,10 @@ class AuthenticationService {
 
         if (response && response.status) {
           switch (response.status) {
+            case 401: {
+              redirectToErrorPage(constants.ERROR_TYPE.UNAUTHORIZED);
+              break;
+            }
             case 403: {
               redirectToErrorPage(constants.ERROR_TYPE.ACCESS_FORBIDDEN);
               break;

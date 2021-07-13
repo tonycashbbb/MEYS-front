@@ -121,16 +121,21 @@ export const EN_US = {
     backHome: "Back home",
     unexpected: {
       title: 'Something went wrong.',
-      description: 'An unexpected error has occurred.\nPlease refresh the page or return to Home page.',
+      description: 'An unexpected error has occurred.\nPlease refresh the page or return to the home page.',
     },
     not_found: {
       title: 'Page Not Found',
-      description: 'Sorry, the page you are looking for cannot be accessed.\nPlease return to Home page.',
+      description: 'Sorry, the page you are looking for cannot be accessed.\nPlease return to the home page.',
     },
     access_forbidden: {
       title: 'Access Forbidden',
       description:
-        "Sorry, you don't have permission to access this page.\nPlease contact admin or return to Home page.",
+        "Sorry, you don't have permission to access this page.\nPlease contact admin or return to the home page.",
     },
+    unauthorized: {
+      title: 'Authorization required',
+      description:
+        "Sorry, you have to be authorized to access this page.\nPlease return to the login page.",
+    }
   }
 }

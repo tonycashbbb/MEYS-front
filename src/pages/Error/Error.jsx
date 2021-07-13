@@ -14,10 +14,14 @@ const IMAGE_NAME = {
   [constants.ERROR_TYPE.ACCESS_FORBIDDEN]: 'errorPage_403',
 };
 
-const Error = (props) => {
+const Error = () => {
   const errorType = getQueryParam('type', window.location) || constants.ERROR_TYPE.UNEXPECTED
 
-  const onBack = () => {
+  const onBackLogin = () => {
+    history.push("/login")
+  }
+
+  const onBackHome = () => {
     history.push("/home/tenders")
   }
 
@@ -33,7 +37,9 @@ const Error = (props) => {
         <div className={s.description}>
           {APP_TEXT.error[errorType].description}
         </div>
-        <Button onClick={onBack}>{APP_TEXT.error.backHome}</Button>
+        {errorType === constants.ERROR_TYPE.UNAUTHORIZED
+          ? <Button onClick={onBackLogin}>{APP_TEXT.error.backHome}</Button>
+          : <Button onClick={onBackHome}>{APP_TEXT.error.backHome}</Button>}
       </div>
     </div>
   );
