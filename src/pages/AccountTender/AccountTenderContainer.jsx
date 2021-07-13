@@ -23,7 +23,8 @@ const AccountTenderAPI = ({
                             match
                           }) => {
   const tenderId = match.params.id
-  const isEditing = match.path === '/account/tenders/:id/edit'
+  let isEditing = match.path.indexOf("edit")
+  isEditing = isEditing !== -1
 
   useEffect(() => {
     getAccountTender(tenderId)

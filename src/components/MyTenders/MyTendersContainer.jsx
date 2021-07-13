@@ -29,7 +29,7 @@ const MyTendersContainer = ({
     return () => clearAccountTenders()
   }, [clearAccountTenders, getAccountTenders, userId, setIsLoaded])
 
-  if (!isLoaded) {
+  if (accountTenders.length === 0) {
     return <Spinner/>
   }
 

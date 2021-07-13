@@ -23,17 +23,22 @@ class HomePageTenderAPI extends React.Component {
   }
 
   render() {
-    const isReplying = this.props.match.path === '/home/tenders/:id/reply'
-    const isRepliesCancel = this.props.match.path === '/account/replies/:id'
+    const {
+      match, homeTender, getUser, clearUser, contractor, userId, replyOnTender, isSuccess
+    } = this.props
 
-    return <HomeTender tenderId={this.props.match.params.id}
-                       homeTender={this.props.homeTender}
-                       getUser={this.props.getUser}
-                       clearUser={this.props.clearUser}
-                       contractor={this.props.contractor}
-                       userId={this.props.userId}
-                       replyOnTender={this.props.replyOnTender}
-                       isSuccess={this.props.isSuccess}
+    let isReplying = match.path.indexOf("reply")
+    isReplying = isReplying !== -1
+    const isRepliesCancel = match.path === '/account/replies/:id'
+
+    return <HomeTender tenderId={match.params.id}
+                       homeTender={homeTender}
+                       getUser={getUser}
+                       clearUser={clearUser}
+                       contractor={contractor}
+                       userId={userId}
+                       replyOnTender={replyOnTender}
+                       isSuccess={isSuccess}
                        isReplying={isReplying}
                        isRepliesCancel={isRepliesCancel}/>
   }

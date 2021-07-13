@@ -10,7 +10,7 @@ import s from './Header.module.scss';
 import {compose} from "redux";
 
 const Header = ({isAuth, logout, ...props}) => {
-  const isLogin = props.location.pathname === '/login' || props.location.pathname === '/create_account'
+  const isLogin = ['/login', '/create'].includes(props.location.pathname)
 
   return (
     <header className={s.header}>

@@ -11,7 +11,8 @@ import history from "@app/history";
 import s from './Account.module.scss';
 
 const Account = (props) => {
-  const isRepliesShowing = props.match.path === "/account/replies"
+  let isRepliesShowing = props.match.path.indexOf("replies")
+  isRepliesShowing = isRepliesShowing !== -1
 
   const showReplies = () => {
     history.push("/account/replies")

@@ -52,6 +52,7 @@ export const EN_US = {
     }
   },
   reply: {
+    placeholder: "Write your reply",
     statuses: {
       ACCEPTED: "ACCEPTED",
       DECLINED: "DECLINED"

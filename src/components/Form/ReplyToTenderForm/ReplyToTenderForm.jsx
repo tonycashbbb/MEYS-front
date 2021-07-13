@@ -19,7 +19,7 @@ const ReplyToTenderForm = ({
       <form className={s.reply} onSubmit={props.handleSubmit}>
         <Field type={"text"}
                name={"replyText"}
-               placeholder={"Write your reply"}
+               placeholder={APP_TEXT.reply.placeholder}
                validate={[required]}
                component={Textarea}/>
         <div className={s.flex}>
