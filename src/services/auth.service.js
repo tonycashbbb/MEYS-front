@@ -1,13 +1,23 @@
-import history from "@app/history";
 import instance from "./instance.service";
+
+import history from "@app/history";
 import {ROUTER_CONFIG} from "@app/utils/config";
 import {constants} from "@app/constants";
 
-const USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
-
 class AuthenticationService {
-  username = null;
-  password = null;
+  sessionUsername = 'authenticatedUser'
+  sessionTokenName = 'token'
+
+  checkValidToken(token) {
+
+    return instance
+      .get(`/auth`, {
+        headers: {
+          authorization: token
+        }
+      })
+      .then(res => res.data)
+  }
 
   executeBasicAuthenticationService(username, password) {
     return instance
@@ -20,10 +30,10 @@ class AuthenticationService {
   }
 
   registerSuccessfulLogin(username, password) {
-    sessionStorage.setItem(USER_NAME_SESSION_ATTRIBUTE_NAME, username)
-    this.username = username
-    this.password = password
-    this._setupAxiosInterceptors()
+    sessionStorage.setItem(this.sessionUsername, username)
+    sessionStorage.setItem(this.sessionTokenName, this._createBasicAuthToken(username, password))
+
+    this._setupAxiosInterceptors(this._createBasicAuthToken(username, password))
   }
 
   getLoggedInUser() {
@@ -33,21 +43,22 @@ class AuthenticationService {
   }
 
   logout() {
-    sessionStorage.removeItem(USER_NAME_SESSION_ATTRIBUTE_NAME);
+    sessionStorage.removeItem(this.sessionUsername);
+    sessionStorage.removeItem(this.sessionTokenName);
+    this._setupAxiosInterceptors('')
   }
 
   _createBasicAuthToken(username, password) {
-    return 'Basic ' + window.btoa(username + ":" + password)
+    return `Basic ${window.btoa(username + ":" + password)}`
   }
 
   _isUserLoggedIn() {
-    let user = sessionStorage.getItem(USER_NAME_SESSION_ATTRIBUTE_NAME)
+    let user = sessionStorage.getItem(this.sessionUsername)
     return user !== null;
   }
 
   //sets up the axios interceptor to add the authorization token to every request
-  _setupAxiosInterceptors() {
-    const token = this._createBasicAuthToken(this.username, this.password)
+  _setupAxiosInterceptors(token) {
 
     instance.interceptors.request.use(
       (config) => {

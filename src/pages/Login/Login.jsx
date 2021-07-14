@@ -39,4 +39,8 @@ const mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth
 })
 
-export default connect(mapStateToProps, {login: AuthActions.login})(Login);
+const mapDispatchToProps = (dispatch) => ({
+  login: (username, password) => dispatch(AuthActions.login(username, password))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

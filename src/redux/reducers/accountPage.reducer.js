@@ -7,7 +7,7 @@ import {
 } from "@redux/actionTypes"
 
 const initState = {
-    items: [],
+    items: null,
     user: null,
     myRepliesList: null,
     isLoaded: false,
@@ -19,7 +19,9 @@ const accountPageReducer = (state = initState, action) => {
         case SET_CONTRACTOR_TENDERS:
             return {
                 ...state,
-                items: [...action.contractorTenders]
+                items: action.contractorTenders
+                  ? [...action.contractorTenders]
+                  : null
             }
         case SET_IS_LOADED:
             return {

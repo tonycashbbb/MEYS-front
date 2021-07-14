@@ -3,9 +3,11 @@ import {connect} from "react-redux";
 
 import MyRepliesList from "./MyRepliesList";
 import {AccountPageActions} from "@redux/actions";
-import {selectIsLoaded, selectMyRepliesList} from "@app/selectors";
+import {selectIsLoaded, selectMyRepliesList, selectUserId} from "@app/selectors";
 
 const MyRepliesListContainer = ({
+                                  userId,
+                                  clearUser,
                                   showTenders,
                                   getMyRepliesList,
                                   clearMyRepliesList,
@@ -13,10 +15,13 @@ const MyRepliesListContainer = ({
                                   isLoaded
                                 }) => {
   useEffect(() => {
-    getMyRepliesList()
+    getMyRepliesList(userId)
 
-    return () => clearMyRepliesList()
-  }, [clearMyRepliesList, getMyRepliesList])
+    return () => {
+      clearMyRepliesList()
+      clearUser()
+    }
+  }, [userId, clearUser, clearMyRepliesList, getMyRepliesList])
 
   return <MyRepliesList showTenders={showTenders}
                         myRepliesList={myRepliesList}
@@ -24,12 +29,14 @@ const MyRepliesListContainer = ({
 };
 
 const mapStateToProps = (state) => ({
+  userId: selectUserId(state),
   myRepliesList: selectMyRepliesList(state),
   isLoaded: selectIsLoaded(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  getMyRepliesList: () => dispatch(AccountPageActions.getMyRepliesList()),
+  clearUser: () => dispatch(AccountPageActions.setUser(null)),
+  getMyRepliesList: (userId) => dispatch(AccountPageActions.getMyRepliesList(userId)),
   clearMyRepliesList: () => dispatch(AccountPageActions.setMyRepliesList([])),
 })
 

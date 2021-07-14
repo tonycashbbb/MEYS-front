@@ -14,6 +14,7 @@ export const EN_US = {
     create: "Create",
     confirm: "Confirm",
     send: "Send",
+    back: "Back"
   },
   generalUser: {
     username: "Username",
@@ -108,7 +109,7 @@ export const EN_US = {
     replyToTender: {
       title: "Reply has been sent",
     },
-    goBackText: "Go back",
+    backHome: "Back to home",
     successAlt: "Success image"
   },
   confirmation: {

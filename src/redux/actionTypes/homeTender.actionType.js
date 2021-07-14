@@ -1,1 +1,2 @@
 export const SET_HOME_TENDER = 'SET_HOME_TENDER'
+export const SET_TENDER_OWNER = 'SET_TENDER_OWNER'

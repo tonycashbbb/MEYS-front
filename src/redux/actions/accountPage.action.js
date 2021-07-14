@@ -28,12 +28,6 @@ export const getAccountTenders = (contractorId) => (dispatch) => {
             dispatch(setIsLoaded(true))
         })
 }
-export const getUser = (userId) => (dispatch) => {
-    getContractorAPI(userId)
-        .then(user => {
-            dispatch(setUser(user))
-        })
-}
 export const createTender = (name, budget, description, contractorId) => (dispatch) => {
     createTenderAPI(name, budget, description, contractorId)
         .then(res => {
@@ -54,7 +48,10 @@ export const retender = (tenderId, contractorId) => async (dispatch) => {
     await retenderAPI(tenderId)
     dispatch(getAccountTenders(contractorId))
 }
-export const getMyRepliesList = () => async (dispatch) => {
+export const getMyRepliesList = (userId) => async (dispatch) => {
+    const user = await getContractorAPI(userId)
+    dispatch(setUser(user))
+
     const res = await getAllTenderRequestsAPI()
     dispatch(setMyRepliesList(res))
 }

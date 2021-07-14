@@ -9,7 +9,7 @@ const ROUTER_CONFIG = {
   ACCOUNT: {
     BASE: '/account/tenders',
     REPLIES: '/account/replies',
-    CREATE: '/account.create'
+    CREATE: '/account/create'
   },
   ERROR: '/error'
 }

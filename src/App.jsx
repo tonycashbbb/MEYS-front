@@ -1,59 +1,78 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Route, Redirect, Switch} from "react-router-dom";
+import {connect} from "react-redux";
 
 import {Footer, Header, Spinner} from "@components";
 import {
   Account,
   AccountTenderContainer,
-  CreateAccount,
   CreateTenderContainer,
   HomeContainer,
   HomeTenderContainer,
   Login,
   Error
 } from "./pages";
+import {ROUTER_CONFIG} from "@app/utils/config";
+import {AppActions} from "@redux/actions";
 
 import './styles/global.scss'
-import {ROUTER_CONFIG} from "@app/utils/config";
 
-const IntroPage = React.lazy(() => import("./pages/IntroPage/IntroPage"))
+const CreateAccount = React.lazy(() => import("./pages/CreateAccount/CreateAccount"))
 
-const App = () => {
+const App = ({
+               isInitialized,
+               initialize
+             }) => {
+  useEffect(() => {
+    initialize()
+  }, [initialize])
+
+  if (!isInitialized) {
+    return <div style={{position: "absolute", top: "70px", left: "44%"}}>
+      <Spinner/>
+    </div>
+  }
 
   return (
     <div className="wrapper">
       <Header/>
       <main className="content">
-        <Switch>
-          {/*<Route exact path={'/'} render={() => <Redirect to={'/intro'}/>}/>*/}
+        <React.Suspense fallback={Spinner}>
+          <Switch>
+            <Route path={ROUTER_CONFIG.AUTH.LOGIN} component={Login}/>
+            <Route path={ROUTER_CONFIG.AUTH.SIGN_UP} component={CreateAccount}/>
 
-          {/*<React.Suspense fallback={Spinner}>*/}
-          {/*  <Route path={"/intro"} component={IntroPage}/>*/}
-          {/*</React.Suspense>*/}
+            <Route path={`${ROUTER_CONFIG.HOME.BASE}/:id/reply`} component={HomeTenderContainer}/>
+            <Route path={`${ROUTER_CONFIG.HOME.BASE}/:id`} component={HomeTenderContainer}/>
+            <Route path={ROUTER_CONFIG.HOME.BASE} component={HomeContainer}/>
 
-          <Route path={ROUTER_CONFIG.AUTH.LOGIN} component={Login}/>
-          <Route path={ROUTER_CONFIG.AUTH.SIGN_UP} component={CreateAccount}/>
+            <Route path={`${ROUTER_CONFIG.ACCOUNT.BASE}/:id/edit`} component={AccountTenderContainer}/>
+            <Route path={`${ROUTER_CONFIG.ACCOUNT.BASE}/:id`} component={AccountTenderContainer}/>
+            <Route path={ROUTER_CONFIG.ACCOUNT.BASE} component={Account}/>
 
-          <Route path={`${ROUTER_CONFIG.HOME.BASE}/:id/reply`} component={HomeTenderContainer}/>
-          <Route path={`${ROUTER_CONFIG.HOME.BASE}/:id`} component={HomeTenderContainer}/>
-          <Route path={ROUTER_CONFIG.HOME.BASE} component={HomeContainer}/>
+            <Route path={`${ROUTER_CONFIG.ACCOUNT.REPLIES}/:id`} component={HomeTenderContainer}/>
+            <Route path={ROUTER_CONFIG.ACCOUNT.REPLIES} component={Account}/>
 
-          <Route path={`${ROUTER_CONFIG.ACCOUNT.BASE}/:id/edit`} component={AccountTenderContainer}/>
-          <Route path={`${ROUTER_CONFIG.ACCOUNT.BASE}/:id`} component={AccountTenderContainer}/>
-          <Route path={ROUTER_CONFIG.ACCOUNT.BASE} component={Account}/>
+            <Route path={ROUTER_CONFIG.ACCOUNT.CREATE} component={CreateTenderContainer}/>
 
-          <Route path={`${ROUTER_CONFIG.ACCOUNT.REPLIES}/:id`} component={HomeTenderContainer}/>
-          <Route path={ROUTER_CONFIG.ACCOUNT.REPLIES} component={Account}/>
+            <Route path={ROUTER_CONFIG.ERROR} component={Error}/>
 
-          <Route path={ROUTER_CONFIG.ACCOUNT.CREATE} component={CreateTenderContainer}/>
-
-          <Route path={ROUTER_CONFIG.ERROR} component={Error}/>
-          <Redirect from='*' to={ROUTER_CONFIG.ERROR} />
-        </Switch>
+            <Redirect from='/' to={ROUTER_CONFIG.AUTH.LOGIN}/>
+            <Redirect from='*' to={ROUTER_CONFIG.ERROR}/>
+          </Switch>
+        </React.Suspense>
       </main>
       <Footer/>
     </div>
   )
 }
 
-export default App
+const mapStateToProps = (state) => ({
+  isInitialized: state.app.isInitialized
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  initialize: () => dispatch(AppActions.initialize())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

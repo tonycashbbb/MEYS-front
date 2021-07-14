@@ -5,6 +5,7 @@ import {Button} from "@components";
 import {AccountPageActions} from '@redux/actions'
 import success from '@app/assets/Success-2.gif'
 import {APP_TEXT} from "@app/i18n";
+import {ROUTER_CONFIG} from "@app/utils/config";
 import history from "@app/history";
 
 import s from './Success.module.scss'
@@ -13,9 +14,9 @@ const Success = ({
                    title,
                    toggleIsSuccess
                  }) => {
-  const onGoBack = () => {
+  const onBackHome = () => {
     toggleIsSuccess(false)
-    history.goBack()
+    history.push(ROUTER_CONFIG.HOME.BASE)
   }
 
   return (
@@ -28,7 +29,7 @@ const Success = ({
           {title}
         </div>
         <div className={s.back}>
-          <Button onClick={onGoBack}>{APP_TEXT.success.goBackText}</Button>
+          <Button onClick={onBackHome}>{APP_TEXT.success.backHome}</Button>
         </div>
       </div>
     </div>
