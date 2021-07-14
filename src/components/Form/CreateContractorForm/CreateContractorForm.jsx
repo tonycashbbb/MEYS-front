@@ -66,9 +66,10 @@ const CreateContractorForm = ({
               component={Input}/>
        {error && <div className={s.error__text}>{error}</div>}
        <div className={s.buttons}>
-         <Button onClick={onCancel}>{APP_TEXT.general.cancel}</Button>
-         <Button btnColor={theme.COLOR.SECONDARY}
-                 btnHover={theme.COLOR.SECONDARY_HOVER}>{APP_TEXT.general.create}</Button>
+         <Button>{APP_TEXT.general.create}</Button>
+         <Button onClick={onCancel}
+                 btnColor={theme.COLOR.SECONDARY}
+                 btnHover={theme.COLOR.SECONDARY_HOVER}>{APP_TEXT.general.cancel}</Button>
        </div>
      </form>
 

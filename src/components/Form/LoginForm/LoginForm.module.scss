@@ -17,34 +17,6 @@
     border: 2px solid $color-purple-primary;
 }
 
-.link {
-    margin: 25px 0 15px;
-    text-align: center;
-}
-
-.link a {
-    font-size: 16px;
-    color: $color-purple-primary;
-}
-
-.link a:hover {
-    text-decoration: underline;
-}
-
-.register {
-    @include linkAsButton();
-
-    transition: background-color 0.2s linear;
-}
-
-.register:hover {
-    background-color: $color-purple-secondary-hover;
-}
-
-.register a {
-    color: #fff;
-}
-
 .login__btn {
     margin-top: 12px;
     width: 332px;

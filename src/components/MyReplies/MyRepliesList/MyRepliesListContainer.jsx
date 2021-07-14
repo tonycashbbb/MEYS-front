@@ -37,7 +37,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   clearUser: () => dispatch(AccountPageActions.setUser(null)),
   getMyRepliesList: (userId) => dispatch(AccountPageActions.getMyRepliesList(userId)),
-  clearMyRepliesList: () => dispatch(AccountPageActions.setMyRepliesList([])),
+  clearMyRepliesList: () => dispatch(AccountPageActions.setMyRepliesList(null)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyRepliesListContainer);

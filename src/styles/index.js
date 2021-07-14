@@ -4,7 +4,8 @@ const color = {
   SECONDARY: '#6498E1',
   SECONDARY_HOVER: '#71ACFF',
   GRAY: "#F4F4F4",
-  BLACK: '#000'
+  BLACK: '#000',
+  SUCCESS: "#50C878",
 }
 
 const theme = {

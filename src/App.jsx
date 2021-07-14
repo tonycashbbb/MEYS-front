@@ -37,7 +37,7 @@ const App = ({
     <div className="wrapper">
       <Header/>
       <main className="content">
-        <React.Suspense fallback={Spinner}>
+        <React.Suspense fallback={<Spinner/>}>
           <Switch>
             <Route path={ROUTER_CONFIG.AUTH.LOGIN} component={Login}/>
             <Route path={ROUTER_CONFIG.AUTH.SIGN_UP} component={CreateAccount}/>

@@ -19,7 +19,7 @@ const CreateAccount = ({
   }
 
   if (isSuccess) {
-    return <Success title={APP_TEXT.success.createAccount.title}/>
+    return <Success text={APP_TEXT.success.createAccount}/>
   }
 
   return (

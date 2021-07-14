@@ -16,7 +16,7 @@ const CreateTender = ({
   }
 
   if (isSuccess) {
-    return <Success title={APP_TEXT.success.createTender.title}/>
+    return <Success text={APP_TEXT.success.createTender}/>
   }
 
   return (

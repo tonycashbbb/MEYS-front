@@ -29,6 +29,7 @@ const HomeTender = ({
                     }) => {
   const [canReply, setCanReply] = useState(true)
   const [isAccepted, setIsAccepted] = useState(false)
+  const [isDeclined, setIsDeclined] = useState(false)
 
   useEffect(() => {
     if (homeTender) {
@@ -42,21 +43,25 @@ const HomeTender = ({
     (async function () {
       if (homeTender) {
         const allReplies = await getAllTenderRequestsAPI()
-        const bufArr = allReplies.filter(reply => reply.tenderId === homeTender.id && reply.userId === userId)
+        const currentReplyArr = allReplies.filter(reply => reply.tenderId === homeTender.id && reply.userId === userId)
 
-        if (bufArr.length === 0) {
+        if (currentReplyArr.length === 0) {
           setCanReply(true)
         } else {
-          allReplies.forEach(reply => {
-            if (reply.status === APP_TEXT.reply.statuses.ACCEPTED) {
-              setIsAccepted(true)
-            }
-          })
+          if (currentReplyArr[0].status === APP_TEXT.reply.statuses.ACCEPTED) {
+            setIsAccepted(true)
+          }
           setCanReply(false)
         }
       }
     }())
   }, [userId, homeTender])
+
+  useEffect(() => {
+    if (!canReply && homeTender.status === APP_TEXT.tender.statuses.ARCHIVED) {
+      setIsDeclined(true)
+    }
+  }, [canReply, homeTender])
 
   const onIsReplying = () => {
     history.push(`/home/tenders/${tenderId}/reply`)
@@ -80,7 +85,7 @@ const HomeTender = ({
   }
 
   if (isSuccess) {
-    return <Success title={APP_TEXT.success.replyToTender.title}/>
+    return <Success text={APP_TEXT.success.replyToTender} tenderId={tenderId}/>
   }
 
   return (
@@ -94,9 +99,11 @@ const HomeTender = ({
                                                 setIsReplying={setIsReplying}/>}
       <div className={s.buttons}>
         {!canReply && <div className={s.replied}>
-          {isAccepted
-            ? <Button btnHover={theme.COLOR.PRIMARY}>{APP_TEXT.general.accepted}</Button>
-            : <Button btnHover={theme.COLOR.PRIMARY}>{APP_TEXT.general.replied}</Button>}
+          {isAccepted && <Button btnColor={theme.COLOR.SUCCESS}
+                                 btnHover={theme.COLOR.SUCCESS}>{APP_TEXT.general.accepted}</Button>}
+          {isDeclined && <Button btnColor={theme.COLOR.PRIMARY}
+                                 btnHover={theme.COLOR.PRIMARY}>{APP_TEXT.general.declined}</Button>}
+          {!isDeclined && <Button btnHover={theme.COLOR.PRIMARY}>{APP_TEXT.general.replied}</Button>}
         </div>}
         <div className={s.repliesCancel}>
           {isRepliesCancel && <Button onClick={onRepliesCancel}

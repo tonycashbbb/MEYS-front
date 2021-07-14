@@ -1,5 +1,4 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
 
 import {Input, Button} from "@components";
@@ -7,6 +6,7 @@ import {required} from "@app/utils/validators";
 import {APP_TEXT} from "@app/i18n";
 
 import s from "./LoginForm.module.scss";
+import theme from "@app/styles";
 
 const LoginForm = (props) => {
   return (
@@ -26,8 +26,10 @@ const LoginForm = (props) => {
         <Button>{APP_TEXT.login.loginBtn}</Button>
       </div>
       <hr/>
-      <div className={s.register}>
-        <NavLink to="/create">{APP_TEXT.login.createBtn}</NavLink>
+      <div className={s.login__btn}>
+        <Button onClick={props.onCreateNavigate}
+                btnColor={theme.COLOR.SECONDARY}
+                btnHover={theme.COLOR.SECONDARY_HOVER}>{APP_TEXT.login.createBtn}</Button>
       </div>
     </form>
   );

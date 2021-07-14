@@ -40,9 +40,10 @@ const CreateTenderForm = ({
                component={Textarea}/>
 
         <div className={s.buttons}>
-          <Button onClick={handleClickCancel}>{APP_TEXT.general.cancel}</Button>
-          <Button btnColor={theme.COLOR.SECONDARY}
-                  btnHover={theme.COLOR.SECONDARY_HOVER}>{APP_TEXT.general.create}</Button>
+          <Button>{APP_TEXT.general.create}</Button>
+          <Button onClick={handleClickCancel}
+                  btnColor={theme.COLOR.SECONDARY}
+                  btnHover={theme.COLOR.SECONDARY_HOVER}>{APP_TEXT.general.cancel}</Button>
         </div>
       </form>
 

@@ -42,7 +42,9 @@ const accountPageReducer = (state = initState, action) => {
         case SET_MY_REPLIES:
             return {
                 ...state,
-                myRepliesList: action.allRequests.filter(request => request.userId === state.user.id)
+                myRepliesList: action.allRequests
+                  ? action.allRequests.filter(request => request.userId === state.user.id)
+                  : null,
             }
         default:
             return state

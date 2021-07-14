@@ -11,12 +11,20 @@ import history from "@app/history";
 import s from './Success.module.scss'
 
 const Success = ({
-                   title,
-                   toggleIsSuccess
+                   text,
+                   toggleIsSuccess,
+                   tenderId
                  }) => {
+  const historyPage = {
+    "loginPage": ROUTER_CONFIG.AUTH.LOGIN,
+    "homePage": `${ROUTER_CONFIG.HOME.BASE}`,
+    "accountTenderPage": `${ROUTER_CONFIG.ACCOUNT.BASE}/${tenderId}`,
+    "accountPage": ROUTER_CONFIG.ACCOUNT.BASE,
+  }
+
   const onBackHome = () => {
     toggleIsSuccess(false)
-    history.push(ROUTER_CONFIG.HOME.BASE)
+    history.push(historyPage[text.historyPage])
   }
 
   return (
@@ -26,10 +34,10 @@ const Success = ({
           <img src={success} alt={APP_TEXT.success.successAlt}/>
         </div>
         <div className={s.title}>
-          {title}
+          {text.title}
         </div>
         <div className={s.back}>
-          <Button onClick={onBackHome}>{APP_TEXT.success.backHome}</Button>
+          <Button onClick={onBackHome}>{text.buttonText}</Button>
         </div>
       </div>
     </div>
