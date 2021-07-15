@@ -6,7 +6,8 @@ import {
   accountTenderReducer,
   homePageReducer,
   homeTenderReducer,
-  authReducer
+  authReducer,
+  appReducer
 } from '@redux/reducers'
 
 export const rootReducer = combineReducers({
@@ -15,5 +16,6 @@ export const rootReducer = combineReducers({
   accountPage: accountPageReducer,
   accountTender: accountTenderReducer,
   auth: authReducer,
+  app: appReducer,
   form: formReducer,
 })

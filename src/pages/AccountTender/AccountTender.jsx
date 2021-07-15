@@ -3,7 +3,8 @@ import React from 'react'
 import {
   Button,
   EditTenderForm,
-  Spinner, Success,
+  Spinner,
+  Success,
   Tender,
   TenderRequestList
 } from "@components";
@@ -38,7 +39,7 @@ const AccountTender = ({
   }
 
   if (isSuccess) {
-    return <Success title={APP_TEXT.success.updateTender.title}/>
+    return <Success text={APP_TEXT.success.updateTender} tenderId={tenderId}/>
   }
 
   return (

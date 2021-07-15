@@ -5,12 +5,12 @@ const _getTenders = state => {
 }
 
 export const selectTenders = createSelector(_getTenders, (tenders) => {
+  if (!tenders) {
+    return tenders
+  }
+
   return tenders.filter(() => true)
 })
-
-export const selectAccountUser = state => {
-  return state.accountPage.user
-}
 
 export const selectIsLoaded = state => {
   return state.accountPage.isLoaded

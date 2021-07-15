@@ -11,9 +11,11 @@ export const EN_US = {
     replied: "Replied",
     accept: "Accept",
     accepted: "Accepted",
+    declined: "Declined",
     create: "Create",
     confirm: "Confirm",
     send: "Send",
+    back: "Back"
   },
   generalUser: {
     username: "Username",
@@ -98,17 +100,24 @@ export const EN_US = {
   success: {
     createTender: {
       title: "Tender has been created",
+      buttonText: "Back to the account page",
+      historyPage: "accountPage"
     },
     updateTender: {
       title: "Tender has been modified",
+      buttonText: "Back to the tender",
+      historyPage: "accountTenderPage"
     },
     createAccount: {
       title: "Account has been created",
+      buttonText: "Back to the login page",
+      historyPage: "loginPage"
     },
     replyToTender: {
-      title: "Reply has been sent",
+      title: "Your reply has been sent",
+      buttonText: "Back to the home page",
+      historyPage: "homePage"
     },
-    goBackText: "Go back",
     successAlt: "Success image"
   },
   confirmation: {

@@ -1,5 +1,5 @@
 export function getQueryParam(paramName, url = window.location.href) {
-  paramName = paramName.replace(/[\[\]]/g, '\\$&');
+  paramName = paramName.replace(/[[\]]/g, '\\$&');
 
   const regex = new RegExp('[?&]' + paramName + '(=([^&#]*)|&|#|$)');
   const results = regex.exec(url);

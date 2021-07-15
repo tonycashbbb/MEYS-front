@@ -29,8 +29,10 @@ const MyTendersContainer = ({
     return () => clearAccountTenders()
   }, [clearAccountTenders, getAccountTenders, userId, setIsLoaded])
 
-  if (accountTenders.length === 0) {
-    return <Spinner/>
+  if (!accountTenders) {
+    return <div style={{width: "70%"}}>
+      <Spinner/>
+    </div>
   }
 
   return <TenderList isAccount
@@ -51,7 +53,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getAccountTenders: (contractorId) => dispatch(AccountPageActions.getAccountTenders(contractorId)),
-  clearAccountTenders: () => dispatch(AccountPageActions.setAccountTenders([])),
+  clearAccountTenders: () => dispatch(AccountPageActions.setAccountTenders(null)),
   startTender: (tenderId, contractorId) => dispatch(AccountPageActions.startTender(tenderId, contractorId)),
   cancelTender: (tenderId, contractorId) => dispatch(AccountPageActions.cancelTender(tenderId, contractorId)),
   retender: (tenderId, contractorId) => dispatch(AccountPageActions.retender(tenderId, contractorId)),

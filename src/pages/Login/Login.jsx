@@ -4,7 +4,9 @@ import {connect} from "react-redux";
 
 import {LoginForm} from "@components";
 import {AuthActions} from "@redux/actions";
+import history from "@app/history";
 import {APP_TEXT} from "@app/i18n";
+import {ROUTER_CONFIG} from "@app/utils/config";
 
 import s from './Login.module.scss';
 
@@ -17,6 +19,11 @@ const Login = (props) => {
     props.login(username, password)
   }
 
+  const onCreateNavigate = (e) => {
+    e.preventDefault()
+    history.push(ROUTER_CONFIG.AUTH.SIGN_UP)
+  }
+
   return (
     <div className={s.auth}>
       <div className="container">
@@ -27,7 +34,7 @@ const Login = (props) => {
               <div className={s.description}>{APP_TEXT.login.description}</div>
             </div>
 
-            <LoginForm onSubmit={onSubmit}/>
+            <LoginForm onSubmit={onSubmit} onCreateNavigate={onCreateNavigate}/>
           </div>
         </div>
       </div>
@@ -39,4 +46,8 @@ const mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth
 })
 
-export default connect(mapStateToProps, {login: AuthActions.login})(Login);
+const mapDispatchToProps = (dispatch) => ({
+  login: (username, password) => dispatch(AuthActions.login(username, password))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -5,17 +5,26 @@ import {Button} from "@components";
 import {AccountPageActions} from '@redux/actions'
 import success from '@app/assets/Success-2.gif'
 import {APP_TEXT} from "@app/i18n";
+import {ROUTER_CONFIG} from "@app/utils/config";
 import history from "@app/history";
 
 import s from './Success.module.scss'
 
 const Success = ({
-                   title,
-                   toggleIsSuccess
+                   text,
+                   toggleIsSuccess,
+                   tenderId
                  }) => {
-  const onGoBack = () => {
+  const historyPage = {
+    "loginPage": ROUTER_CONFIG.AUTH.LOGIN,
+    "homePage": `${ROUTER_CONFIG.HOME.BASE}`,
+    "accountTenderPage": `${ROUTER_CONFIG.ACCOUNT.BASE}/${tenderId}`,
+    "accountPage": ROUTER_CONFIG.ACCOUNT.BASE,
+  }
+
+  const onBackHome = () => {
     toggleIsSuccess(false)
-    history.goBack()
+    history.push(historyPage[text.historyPage])
   }
 
   return (
@@ -25,10 +34,10 @@ const Success = ({
           <img src={success} alt={APP_TEXT.success.successAlt}/>
         </div>
         <div className={s.title}>
-          {title}
+          {text.title}
         </div>
         <div className={s.back}>
-          <Button onClick={onGoBack}>{APP_TEXT.success.goBackText}</Button>
+          <Button onClick={onBackHome}>{text.buttonText}</Button>
         </div>
       </div>
     </div>

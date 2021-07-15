@@ -5,12 +5,12 @@ import {compose} from "redux";
 
 import HomeTender from "./HomeTender";
 import {withRedirectToLogin} from "@hoc";
-import {HomeTenderActions, AccountPageActions} from "@redux/actions";
+import {HomeTenderActions} from "@redux/actions";
 import {
   selectUserId,
-  selectAccountUser,
   selectIsSuccess,
   selectHomeTender,
+  selectTenderOwner,
 } from "@app/selectors";
 
 class HomePageTenderAPI extends React.Component {
@@ -47,7 +47,7 @@ class HomePageTenderAPI extends React.Component {
 const mapStateToProps = (state) => {
   return {
     homeTender: selectHomeTender(state),
-    contractor: selectAccountUser(state),
+    contractor: selectTenderOwner(state),
     userId: selectUserId(state),
     isSuccess: selectIsSuccess(state)
   }
@@ -57,8 +57,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getHomeTender: (tenderId) => dispatch(HomeTenderActions.getHomeTender(tenderId)),
     clearHomeTender: () => dispatch(HomeTenderActions.setHomeTender(null)),
-    getUser: (userId) => dispatch(AccountPageActions.getUser(userId)),
-    clearUser: () => dispatch(AccountPageActions.setUser(null)),
+    getUser: (userId) => dispatch(HomeTenderActions.getTenderOwner(userId)),
+    clearUser: () => dispatch(HomeTenderActions.setTenderOwner(null)),
     replyOnTender: (userId, tenderId, message) => dispatch(HomeTenderActions.replyOnTender(userId, tenderId, message))
   }
 }

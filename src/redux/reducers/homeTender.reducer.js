@@ -1,7 +1,8 @@
-import {SET_HOME_TENDER} from "@redux/actionTypes";
+import {SET_HOME_TENDER, SET_TENDER_OWNER} from "@redux/actionTypes";
 
 const initState = {
-  tender: null
+  tender: null,
+  tenderOwner: null,
 }
 
 const homeTenderReducer = (state = initState, action) => {
@@ -10,6 +11,11 @@ const homeTenderReducer = (state = initState, action) => {
       return {
         ...state,
         tender: action.tender
+      }
+    case SET_TENDER_OWNER:
+      return {
+        ...state,
+        tenderOwner: action.tenderOwner
       }
     default:
       return state
