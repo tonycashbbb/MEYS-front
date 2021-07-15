@@ -9,7 +9,6 @@ class AuthenticationService {
   sessionTokenName = 'token'
 
   checkValidToken(token) {
-
     return instance
       .get(`/auth`, {
         headers: {
@@ -45,7 +44,6 @@ class AuthenticationService {
   logout() {
     sessionStorage.removeItem(this.sessionUsername);
     sessionStorage.removeItem(this.sessionTokenName);
-    this._setupAxiosInterceptors('')
   }
 
   _createBasicAuthToken(username, password) {
@@ -59,7 +57,6 @@ class AuthenticationService {
 
   //sets up the axios interceptor to add the authorization token to every request
   _setupAxiosInterceptors(token) {
-
     instance.interceptors.request.use(
       (config) => {
         if (this._isUserLoggedIn() && config.url !== '/auth') {

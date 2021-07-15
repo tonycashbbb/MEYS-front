@@ -38,7 +38,7 @@ export const createContractor = (userData) => async (dispatch) => {
   if (res.status === 200) {
     dispatch(AccountPageActions.toggleIsSuccess(true))
   } else {
-      dispatch(stopSubmit("createContractor", {_error: "Something went wrong"}))
+    dispatch(stopSubmit("createContractor", {_error: "Something went wrong"}))
   }
 }
 export const checkValidToken = () => async (dispatch) => {
