@@ -6,15 +6,22 @@ import {
     SET_CONTRACTOR_TENDERS,
 } from "@redux/actionTypes"
 
+import {Tender, User, TenderRequest} from "@app/types";
+import { SetAccountTenders, SetIsLoaded, SetMyRepliesList, SetUser, ToggleIsSuccess } from "@redux/types";
+
+export type InitState = typeof initState
+type Action = SetAccountTenders | SetIsLoaded | SetMyRepliesList | SetUser | ToggleIsSuccess
+// 53 - request: any
+
 const initState = {
-    items: null,
-    user: null,
-    myRepliesList: null,
+    items: null as unknown as Array<Tender> | null,
+    user: null as unknown as User,
+    myRepliesList: null as unknown as Array<TenderRequest> | null,
     isLoaded: false,
     isSuccess: false,
 }
 
-const accountPageReducer = (state = initState, action) => {
+const accountPageReducer = (state: InitState = initState, action: Action) => {
     switch (action.type) {
         case SET_CONTRACTOR_TENDERS:
             return {
@@ -43,7 +50,7 @@ const accountPageReducer = (state = initState, action) => {
             return {
                 ...state,
                 myRepliesList: action.allRequests
-                  ? action.allRequests.filter(request => request.userId === state.user.id)
+                  ? action.allRequests.filter((request: any) => request.userId === state.user.id)
                   : null,
             }
         default:

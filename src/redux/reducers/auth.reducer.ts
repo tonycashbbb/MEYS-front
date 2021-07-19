@@ -1,11 +1,16 @@
 import {SET_USER_DATA, TOGGLE_IS_AUTH} from "@redux/actionTypes";
+import {User} from "@app/types";
+import {SetUserData, ToggleIsAuth} from "@redux/types";
+
+export type InitState = typeof initialState
+type Action = SetUserData | ToggleIsAuth
 
 const initialState = {
-  user: null,
+  user: null as unknown as User | null,
   isAuth: false,
 }
 
-const authReducer = (state = initialState, action) => {
+const authReducer = (state: InitState = initialState, action: Action) => {
   switch (action.type) {
     case SET_USER_DATA:
       return {

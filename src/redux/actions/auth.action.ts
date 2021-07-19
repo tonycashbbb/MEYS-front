@@ -1,19 +1,21 @@
 import {stopSubmit} from "redux-form";
 
 import {SET_USER_DATA, TOGGLE_IS_AUTH} from "@redux/actionTypes";
-import {AccountPageActions} from "@redux/actions";
+import {AccountPageActions} from "@redux/actions/index";
 import {createContractorAPI, authService} from "@services";
+import {User} from "@app/types";
+import {SetUserData, ToggleIsAuth} from "@redux/types";
 
-export const setUserData = (userData) => ({type: SET_USER_DATA, userData})
-export const toggleIsAuth = (isAuth) => ({type: TOGGLE_IS_AUTH, isAuth})
+export const setUserData = (userData: User | null): SetUserData => ({type: SET_USER_DATA, userData})
+export const toggleIsAuth = (isAuth: boolean): ToggleIsAuth => ({type: TOGGLE_IS_AUTH, isAuth})
 
-export const getLoggedInUser = () => async (dispatch) => {
+export const getLoggedInUser = () => async (dispatch: any) => {
   const user = await authService.getLoggedInUser()
 
   dispatch(setUserData(user))
   dispatch(toggleIsAuth(true))
 }
-export const login = (username, password) => async (dispatch) => {
+export const login = (username: string, password: string) => async (dispatch: any) => {
   try {
     const res = await authService.executeBasicAuthenticationService(username, password)
 
@@ -25,14 +27,14 @@ export const login = (username, password) => async (dispatch) => {
     dispatch(stopSubmit("login", {_error: "Invalid username or password"}))
   }
 }
-export const logout = () => (dispatch) => {
+export const logout = () => (dispatch: any) => {
   authService.logout()
 
   window.location.href = '/login'
   dispatch(setUserData(null))
   dispatch(toggleIsAuth(false))
 }
-export const createContractor = (userData) => async (dispatch) => {
+export const createContractor = (userData: User) => async (dispatch: any) => {
   const res = await createContractorAPI(userData)
 
   if (res.status === 200) {
@@ -41,7 +43,7 @@ export const createContractor = (userData) => async (dispatch) => {
     dispatch(stopSubmit("createContractor", {_error: "Something went wrong"}))
   }
 }
-export const checkValidToken = () => async (dispatch) => {
+export const checkValidToken = () => async (dispatch: any) => {
   const token = sessionStorage.getItem('token')
 
   if (!token) {

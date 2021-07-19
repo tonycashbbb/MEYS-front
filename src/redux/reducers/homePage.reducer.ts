@@ -4,16 +4,21 @@ import {
   SET_TOTAL_COUNT,
   TOGGLE_IS_LOADED
 } from "@redux/actionTypes";
+import {Tender} from "@app/types";
+import {SetCurrentPage, SetTenders, SetTotalCount, ToggleIsLoaded} from "@redux/types";
+
+export type InitState = typeof initState
+type Action = SetTenders | SetTotalCount | SetCurrentPage | ToggleIsLoaded
 
 const initState = {
-  tenders: [],
+  tenders: [] as Array<Tender>,
   isLoaded: false,
-  totalCount: null,
+  totalCount: null as unknown as number | null,
   pageSize: 10,
   currentPage: 1,
 }
 
-const homePageReducer = (state = initState, action) => {
+const homePageReducer = (state: InitState = initState, action: Action) => {
   switch (action.type) {
     case SET_TENDERS:
       return {
