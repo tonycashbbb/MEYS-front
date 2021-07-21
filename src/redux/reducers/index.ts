@@ -5,6 +5,8 @@ import homePageReducer from "@redux/reducers/homePage.reducer";
 import homeTenderReducer from "@redux/reducers/homeTender.reducer";
 import appReducer from "@redux/reducers/app.reducer";
 
+export * from "@redux/reducers/rootReducer"
+
 export {
   accountPageReducer,
   accountTenderReducer,
