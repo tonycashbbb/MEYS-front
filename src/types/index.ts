@@ -1,3 +1,5 @@
+export * from '@redux/reducers/rootReducer'
+
 export type Tender = {
   id: number
   name: number
