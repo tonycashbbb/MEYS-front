@@ -2,23 +2,20 @@ import {combineReducers} from "redux";
 import {reducer as formReducer} from "redux-form";
 
 import {
-  accountPageReducer,
+  accountReducer,
   accountTenderReducer,
-  homePageReducer,
+  homeReducer,
   homeTenderReducer,
   authReducer,
   appReducer
 } from '@redux/reducers'
 
 export const rootReducer = combineReducers({
-  homePage: homePageReducer,
+  homePage: homeReducer,
   homeTender: homeTenderReducer,
-  accountPage: accountPageReducer,
+  accountPage: accountReducer,
   accountTender: accountTenderReducer,
   auth: authReducer,
   app: appReducer,
   form: formReducer,
 })
-
-type RootReducer = typeof rootReducer
-export type AppState = ReturnType<RootReducer>

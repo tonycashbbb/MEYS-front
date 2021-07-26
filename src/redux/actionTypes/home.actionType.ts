@@ -1,0 +1,2 @@
+export const SET_TENDERS = 'SET_TENDERS'
+export const TOGGLE_IS_LOADED = 'TOGGLE_IS_LOADED'
