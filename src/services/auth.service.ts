@@ -3,14 +3,15 @@ import instance from "./instance.service";
 import history from "@app/history";
 import {ROUTER_CONFIG} from "@app/utils/config";
 import {constants} from "@app/constants";
+import {User} from "@app/types";
 
 class AuthenticationService {
   sessionUsername = 'authenticatedUser'
   sessionTokenName = 'token'
 
-  checkValidToken(token) {
+  checkValidToken(token: string) {
     return instance
-      .get(`/auth`, {
+      .get<{message: string}>(`/auth`, {
         headers: {
           authorization: token
         }
@@ -18,9 +19,9 @@ class AuthenticationService {
       .then(res => res.data)
   }
 
-  executeBasicAuthenticationService(username, password) {
+  executeBasicAuthenticationService(username: string, password: string) {
     return instance
-      .get(`/auth`, {
+      .get<{message: string}>(`/auth`, {
         headers: {
           authorization: this._createBasicAuthToken(username, password)
         }
@@ -28,7 +29,7 @@ class AuthenticationService {
       .then(res => res.data)
   }
 
-  registerSuccessfulLogin(username, password) {
+  registerSuccessfulLogin(username: string, password: string) {
     sessionStorage.setItem(this.sessionUsername, username)
     sessionStorage.setItem(this.sessionTokenName, this._createBasicAuthToken(username, password))
 
@@ -37,7 +38,7 @@ class AuthenticationService {
 
   getLoggedInUser() {
     return instance
-      .get('/getLoggedInUser')
+      .get<User>('/getLoggedInUser')
       .then(res => res.data)
   }
 
@@ -46,7 +47,7 @@ class AuthenticationService {
     sessionStorage.removeItem(this.sessionTokenName);
   }
 
-  _createBasicAuthToken(username, password) {
+  _createBasicAuthToken(username: string, password: string) {
     return `Basic ${window.btoa(username + ":" + password)}`
   }
 
@@ -56,7 +57,7 @@ class AuthenticationService {
   }
 
   //sets up the axios interceptor to add the authorization token to every request
-  _setupAxiosInterceptors(token) {
+  _setupAxiosInterceptors(token: string) {
     instance.interceptors.request.use(
       (config) => {
         if (this._isUserLoggedIn() && config.url !== '/auth') {
@@ -101,7 +102,7 @@ class AuthenticationService {
 
 export const authService = new AuthenticationService()
 
-export const createContractorAPI = (data) => {
+export const createUserAPI = (userData: User) => {
   return instance
-    .post("/contractors", data)
+    .post<User>("/contractors", userData)
 }

@@ -2,7 +2,7 @@ import {createSelector} from "reselect";
 import {AppState} from "@app/types";
 
 const _getTenders = (state: AppState) => {
-  return state.accountPage.tenders
+  return state.account.tenders
 }
 
 export const selectTenders = createSelector(_getTenders, (tenders) => {
@@ -14,11 +14,11 @@ export const selectTenders = createSelector(_getTenders, (tenders) => {
 })
 
 export const selectIsLoaded = (state: AppState) => {
-  return state.accountPage.isLoaded
+  return state.account.isLoaded
 }
 
 export const selectMyRepliesList = (state: AppState) => {
-  return state.accountPage.myRepliesList
+  return state.account.myRepliesList
 }
 
 export const selectTenderCreator = (state: AppState) => {
@@ -26,5 +26,5 @@ export const selectTenderCreator = (state: AppState) => {
 }
 
 export const selectIsSuccess = (state: AppState) => {
-  return state.accountPage.isSuccess
+  return state.account.isSuccess
 }

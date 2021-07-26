@@ -1,3 +1,5 @@
+import {Dispatch} from "redux";
+
 import {
   SET_ACCOUNT_TENDER,
   SET_TENDER_CREATOR,
@@ -6,13 +8,15 @@ import {
 import {
   getTenderAPI,
   acceptTenderRequestAPI,
-  getContractorAPI,
+  getUserAPI,
   getTenderRequestsAPI,
   updateTenderAPI
 } from "@services";
 import {AccountPageActions} from "@redux/actions/index";
 import {Tender, TenderRequest, User} from "@app/types";
 import { SetAccountTender, SetTenderCreator, SetTenderRequests } from "@redux/types";
+
+type Action = SetAccountTender | SetTenderCreator | SetTenderRequests
 
 export const setAccountTender = (tender: Tender): SetAccountTender => ({type: SET_ACCOUNT_TENDER, tender})
 export const setTenderRequests = (tenderRequests: Array<TenderRequest>): SetTenderRequests => ({
@@ -21,18 +25,19 @@ export const setTenderRequests = (tenderRequests: Array<TenderRequest>): SetTend
 })
 export const setTenderCreator = (tenderCreator: User): SetTenderCreator => ({type: SET_TENDER_CREATOR, tenderCreator})
 
-export const getAccountTender = (tenderId: number) => async (dispatch: any) => {
+export const getAccountTender = (tenderId: number) => async (dispatch: Dispatch<Action>) => {
   const tender = await getTenderAPI(tenderId)
   dispatch(setAccountTender(tender))
 }
-export const getTenderCreator = (tenderCreatorId: number) => async (dispatch: any) => {
-  const tenderCreator = await getContractorAPI(tenderCreatorId)
+export const getTenderCreator = (tenderCreatorId: number) => async (dispatch: Dispatch<Action>) => {
+  const tenderCreator = await getUserAPI(tenderCreatorId)
   dispatch(setTenderCreator(tenderCreator))
 }
-export const getTenderRequests = (tenderId: number) => async (dispatch: any) => {
+export const getTenderRequests = (tenderId: number) => async (dispatch: Dispatch<Action>) => {
   const tenderRequests = await getTenderRequestsAPI(tenderId)
   dispatch(setTenderRequests(tenderRequests))
 }
+// dispatch of thunk
 export const acceptTenderRequest = (tenderRequestId: number, tenderId: number) => async (dispatch: any) => {
   const res = await acceptTenderRequestAPI(tenderRequestId)
 

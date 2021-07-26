@@ -11,9 +11,9 @@ import {
 } from '@redux/reducers'
 
 export const rootReducer = combineReducers({
-  homePage: homeReducer,
+  home: homeReducer,
   homeTender: homeTenderReducer,
-  accountPage: accountReducer,
+  account: accountReducer,
   accountTender: accountTenderReducer,
   auth: authReducer,
   app: appReducer,

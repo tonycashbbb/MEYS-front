@@ -45,7 +45,7 @@ const mapStateToProps = (state: AppState) => {
   }
 }
 
-const connector = connect(mapStateToProps)
+const connector = connect(mapStateToProps, {getHomeTenders: HomePageActions.getHomeTenders})
 
 export default compose(
   connect(mapStateToProps, {getHomeTenders: HomePageActions.getHomeTenders}),

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 
 import {
   TenderList,
@@ -6,10 +6,18 @@ import {
   Spinner
 } from "@components";
 import {APP_TEXT} from "@app/i18n";
+import {Tender, User} from "@app/types";
 
 import s from './Home.module.scss';
 
-const Home = ({
+type Props = {
+  homeTenders: Array<Tender>
+  user: User | null
+  userId: number | null
+  isLoaded: boolean
+}
+
+const Home: FC<Props> = ({
                 homeTenders,
                 isLoaded,
                 userId,

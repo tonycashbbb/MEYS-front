@@ -2,7 +2,7 @@ import {createSelector} from "reselect";
 import {AppState} from "@app/types";
 
 const getHomeTenders = (state: AppState) => {
-  return state.homePage.tenders
+  return state.home.tenders
 }
 
 export const selectHomeTenders = createSelector(getHomeTenders, (tenders) => {
@@ -10,5 +10,5 @@ export const selectHomeTenders = createSelector(getHomeTenders, (tenders) => {
 })
 
 export const selectHomeIsLoaded = (state: AppState) => {
-  return state.homePage.isLoaded
+  return state.home.isLoaded
 }

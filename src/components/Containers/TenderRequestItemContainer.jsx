@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 
 import {TenderRequestItem} from "@components";
 import {AccountTenderActions} from "@redux/actions";
-import {getContractorAPI} from "@services";
+import {getUserAPI} from "@services";
 
 import spinner from "@app/assets/Spinner.gif";
 
@@ -22,7 +22,7 @@ const TenderRequestItemContainer = ({
   useEffect(() => {
     (async function(){
       if (requestCreatorId) {
-        const requestCreator = await getContractorAPI(requestCreatorId)
+        const requestCreator = await getUserAPI(requestCreatorId)
         setRequestCreator(requestCreator)
       }
     }())
@@ -46,6 +46,6 @@ const TenderRequestItemContainer = ({
 };
 
 export default connect(null, {
-  getContractorAPI,
+  getUserAPI,
   acceptTenderRequest: AccountTenderActions.acceptTenderRequest
 })(TenderRequestItemContainer);

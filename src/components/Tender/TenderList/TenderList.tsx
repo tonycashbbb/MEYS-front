@@ -1,4 +1,4 @@
-import React from "react";
+import React, {FC} from "react";
 import {NavLink} from "react-router-dom";
 
 import {Button} from "@components";
@@ -6,23 +6,43 @@ import {APP_TEXT} from "@app/i18n";
 
 import theme from "@app/styles";
 import s from "./TenderList.module.scss";
+import {Tender} from "@app/types";
 
 const {
   statuses: {FEATURED, ONGOING, CANCELED, ARCHIVED, RETENDER},
   statusButtons: {start, cancel, retender: retenderText}
 } = APP_TEXT.tender
 
-const TenderList = ({
-                      listItems,
-                      title,
-                      isAccount = false,
-                      startTender,
-                      cancelTender,
-                      retender,
-                      userId,
-                      showReplies
-                    }) => {
+type TenderAction = (tenderId: number, userId: number) => void
+
+type Props = {
+  title: string,
+  listItems: Array<Tender>,
+  userId: number | null,
+  isAccount?: boolean,
+  startTender?: TenderAction,
+  cancelTender?: TenderAction,
+  retender?: TenderAction,
+  showReplies?: () => void
+}
+
+const TenderList: FC<Props> = ({
+                                 listItems,
+                                 title,
+                                 isAccount = false,
+                                 startTender,
+                                 cancelTender,
+                                 retender,
+                                 userId,
+                                 showReplies
+                               }) => {
   const statuses = [ARCHIVED, CANCELED, RETENDER]
+
+  const handleTenderActions = (tenderId: number, callback: TenderAction | undefined) => {
+    if (userId) {
+      callback?.(tenderId, userId)
+    }
+  }
 
   return (
     <div className={s.content}>
@@ -48,15 +68,18 @@ const TenderList = ({
                 </div>
                 {isAccount && <div className={s.right}>
                   <div className={s.startBtn}>
-                    {tender.status === FEATURED && <Button btnColor={theme.COLOR.GRAY}
-                                                           textColor={theme.COLOR.BLACK}
-                                                           onClick={() => startTender(tender.id, userId)}>{start}</Button>}
-                    {tender.status === ONGOING && <Button btnColor={theme.COLOR.GRAY}
-                                                          textColor={theme.COLOR.BLACK}
-                                                          onClick={() => cancelTender(tender.id, userId)}>{cancel}</Button>}
-                    {statuses.includes(tender.status) && <Button btnColor={theme.COLOR.GRAY}
-                                                                 textColor={theme.COLOR.BLACK}
-                                                                 onClick={() => retender(tender.id, userId)}>{retenderText}</Button>}
+                    {tender.status === FEATURED &&
+                    <Button btnColor={theme.COLOR.GRAY}
+                            textColor={theme.COLOR.BLACK}
+                            onClick={() => handleTenderActions(tender.id, startTender)}>{start}</Button>}
+                    {tender.status === ONGOING &&
+                    <Button btnColor={theme.COLOR.GRAY}
+                            textColor={theme.COLOR.BLACK}
+                            onClick={() => handleTenderActions(tender.id, cancelTender)}>{cancel}</Button>}
+                    {statuses.includes(tender.status) &&
+                    <Button btnColor={theme.COLOR.GRAY}
+                            textColor={theme.COLOR.BLACK}
+                            onClick={() => handleTenderActions(tender.id, retender)}>{retenderText}</Button>}
                   </div>
                 </div>}
               </li>

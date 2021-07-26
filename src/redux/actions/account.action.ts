@@ -1,3 +1,5 @@
+import {Dispatch} from "redux";
+
 import {
   SET_CONTRACTOR_TENDERS,
   SET_IS_LOADED,
@@ -9,13 +11,15 @@ import {
   cancelTenderAPI,
   createTenderAPI,
   getAllTenderRequestsAPI,
-  getContractorAPI,
-  getContractorTendersAPI,
+  getUserAPI,
+  getAccountTendersAPI,
   retenderAPI,
   startTenderAPI,
 } from "@services";
 import {Tender, TenderRequest, User} from "@app/types";
 import { SetAccountTenders, SetIsLoaded, SetMyRepliesList, SetUser, ToggleIsSuccess } from "@redux/types";
+
+type Action = SetAccountTenders | SetIsLoaded | SetMyRepliesList | SetUser | ToggleIsSuccess
 
 export const setAccountTenders = (contractorTenders: Array<Tender> | null): SetAccountTenders => ({
   type: SET_CONTRACTOR_TENDERS,
@@ -29,14 +33,19 @@ export const setUser = (user: User | null): SetUser => ({type: SET_USER, user})
 export const toggleIsSuccess = (isSuccess: boolean): ToggleIsSuccess => ({type: TOGGLE_IS_SUCCESS, isSuccess})
 export const setIsLoaded = (isLoaded: boolean): SetIsLoaded => ({type: SET_IS_LOADED, isLoaded})
 
-export const getAccountTenders = (contractorId: number) => (dispatch: any) => {
-  getContractorTendersAPI(contractorId)
+export const getAccountTenders = (contractorId: number) => (dispatch: Dispatch<Action>) => {
+  getAccountTendersAPI(contractorId)
     .then((tenders: Array<Tender>) => {
       dispatch(setAccountTenders(tenders))
       dispatch(setIsLoaded(true))
     })
 }
-export const createTender = (name: string, budget: number, description: string, contractorId: number) => (dispatch: any) => {
+export const createTender = (
+  name: string,
+  budget: number,
+  description: string,
+  contractorId: number
+) => (dispatch: Dispatch<Action>) => {
   createTenderAPI(name, budget, description, contractorId)
     .then((res: any) => {
       if (res.status === 200) {
@@ -44,6 +53,7 @@ export const createTender = (name: string, budget: number, description: string, 
       }
     })
 }
+// dispatch of thunk
 export const startTender = (tenderId: number, contractorId: number) => async (dispatch: any) => {
   await startTenderAPI(tenderId)
   dispatch(getAccountTenders(contractorId))
@@ -56,8 +66,8 @@ export const retender = (tenderId: number, contractorId: number) => async (dispa
   await retenderAPI(tenderId)
   dispatch(getAccountTenders(contractorId))
 }
-export const getMyRepliesList = (userId: number) => async (dispatch: any) => {
-  const user = await getContractorAPI(userId)
+export const getMyRepliesList = (userId: number) => async (dispatch: Dispatch<Action>) => {
+  const user = await getUserAPI(userId)
   dispatch(setUser(user))
 
   const res = await getAllTenderRequestsAPI()

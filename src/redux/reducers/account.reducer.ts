@@ -26,7 +26,7 @@ const accountReducer = (state: InitState = initState, action: Action) => {
         case SET_CONTRACTOR_TENDERS:
             return {
                 ...state,
-                items: action.contractorTenders
+                tenders: action.contractorTenders
                   ? [...action.contractorTenders]
                   : null
             }
