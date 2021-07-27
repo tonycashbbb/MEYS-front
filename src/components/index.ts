@@ -10,7 +10,7 @@ import Success from "@app/components/Success/Success";
 import RouteLeavingGuard from "@app/components/RouteLeavingGuard/RouteLeavingGuard";
 import TenderRequestItem from "@app/components/Tender/TenderRequestItem/TenderRequestItem";
 
-export * from './Containers'
+export * from './containers'
 export * from './Form'
 export * from './ui'
 

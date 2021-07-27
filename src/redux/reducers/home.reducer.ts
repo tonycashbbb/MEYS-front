@@ -1,7 +1,4 @@
-import {
-  SET_TENDERS,
-  TOGGLE_IS_LOADED
-} from "@redux/actionTypes";
+import * as ActionTypes from "@redux/actionTypes";
 import {Tender} from "@app/types";
 import {SetTenders, ToggleIsLoaded} from "@redux/types";
 
@@ -18,12 +15,12 @@ const initState = {
 
 const homeReducer = (state: InitState = initState, action: Action) => {
   switch (action.type) {
-    case SET_TENDERS:
+    case ActionTypes.SET_TENDERS:
       return {
         ...state,
         tenders: [...action.tenders]
       }
-    case TOGGLE_IS_LOADED:
+    case ActionTypes.TOGGLE_IS_LOADED:
       return {
         ...state,
         isLoaded: action.isLoaded

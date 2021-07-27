@@ -1,4 +1,4 @@
-import {SET_HOME_TENDER, SET_TENDER_OWNER} from "@redux/actionTypes";
+import * as ActionTypes from "@redux/actionTypes";
 import {SetHomeTender, SetTenderOwner} from "@redux/types";
 import {Tender, User} from "@app/types";
 
@@ -12,12 +12,12 @@ const initState = {
 
 const homeTenderReducer = (state: InitState = initState, action: Action) => {
   switch (action.type) {
-    case SET_HOME_TENDER:
+    case ActionTypes.SET_HOME_TENDER:
       return {
         ...state,
         tender: action.tender
       }
-    case SET_TENDER_OWNER:
+    case ActionTypes.SET_TENDER_OWNER:
       return {
         ...state,
         tenderOwner: action.tenderOwner

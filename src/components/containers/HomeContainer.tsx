@@ -15,17 +15,13 @@ import {AppState} from "@app/types";
 
 type PropsFromRedux = ConnectedProps<typeof connector>
 
-type OwnProps = {}
-
-type Props = PropsFromRedux & OwnProps
-
-const HomePageAPI: FC<Props> = ({
-                       homeTenders,
-                       user,
-                       userId,
-                       isLoaded,
-                       getHomeTenders
-                     }) => {
+const HomePageAPI: FC<PropsFromRedux> = ({
+                                  homeTenders,
+                                  user,
+                                  userId,
+                                  isLoaded,
+                                  getHomeTenders
+                                }) => {
   useEffect(() => {
     getHomeTenders()
   }, [getHomeTenders])

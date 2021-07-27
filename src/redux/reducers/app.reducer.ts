@@ -1,4 +1,4 @@
-import {APP_INITIALIZED_SUCCESS} from "@redux/actionTypes"
+import * as ActionTypes from "@redux/actionTypes";
 import {InitializeAppSuccess} from "@redux/types";
 
 export type InitState = typeof initState
@@ -10,7 +10,7 @@ const initState = {
 
 const appReducer = (state: InitState = initState, action: Action) => {
   switch (action.type) {
-    case APP_INITIALIZED_SUCCESS:
+    case ActionTypes.APP_INITIALIZED_SUCCESS:
       return {
         ...state,
         isInitialized: true

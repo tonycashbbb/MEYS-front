@@ -1,25 +1,29 @@
-import React from 'react';
+import React, {ChangeEvent, FC} from 'react';
 import {Redirect} from "react-router-dom";
-import {connect} from "react-redux";
+import {connect, ConnectedProps} from "react-redux";
 
 import {LoginForm} from "@components";
 import {AuthActions} from "@redux/actions";
 import history from "@app/history";
 import {APP_TEXT} from "@app/i18n";
 import {ROUTER_CONFIG} from "@app/utils/config";
+import {LoginFormData} from "@components/types";
+import {AppState} from "@app/types";
 
 import s from './Login.module.scss';
 
-const Login = (props) => {
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+const Login: FC<PropsFromRedux> = (props) => {
   if (props.isAuth) {
     return <Redirect to={"/home/tenders"} />
   }
 
-  const onSubmit = ({username, password}) => {
+  const onSubmit = ({username, password}: LoginFormData) => {
     props.login(username, password)
   }
 
-  const onCreateNavigate = (e) => {
+  const onCreateNavigate = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
     history.push(ROUTER_CONFIG.AUTH.SIGN_UP)
   }
@@ -42,12 +46,10 @@ const Login = (props) => {
   );
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppState) => ({
   isAuth: state.auth.isAuth
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  login: (username, password) => dispatch(AuthActions.login(username, password))
-})
+const connector = connect(mapStateToProps, {login: AuthActions.login})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, {login: AuthActions.login})(Login);

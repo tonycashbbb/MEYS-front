@@ -53,7 +53,7 @@ const App: React.FC<Props> = ({
 
             <Route path={`${ROUTER_CONFIG.HOME.BASE}/:id/reply`} component={HomeTenderContainer}/>
             <Route path={`${ROUTER_CONFIG.HOME.BASE}/:id`} component={HomeTenderContainer}/>
-            {/*@ts-ignore*/}
+            {/*@ts-ignore --Type props, that route gives to component  */}
             <Route path={ROUTER_CONFIG.HOME.BASE} component={HomeContainer}/>
 
             <Route path={`${ROUTER_CONFIG.ACCOUNT.BASE}/:id/edit`} component={AccountTenderContainer}/>

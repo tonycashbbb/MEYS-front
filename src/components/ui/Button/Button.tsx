@@ -1,7 +1,15 @@
-import React from "react";
+import React, {FC} from "react";
 import styled from 'styled-components'
 
-const StyledButton = styled.button`
+type Props = {
+  onClick?: (e?: any) => void
+  textColor?: string
+  textHover?: string
+  btnColor?: string
+  btnHover?: string
+}
+
+const StyledButton = styled.button<Props>`
     padding: 7px 20px;
     width: 280px;
     border-radius: 20px;
@@ -21,7 +29,7 @@ const StyledButton = styled.button`
     background-color: ${props => props.btnColor || "#CB9AE1"};
   `
 
-const Button = ({onClick, ...props}) => {
+const Button: FC<Props> = ({onClick, ...props}) => {
   return <StyledButton onClick={onClick} {...props}/>
 }
 

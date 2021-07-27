@@ -39,7 +39,7 @@ export const logout = () => (dispatch: Dispatch<Action>) => {
   dispatch(toggleIsAuth(false))
 }
 // stopSubmit
-export const createContractor = (userData: User) => async (dispatch: any) => {
+export const createUser = (userData: User) => async (dispatch: any) => {
   const res = await createUserAPI(userData)
 
   if (res.status === 200) {

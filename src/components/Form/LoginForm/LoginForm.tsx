@@ -1,14 +1,19 @@
-import React from 'react';
-import {Field, reduxForm} from "redux-form";
+import React, {ChangeEvent, FC} from 'react';
+import {Field, InjectedFormProps, reduxForm} from "redux-form";
 
 import {Input, Button} from "@components";
 import {required} from "@app/utils/validators";
 import {APP_TEXT} from "@app/i18n";
+import {LoginFormData} from "@components/types";
 
 import s from "./LoginForm.module.scss";
 import theme from "@app/styles";
 
-const LoginForm = (props) => {
+type OwnProps = {
+  onCreateNavigate: (e: ChangeEvent<HTMLInputElement>) => void
+}
+
+const LoginForm: FC<InjectedFormProps<LoginFormData, OwnProps> & OwnProps> = (props) => {
   return (
     <form className={s.form} onSubmit={props.handleSubmit}>
       <Field type={"text"}
@@ -35,6 +40,6 @@ const LoginForm = (props) => {
   );
 };
 
-export default reduxForm({
+export default reduxForm<LoginFormData, OwnProps>({
   form: "login"
 })(LoginForm);
