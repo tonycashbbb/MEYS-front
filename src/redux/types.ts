@@ -9,7 +9,7 @@ import {
 } from "@redux/actionTypes";
 import {Tender, TenderRequest, User} from "@app/types";
 
-// here are types for actions
+export type Nullable<T> = T | null
 
 // accountPage
 export type SetAccountTenders = {
@@ -23,10 +23,6 @@ export type SetMyRepliesList = {
 export type SetUser = {
   type: typeof SET_USER
   user: User | null
-}
-export type ToggleIsSuccess = {
-  type: typeof TOGGLE_IS_SUCCESS
-  isSuccess: boolean
 }
 export type SetIsLoaded = {
   type: typeof SET_IS_LOADED
@@ -50,6 +46,10 @@ export type SetTenderCreator = {
 // app
 export type InitializeAppSuccess = {
   type: typeof APP_INITIALIZED_SUCCESS
+}
+export type ToggleIsSuccess = {
+  type: typeof TOGGLE_IS_SUCCESS
+  isSuccess: boolean
 }
 
 // auth

@@ -1,14 +1,14 @@
 import * as ActionTypes from "@redux/actionTypes";
 import {Tender} from "@app/types";
-import {SetTenders, ToggleIsLoaded} from "@redux/types";
+import {Nullable, SetTenders, ToggleIsLoaded} from "@redux/types";
 
-export type InitState = typeof initState
+type InitState = typeof initState
 type Action = SetTenders | ToggleIsLoaded
 
 const initState = {
   tenders: [] as Array<Tender>,
   isLoaded: false,
-  totalCount: null as unknown as number | null,
+  totalCount: null as Nullable<number>,
   pageSize: 10,
   currentPage: 1,
 }

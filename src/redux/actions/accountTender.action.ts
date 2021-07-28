@@ -1,10 +1,6 @@
 import {Dispatch} from "redux";
 
-import {
-  SET_ACCOUNT_TENDER,
-  SET_TENDER_CREATOR,
-  SET_TENDER_REQUESTS
-} from "@redux/actionTypes";
+import * as ActionTypes from "@redux/actionTypes";
 import {
   getTenderAPI,
   acceptTenderRequestAPI,
@@ -12,18 +8,18 @@ import {
   getTenderRequestsAPI,
   updateTenderAPI
 } from "@services";
-import {AccountPageActions} from "@redux/actions/index";
+import {AppActions} from "@redux/actions/index";
 import {Tender, TenderRequest, User} from "@app/types";
 import { SetAccountTender, SetTenderCreator, SetTenderRequests } from "@redux/types";
 
 type Action = SetAccountTender | SetTenderCreator | SetTenderRequests
 
-export const setAccountTender = (tender: Tender): SetAccountTender => ({type: SET_ACCOUNT_TENDER, tender})
+export const setAccountTender = (tender: Tender): SetAccountTender => ({type: ActionTypes.SET_ACCOUNT_TENDER, tender})
 export const setTenderRequests = (tenderRequests: Array<TenderRequest>): SetTenderRequests => ({
-  type: SET_TENDER_REQUESTS,
+  type: ActionTypes.SET_TENDER_REQUESTS,
   tenderRequests
 })
-export const setTenderCreator = (tenderCreator: User): SetTenderCreator => ({type: SET_TENDER_CREATOR, tenderCreator})
+export const setTenderCreator = (tenderCreator: User): SetTenderCreator => ({type: ActionTypes.SET_TENDER_CREATOR, tenderCreator})
 
 export const getAccountTender = (tenderId: number) => async (dispatch: Dispatch<Action>) => {
   const tender = await getTenderAPI(tenderId)
@@ -50,6 +46,6 @@ export const updateTender = (tenderData: Tender) => async (dispatch: any) => {
 
   if (res.status === 200) {
     dispatch(getAccountTender(tenderData.id))
-    dispatch(AccountPageActions.toggleIsSuccess(true))
+    dispatch(AppActions.toggleIsSuccess(true))
   }
 }

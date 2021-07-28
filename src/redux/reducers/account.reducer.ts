@@ -1,14 +1,14 @@
 import * as ActionTypes from "@redux/actionTypes"
 import {Tender, User, TenderRequest} from "@app/types";
-import {SetAccountTenders, SetIsLoaded, SetMyRepliesList, SetUser, ToggleIsSuccess} from "@redux/types";
+import {Nullable, SetAccountTenders, SetIsLoaded, SetMyRepliesList, SetUser, ToggleIsSuccess} from "@redux/types";
 
-export type InitState = typeof initState
+type InitState = typeof initState
 type Action = SetAccountTenders | SetIsLoaded | SetMyRepliesList | SetUser | ToggleIsSuccess
 
 const initState = {
-    tenders: null as unknown as Array<Tender> | null,
-    user: null as unknown as User | null,
-    myRepliesList: null as unknown as Array<TenderRequest> | null,
+    tenders: null as Nullable<Array<Tender>>,
+    user: null as Nullable<User>,
+    myRepliesList: null as Nullable<Array<TenderRequest>>,
     isLoaded: false,
     isSuccess: false,
 }

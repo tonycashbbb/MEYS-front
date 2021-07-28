@@ -3,7 +3,7 @@ import {compose} from "redux";
 
 import {CreateTender} from "@app/pages";
 import {withRedirectToLogin} from "@hoc";
-import {AccountPageActions} from "@redux/actions";
+import {AccountActions} from "@redux/actions";
 import {selectIsSuccess, selectUserId} from "@app/selectors";
 import {AppState} from "@app/types";
 
@@ -15,7 +15,7 @@ const mapStateToProps = (state: AppState) => ({
 
 const mapDispatchToProps = (dispatch: any) => ({
   createTender: (name: string, budget: number, description: string, contractorId: number) => {
-    dispatch(AccountPageActions.createTender(name, budget, description, contractorId))
+    dispatch(AccountActions.createTender(name, budget, description, contractorId))
   }
 })
 

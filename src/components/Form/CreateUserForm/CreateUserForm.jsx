@@ -7,9 +7,9 @@ import {APP_TEXT} from "@app/i18n";
 import history from "@app/history";
 
 import theme from "@app/styles";
-import s from "./CreateContractorForm.module.scss";
+import s from "./CreateUserForm.module.scss";
 
-const CreateContractorForm = ({
+const CreateUserForm = ({
                                 formValues = {},
                                 handleSubmit,
                                 error
@@ -79,5 +79,5 @@ const CreateContractorForm = ({
 };
 
 export default reduxForm({
-  form: "createContractor"
-})(CreateContractorForm);
+  form: "createUser"
+})(CreateUserForm);

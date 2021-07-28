@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import {connect} from "react-redux";
 import {compose} from "redux";
 
-import AccountTender from "../../pages/AccountTender/AccountTender";
+import AccountTender from "../pages/AccountTender/AccountTender";
 import {withRedirectToLogin} from "@hoc";
 import {AccountTenderActions} from "@redux/actions";
 import {selectIsSuccess, selectTenderCreator} from "@app/selectors";

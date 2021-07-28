@@ -1,12 +1,6 @@
 import {Dispatch} from "redux";
 
-import {
-  SET_CONTRACTOR_TENDERS,
-  SET_IS_LOADED,
-  SET_MY_REPLIES,
-  SET_USER,
-  TOGGLE_IS_SUCCESS
-} from "@redux/actionTypes";
+import * as ActionTypes from "@redux/actionTypes";
 import {
   cancelTenderAPI,
   createTenderAPI,
@@ -16,22 +10,22 @@ import {
   retenderAPI,
   startTenderAPI,
 } from "@services";
+import {AppActions} from "@redux/actions"
 import {Tender, TenderRequest, User} from "@app/types";
-import { SetAccountTenders, SetIsLoaded, SetMyRepliesList, SetUser, ToggleIsSuccess } from "@redux/types";
+import {Nullable, SetAccountTenders, SetIsLoaded, SetMyRepliesList, SetUser, ToggleIsSuccess} from "@redux/types";
 
-type Action = SetAccountTenders | SetIsLoaded | SetMyRepliesList | SetUser | ToggleIsSuccess
+type Action = SetAccountTenders | SetMyRepliesList | SetUser | SetIsLoaded | ToggleIsSuccess
 
-export const setAccountTenders = (contractorTenders: Array<Tender> | null): SetAccountTenders => ({
-  type: SET_CONTRACTOR_TENDERS,
+export const setAccountTenders = (contractorTenders: Nullable<Array<Tender>>) => ({
+  type: ActionTypes.SET_CONTRACTOR_TENDERS,
   contractorTenders
-})
-export const setMyRepliesList = (allRequests: Array<TenderRequest> | null): SetMyRepliesList => ({
-  type: SET_MY_REPLIES,
+} as const)
+export const setMyRepliesList = (allRequests: Nullable<Array<TenderRequest>>) => ({
+  type: ActionTypes.SET_MY_REPLIES,
   allRequests
-})
-export const setUser = (user: User | null): SetUser => ({type: SET_USER, user})
-export const toggleIsSuccess = (isSuccess: boolean): ToggleIsSuccess => ({type: TOGGLE_IS_SUCCESS, isSuccess})
-export const setIsLoaded = (isLoaded: boolean): SetIsLoaded => ({type: SET_IS_LOADED, isLoaded})
+} as const)
+export const setUser = (user: Nullable<User>) => ({type: ActionTypes.SET_USER, user} as const)
+export const setIsLoaded = (isLoaded: boolean) => ({type: ActionTypes.SET_IS_LOADED, isLoaded} as const)
 
 export const getAccountTenders = (contractorId: number) => (dispatch: Dispatch<Action>) => {
   getAccountTendersAPI(contractorId)
@@ -49,7 +43,7 @@ export const createTender = (
   createTenderAPI(name, budget, description, contractorId)
     .then((res: any) => {
       if (res.status === 200) {
-        dispatch(toggleIsSuccess(true))
+        dispatch(AppActions.toggleIsSuccess(true))
       }
     })
 }

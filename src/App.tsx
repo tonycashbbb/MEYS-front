@@ -5,24 +5,18 @@ import {connect, ConnectedProps} from "react-redux";
 import {
   AccountTenderContainer,
   CreateTenderContainer,
-  Footer,
-  Header,
   HomeContainer,
-  HomeTenderContainer,
-  Spinner
-} from "@components";
-import {
-  Account,
-  Login,
-  Error
-} from "@app/pages";
+  HomeTenderContainer
+} from "@app/containers";
+import {Footer, Header, Spinner} from "@components";
+import {Account, Login, Error} from "@app/pages";
 import {ROUTER_CONFIG} from "@app/utils/config";
 import {AppState} from '@app/types';
 import {AppActions} from "@redux/actions";
 
 import '@app/styles/global.scss'
 
-const CreateAccount = React.lazy(() => import("./pages/CreateAccount/CreateAccount"))
+const CreateUser = React.lazy(() => import("./pages/CreateUser/CreateUser"))
 
 type PropsFromRedux = ConnectedProps<typeof connector>
 
@@ -49,11 +43,11 @@ const App: React.FC<Props> = ({
         <React.Suspense fallback={<Spinner/>}>
           <Switch>
             <Route path={ROUTER_CONFIG.AUTH.LOGIN} component={Login}/>
-            <Route path={ROUTER_CONFIG.AUTH.SIGN_UP} component={CreateAccount}/>
+            <Route path={ROUTER_CONFIG.AUTH.SIGN_UP} component={CreateUser}/>
 
             <Route path={`${ROUTER_CONFIG.HOME.BASE}/:id/reply`} component={HomeTenderContainer}/>
             <Route path={`${ROUTER_CONFIG.HOME.BASE}/:id`} component={HomeTenderContainer}/>
-            {/*@ts-ignore --Type props, that route gives to component  */}
+            {/*@ts-ignore --Type props, that route gives to component -? */}
             <Route path={ROUTER_CONFIG.HOME.BASE} component={HomeContainer}/>
 
             <Route path={`${ROUTER_CONFIG.ACCOUNT.BASE}/:id/edit`} component={AccountTenderContainer}/>

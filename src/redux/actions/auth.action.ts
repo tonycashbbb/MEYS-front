@@ -1,16 +1,16 @@
 import {Dispatch} from "redux";
 import {stopSubmit} from "redux-form";
 
-import {SET_USER_DATA, TOGGLE_IS_AUTH} from "@redux/actionTypes";
-import {AccountPageActions} from "@redux/actions/index";
+import * as ActionTypes from "@redux/actionTypes";
+import {AppActions} from "@redux/actions/index";
 import {createUserAPI, authService} from "@services";
 import {User} from "@app/types";
 import {SetUserData, ToggleIsAuth} from "@redux/types";
 
 type Action = SetUserData | ToggleIsAuth
 
-export const setUserData = (userData: User | null): SetUserData => ({type: SET_USER_DATA, userData})
-export const toggleIsAuth = (isAuth: boolean): ToggleIsAuth => ({type: TOGGLE_IS_AUTH, isAuth})
+export const setUserData = (userData: User | null): SetUserData => ({type: ActionTypes.SET_USER_DATA, userData})
+export const toggleIsAuth = (isAuth: boolean): ToggleIsAuth => ({type: ActionTypes.TOGGLE_IS_AUTH, isAuth})
 
 export const getLoggedInUser = () => async (dispatch: Dispatch<Action>) => {
   const user = await authService.getLoggedInUser()
@@ -43,7 +43,7 @@ export const createUser = (userData: User) => async (dispatch: any) => {
   const res = await createUserAPI(userData)
 
   if (res.status === 200) {
-    dispatch(AccountPageActions.toggleIsSuccess(true))
+    dispatch(AppActions.toggleIsSuccess(true))
   } else {
     dispatch(stopSubmit("createContractor", {_error: "Something went wrong"}))
   }

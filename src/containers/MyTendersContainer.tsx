@@ -2,7 +2,7 @@ import React, {FC, useEffect} from 'react';
 import {connect} from "react-redux";
 
 import {Spinner, TenderList} from "@components";
-import {AccountPageActions} from "@redux/actions";
+import {AccountActions} from "@redux/actions";
 import {
   selectUserId,
   selectTenders
@@ -70,11 +70,11 @@ const mapStateToProps = (state: AppState) => ({
 })
 
 const mapDispatchToProps = (dispatch: any) => ({
-  getAccountTenders: (contractorId: number) => dispatch(AccountPageActions.getAccountTenders(contractorId)),
-  clearAccountTenders: () => dispatch(AccountPageActions.setAccountTenders(null)),
-  startTender: (tenderId: number, contractorId: number) => dispatch(AccountPageActions.startTender(tenderId, contractorId)),
-  cancelTender: (tenderId: number, contractorId: number) => dispatch(AccountPageActions.cancelTender(tenderId, contractorId)),
-  retender: (tenderId: number, contractorId: number) => dispatch(AccountPageActions.retender(tenderId, contractorId)),
+  getAccountTenders: (contractorId: number) => dispatch(AccountActions.getAccountTenders(contractorId)),
+  clearAccountTenders: () => dispatch(AccountActions.setAccountTenders(null)),
+  startTender: (tenderId: number, contractorId: number) => dispatch(AccountActions.startTender(tenderId, contractorId)),
+  cancelTender: (tenderId: number, contractorId: number) => dispatch(AccountActions.cancelTender(tenderId, contractorId)),
+  retender: (tenderId: number, contractorId: number) => dispatch(AccountActions.retender(tenderId, contractorId)),
 })
 
 export default connect<MapStateProps, MapDispatchProps, OwnProps, AppState>(

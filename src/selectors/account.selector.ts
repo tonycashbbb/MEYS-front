@@ -24,7 +24,3 @@ export const selectMyRepliesList = (state: AppState) => {
 export const selectTenderCreator = (state: AppState) => {
   return state.accountTender.tenderCreator
 }
-
-export const selectIsSuccess = (state: AppState) => {
-  return state.account.isSuccess
-}

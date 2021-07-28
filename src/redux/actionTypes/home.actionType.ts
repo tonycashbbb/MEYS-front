@@ -1,2 +1,2 @@
-export const SET_TENDERS = 'SET_TENDERS'
-export const TOGGLE_IS_LOADED = 'TOGGLE_IS_LOADED'
+export const SET_TENDERS = 'home/SET_TENDERS'
+export const TOGGLE_IS_LOADED = 'home/TOGGLE_IS_LOADED'

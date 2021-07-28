@@ -1,12 +1,12 @@
 import * as ActionTypes from "@redux/actionTypes";
 import {User} from "@app/types";
-import {SetUserData, ToggleIsAuth} from "@redux/types";
+import {Nullable, SetUserData, ToggleIsAuth} from "@redux/types";
 
-export type InitState = typeof initialState
+type InitState = typeof initialState
 type Action = SetUserData | ToggleIsAuth
 
 const initialState = {
-  user: null as unknown as User | null,
+  user: null as Nullable<User>,
   isAuth: false,
 }
 

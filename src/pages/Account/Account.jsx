@@ -1,10 +1,6 @@
 import React from 'react';
 
-import {
-  MyRepliesListContainer,
-  MyTendersContainer,
-  SidebarContainer
-} from "@components";
+import {MyRepliesListContainer, MyTendersContainer, SidebarContainer} from "@app/containers";
 import {withRedirectToLogin} from "@hoc";
 import history from "@app/history";
 

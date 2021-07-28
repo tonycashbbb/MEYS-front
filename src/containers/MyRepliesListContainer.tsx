@@ -1,8 +1,8 @@
 import React, {FC, useEffect} from 'react';
 import {connect} from "react-redux";
 
-import MyRepliesList from "../MyReplies/MyRepliesList/MyRepliesList";
-import {AccountPageActions} from "@redux/actions";
+import MyRepliesList from "@components/MyReplies/MyRepliesList/MyRepliesList";
+import {AccountActions} from "@redux/actions";
 import {selectIsLoaded, selectMyRepliesList, selectUserId} from "@app/selectors";
 import {AppState, TenderRequest} from "@app/types";
 
@@ -54,9 +54,9 @@ const mapStateToProps = (state: AppState) => ({
 })
 
 const mapDispatchToProps = (dispatch: any) => ({
-  clearUser: () => dispatch(AccountPageActions.setUser(null)),
-  clearMyRepliesList: () => dispatch(AccountPageActions.setMyRepliesList(null)),
-  getMyRepliesList: (userId: number) => dispatch(AccountPageActions.getMyRepliesList(userId)),
+  clearUser: () => dispatch(AccountActions.setUser(null)),
+  clearMyRepliesList: () => dispatch(AccountActions.setMyRepliesList(null)),
+  getMyRepliesList: (userId: number) => dispatch(AccountActions.getMyRepliesList(userId)),
 })
 
 export default connect<MapStateProps, MapDispatchProps, OwnProps, AppState>(

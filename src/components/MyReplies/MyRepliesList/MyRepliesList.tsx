@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 
-import {MyRepliesListItemContainer, Spinner} from "@components";
+import {Spinner} from "@components";
+import { MyRepliesListItemContainer } from '@app/containers';
 import {APP_TEXT} from "@app/i18n";
 import {TenderRequest} from "@app/types";
 
