@@ -4,6 +4,7 @@
     "paths": {
       "@app/*": ["./*"],
       "@components": ["./components"],
+      "@components/*": ["./components/*"],
       "@hoc": ["./hoc"],
       "@redux/*": ["./redux/*"],
       "@services": ["./services"]

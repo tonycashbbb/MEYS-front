@@ -1,9 +1,10 @@
 import React from 'react';
 
-import {TenderRequestItemContainer, Spinner} from "@components";
+import {Spinner} from "@components";
 import {APP_TEXT} from "@app/i18n";
 
 import s from './TenderRequestList.module.css'
+import {TenderRequestItemContainer} from "@app/containers";
 
 const TenderRequestList = ({tenderRequests, tenderStatus}) => {
   const isTenderGoing = tenderStatus === APP_TEXT.tender.statuses.ONGOING

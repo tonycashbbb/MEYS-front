@@ -1,0 +1,96 @@
+import React, {FC} from "react";
+import {NavLink} from "react-router-dom";
+
+import {Button} from "@components";
+import {APP_TEXT} from "@app/i18n";
+
+import theme from "@app/styles";
+import s from "./TenderList.module.scss";
+import {Tender} from "@app/types";
+
+const {
+  statuses: {FEATURED, ONGOING, CANCELED, ARCHIVED, RETENDER},
+  statusButtons: {start, cancel, retender: retenderText}
+} = APP_TEXT.tender
+
+type TenderAction = (tenderId: number, userId: number) => void
+
+type Props = {
+  title: string,
+  listItems: Array<Tender>,
+  userId: number | null,
+  isAccount?: boolean,
+  startTender?: TenderAction,
+  cancelTender?: TenderAction,
+  retender?: TenderAction,
+  showReplies?: () => void
+}
+
+const TenderList: FC<Props> = ({
+                                 listItems,
+                                 title,
+                                 isAccount = false,
+                                 startTender,
+                                 cancelTender,
+                                 retender,
+                                 userId,
+                                 showReplies
+                               }) => {
+  const statuses = [ARCHIVED, CANCELED, RETENDER]
+
+  const handleTenderActions = (tenderId: number, callback: TenderAction | undefined) => {
+    if (userId) {
+      callback?.(tenderId, userId)
+    }
+  }
+
+  return (
+    <div className={s.content}>
+      <div className={s.inner}>
+        <div className={s.header}>
+          <div className={s.header__title}>{title}</div>
+          {isAccount &&
+          <div className={s.header__subtitle} onClick={showReplies}>{APP_TEXT.myRepliesList.title}</div>}
+        </div>
+
+        {listItems.length !== 0
+          ? <ul className={s.list}>
+            {listItems.map((tender) => {
+              return <li key={tender.id}>
+                <div className={s.left}>
+                  <div className={s.list__title}>
+                    {tender.contractorId === userId
+                      ? <NavLink to={`/account/tenders/${tender.id}`}>{tender.name}</NavLink>
+                      : <NavLink to={`/home/tenders/${tender.id}`}>{tender.name}</NavLink>}
+                  </div>
+                  {isAccount && <div className={s.subtitle}>{tender.status}</div>}
+                  {!isAccount && <div className={s.description}><p>{tender.description}</p></div>}
+                </div>
+                {isAccount && <div className={s.right}>
+                  <div className={s.startBtn}>
+                    {tender.status === FEATURED &&
+                    <Button btnColor={theme.COLOR.GRAY}
+                            textColor={theme.COLOR.BLACK}
+                            onClick={() => handleTenderActions(tender.id, startTender)}>{start}</Button>}
+                    {tender.status === ONGOING &&
+                    <Button btnColor={theme.COLOR.GRAY}
+                            textColor={theme.COLOR.BLACK}
+                            onClick={() => handleTenderActions(tender.id, cancelTender)}>{cancel}</Button>}
+                    {statuses.includes(tender.status) &&
+                    <Button btnColor={theme.COLOR.GRAY}
+                            textColor={theme.COLOR.BLACK}
+                            onClick={() => handleTenderActions(tender.id, retender)}>{retenderText}</Button>}
+                  </div>
+                </div>}
+              </li>
+            })}
+          </ul>
+          : <div className={s.noTenders}>
+            {APP_TEXT.tenderList.noTenders}
+          </div>}
+      </div>
+    </div>
+  )
+}
+
+export default TenderList

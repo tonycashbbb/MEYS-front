@@ -1,20 +1,27 @@
-import {APP_INITIALIZED_SUCCESS} from "@redux/actionTypes"
-import {InitializeAppSuccess} from "@redux/types";
+import * as ActionTypes from "@redux/actionTypes";
+import {InitializeAppSuccess, ToggleIsSuccess} from "@redux/types";
 
-export type InitState = typeof initState
-type Action = InitializeAppSuccess
+type InitState = typeof initState
+type Action = InitializeAppSuccess | ToggleIsSuccess
 
 const initState = {
-  isInitialized: false
+  isInitialized: false,
+  isSuccess: false,
 }
 
 const appReducer = (state: InitState = initState, action: Action) => {
   switch (action.type) {
-    case APP_INITIALIZED_SUCCESS:
+    case ActionTypes.APP_INITIALIZED_SUCCESS:
       return {
         ...state,
         isInitialized: true
       }
+    case ActionTypes.TOGGLE_IS_SUCCESS: {
+      return {
+        ...state,
+        isSuccess: action.isSuccess
+      }
+    }
     default:
       return state
   }
