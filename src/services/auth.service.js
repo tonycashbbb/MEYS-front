@@ -101,7 +101,7 @@ class AuthenticationService {
 
 export const authService = new AuthenticationService()
 
-export const createContractorAPI = (data) => {
+export const createUserAPI = (data) => {
   return instance
     .post("/contractors", data)
 }

@@ -1,8 +1,4 @@
-import {
-  SET_TENDER_CREATOR,
-  SET_TENDER_REQUESTS,
-  SET_ACCOUNT_TENDER,
-} from "@redux/actionTypes"
+import * as ActionTypes from "@redux/actionTypes"
 
 const initState = {
   tender: null,
@@ -12,17 +8,17 @@ const initState = {
 
 const accountTenderReducer = (state = initState, action) => {
   switch (action.type) {
-    case SET_ACCOUNT_TENDER:
+    case ActionTypes.SET_ACCOUNT_TENDER:
       return {
         ...state,
         tender: action.tender
       }
-    case SET_TENDER_REQUESTS:
+    case ActionTypes.SET_TENDER_REQUESTS:
       return {
         ...state,
         tenderRequests: action.tenderRequests
       }
-    case SET_TENDER_CREATOR:
+    case ActionTypes.SET_TENDER_CREATOR:
       return {
         ...state,
         tenderCreator: action.tenderCreator

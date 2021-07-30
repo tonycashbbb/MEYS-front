@@ -57,7 +57,7 @@ const App = ({
 
             <Route path={ROUTER_CONFIG.ERROR} component={Error}/>
 
-            <Redirect from='/' to={ROUTER_CONFIG.AUTH.LOGIN}/>
+            <Redirect exact from='/' to={ROUTER_CONFIG.AUTH.LOGIN}/>
             <Redirect from='*' to={ROUTER_CONFIG.ERROR}/>
           </Switch>
         </React.Suspense>

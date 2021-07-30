@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 
 import {Spinner, TenderList} from "@components";
-import {AccountPageActions} from "@redux/actions";
+import {AccountActions} from "@redux/actions";
 import {
   selectUserId,
   selectIsLoaded,
@@ -52,12 +52,12 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  getAccountTenders: (contractorId) => dispatch(AccountPageActions.getAccountTenders(contractorId)),
-  clearAccountTenders: () => dispatch(AccountPageActions.setAccountTenders(null)),
-  startTender: (tenderId, contractorId) => dispatch(AccountPageActions.startTender(tenderId, contractorId)),
-  cancelTender: (tenderId, contractorId) => dispatch(AccountPageActions.cancelTender(tenderId, contractorId)),
-  retender: (tenderId, contractorId) => dispatch(AccountPageActions.retender(tenderId, contractorId)),
-  setIsLoaded: (isLoaded) => dispatch(AccountPageActions.setIsLoaded(isLoaded)),
+  getAccountTenders: (contractorId) => dispatch(AccountActions.getAccountTenders(contractorId)),
+  clearAccountTenders: () => dispatch(AccountActions.setAccountTenders(null)),
+  startTender: (tenderId, contractorId) => dispatch(AccountActions.startTender(tenderId, contractorId)),
+  cancelTender: (tenderId, contractorId) => dispatch(AccountActions.cancelTender(tenderId, contractorId)),
+  retender: (tenderId, contractorId) => dispatch(AccountActions.retender(tenderId, contractorId)),
+  setIsLoaded: (isLoaded) => dispatch(AccountActions.setIsLoaded(isLoaded)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyTendersContainer);

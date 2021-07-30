@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 
 import {Button} from "@components";
-import {AccountPageActions} from '@redux/actions'
+import {AccountActions} from '@redux/actions'
 import success from '@app/assets/Success-2.gif'
 import {APP_TEXT} from "@app/i18n";
 import {ROUTER_CONFIG} from "@app/utils/config";
@@ -44,8 +44,4 @@ const Success = ({
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  toggleIsSuccess: (isSuccess) => dispatch(AccountPageActions.toggleIsSuccess(isSuccess))
-})
-
-export default connect(null, mapDispatchToProps)(Success);
+export default connect(null, {toggleIsSuccess: AccountActions.toggleIsSuccess})(Success);

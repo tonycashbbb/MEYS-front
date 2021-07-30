@@ -1,6 +1,6 @@
-export * as HomePageActions from './homePage.action'
+export * as HomeActions from './home.action'
 export * as HomeTenderActions from './homeTender.action'
-export * as AccountPageActions from './accountPage.action'
+export * as AccountActions from './account.action'
 export * as AccountTenderActions from './accountTender.action'
 export * as AuthActions from './auth.action'
 export * as AppActions from './app.action'

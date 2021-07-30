@@ -11,7 +11,9 @@ const MyRepliesList = ({
                        }) => {
 
   if (!myRepliesList) {
-    return <Spinner/>
+    return <div style={{width: "70%"}}>
+      <Spinner/>
+    </div>
   }
 
   return (

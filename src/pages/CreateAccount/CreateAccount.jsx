@@ -39,7 +39,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  createContractor: (userData) => dispatch(AuthActions.createContractor(userData))
+  createContractor: (userData) => dispatch(AuthActions.createUser(userData))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateAccount)

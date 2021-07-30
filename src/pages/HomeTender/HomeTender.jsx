@@ -101,9 +101,9 @@ const HomeTender = ({
         {!canReply && <div className={s.replied}>
           {isAccepted && <Button btnColor={theme.COLOR.SUCCESS}
                                  btnHover={theme.COLOR.SUCCESS}>{APP_TEXT.general.accepted}</Button>}
-          {isDeclined && <Button btnColor={theme.COLOR.PRIMARY}
+          {isDeclined && !isAccepted && <Button btnColor={theme.COLOR.PRIMARY}
                                  btnHover={theme.COLOR.PRIMARY}>{APP_TEXT.general.declined}</Button>}
-          {!isDeclined && <Button btnHover={theme.COLOR.PRIMARY}>{APP_TEXT.general.replied}</Button>}
+          {!isDeclined && !isAccepted && <Button btnHover={theme.COLOR.PRIMARY}>{APP_TEXT.general.replied}</Button>}
         </div>}
         <div className={s.repliesCancel}>
           {isRepliesCancel && <Button onClick={onRepliesCancel}
