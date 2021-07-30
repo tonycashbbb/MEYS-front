@@ -22,12 +22,6 @@ const accountReducer = (state = initState, action) => {
                 ...state,
                 isLoaded: action.isLoaded
             }
-        case ActionTypes.TOGGLE_IS_SUCCESS: {
-            return {
-                ...state,
-                isSuccess: action.isSuccess
-            }
-        }
         case ActionTypes.SET_USER_ID:
             return {
                 ...state,

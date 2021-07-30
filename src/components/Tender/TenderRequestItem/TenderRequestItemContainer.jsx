@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
 
 import TenderRequestItem from "./TenderRequestItem";
-import {selectRequestCreator} from "@app/selectors";
 import {AccountTenderActions} from "@redux/actions";
 import {getContractorAPI} from "@services";
 
@@ -46,11 +45,7 @@ const TenderRequestItemContainer = ({
                             isTenderGoing={isTenderGoing}/>;
 };
 
-const mapStateToProps = (state) => ({
-  requestCreator: selectRequestCreator(state)
-})
-
-export default connect(mapStateToProps, {
+export default connect(null, {
   getContractorAPI,
   acceptTenderRequest: AccountTenderActions.acceptTenderRequest
 })(TenderRequestItemContainer);

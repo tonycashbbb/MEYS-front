@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 
 import {Button} from "@components";
-import {AccountActions} from '@redux/actions'
+import {AppActions} from '@redux/actions'
 import success from '@app/assets/Success-2.gif'
 import {APP_TEXT} from "@app/i18n";
 import {ROUTER_CONFIG} from "@app/utils/config";
@@ -44,4 +44,4 @@ const Success = ({
   );
 };
 
-export default connect(null, {toggleIsSuccess: AccountActions.toggleIsSuccess})(Success);
+export default connect(null, {toggleIsSuccess: AppActions.toggleIsSuccess})(Success);

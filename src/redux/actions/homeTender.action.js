@@ -1,5 +1,5 @@
 import * as ActionTypes from "@redux/actionTypes";
-import {AccountActions} from "@redux/actions";
+import {AppActions} from "@redux/actions";
 import * as Services from "@services";
 
 export const setHomeTender = (tender) => ({type: ActionTypes.SET_HOME_TENDER, tender})
@@ -15,7 +15,7 @@ export const replyOnTender = (userId, tenderId, message) => async (dispatch) => 
   const res = await Services.requestTenderAPI(userId, tenderId, message)
 
   if (res.status === 200) {
-    dispatch(AccountActions.toggleIsSuccess(true))
+    dispatch(AppActions.toggleIsSuccess(true))
   }
 }
 export const getTenderOwner = (tenderOwnerId) => (dispatch) => {

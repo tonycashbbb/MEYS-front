@@ -19,15 +19,3 @@ export const selectIsLoaded = state => {
 export const selectMyRepliesList = state => {
   return state.accountPage.myRepliesList
 }
-
-export const selectTenderCreator = state => {
-  return state.accountTender.tenderCreator
-}
-
-export const selectRequestCreator = state => {
-  return state.accountTender.requestCreator
-}
-
-export const selectIsSuccess = state => {
-  return state.accountPage.isSuccess
-}

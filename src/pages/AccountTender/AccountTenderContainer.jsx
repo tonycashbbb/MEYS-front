@@ -5,7 +5,8 @@ import {compose} from "redux";
 import AccountTender from "./AccountTender";
 import {withRedirectToLogin} from "@hoc";
 import {AccountTenderActions} from "@redux/actions";
-import {selectIsSuccess, selectTenderCreator} from "@app/selectors";
+import {selectIsSuccess, selectTenderCreator, selectTenderRequest} from "@app/selectors";
+import {selectAccountTender} from "@app/selectors/accountTender.selector";
 
 const AccountTenderAPI = ({
                             tender,
@@ -59,9 +60,9 @@ const AccountTenderAPI = ({
 }
 
 const mapStateToProps = (state) => ({
-  tender: state.accountTender.tender,
+  tender: selectAccountTender(state),
   tenderCreator: selectTenderCreator(state),
-  tenderRequests: state.accountTender.tenderRequests,
+  tenderRequests: selectTenderRequest(state),
   formValues: state.form.updateTender ? state.form.updateTender.values : null,
   isSuccess: selectIsSuccess(state),
 })

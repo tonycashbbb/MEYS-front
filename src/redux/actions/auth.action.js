@@ -1,7 +1,7 @@
 import {stopSubmit} from "redux-form";
 
 import * as ActionTypes from "@redux/actionTypes";
-import {AccountActions} from "@redux/actions";
+import {AppActions} from "@redux/actions";
 import {authService, createUserAPI} from "@services";
 
 export const setUserData = (userData) => ({type: ActionTypes.SET_USER_DATA, userData})
@@ -36,7 +36,7 @@ export const createUser = (userData) => async (dispatch) => {
   const res = await createUserAPI(userData)
 
   if (res.status === 200) {
-    dispatch(AccountActions.toggleIsSuccess(true))
+    dispatch(AppActions.toggleIsSuccess(true))
   } else {
     dispatch(stopSubmit("createContractor", {_error: "Something went wrong"}))
   }

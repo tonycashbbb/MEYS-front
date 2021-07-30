@@ -1,6 +1,6 @@
 import * as ActionTypes from "@redux/actionTypes";
 import * as Services from "@services";
-import {AccountActions} from "@redux/actions";
+import {AppActions} from "@redux/actions";
 
 export const setAccountTender = (tender) => ({type: ActionTypes.SET_ACCOUNT_TENDER, tender})
 export const setTenderRequests = (tenderRequests) => ({type: ActionTypes.SET_TENDER_REQUESTS, tenderRequests})
@@ -30,6 +30,6 @@ export const updateTender = (tenderData) => async (dispatch) => {
 
     if (res.status === 200) {
         dispatch(getAccountTender(tenderData.id))
-        dispatch(AccountActions.toggleIsSuccess(true))
+        dispatch(AppActions.toggleIsSuccess(true))
     }
 }
