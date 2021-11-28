@@ -26,7 +26,7 @@
 .header__subtitle {
     position: absolute;
     left: 210px;
-    color: $color-purple-primary;
+    color: $color-blue-primary;
 
     font-size: 16px;
     font-weight: 600;
@@ -61,7 +61,7 @@
 }
 
 .startBtn button {
-    width: 100px;
+    width: 120px;
 }
 
 .trash {
@@ -71,7 +71,7 @@
 }
 
 .trash:hover {
-    color: $color-purple-primary;
+    color: $color-blue-primary;
 }
 
 .list__title {

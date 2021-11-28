@@ -25,12 +25,12 @@ $color-gray: #999;
 }
 
 .data a {
-    color: $color-purple-primary;
+    color: $color-blue-primary;
     text-decoration: underline;
 }
 
 .data a:hover {
-    color: $color-purple-primary-hover;
+    color: $color-blue-primary-hover;
 }
 
 .row {
@@ -82,7 +82,7 @@ $color-gray: #999;
     width: 332px;
     border-radius: 20px;
     border: none;
-    background-color: $color-purple-primary;
+    background-color: $color-blue-primary;
 
     font-size: 17px;
     font-weight: 500;

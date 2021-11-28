@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Spinner.module.css";
-import spinner from "../../../assets/Spinner.gif";
+import spinner from "../../../assets/LoaderBlue.gif";
 
 const Spinner = () => {
   return (

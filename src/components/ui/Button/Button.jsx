@@ -3,11 +3,13 @@ import styled from 'styled-components'
 
 const StyledButton = styled.button`
     padding: 7px 20px;
-    width: 280px;
-    border-radius: 20px;
+    width: ${({width}) => width || "200px"};
+    border-radius: 10px;
     border: none;
 
-    font-size: 17px;
+  text-transform: uppercase;
+
+    font-size: ${({fontSize}) => fontSize || "17px"};
     font-weight: 500;
     color: ${({textColor}) => textColor || "#fff"};
 
@@ -15,10 +17,10 @@ const StyledButton = styled.button`
 
     &:hover {
       color: ${({textHover}) => textHover || "#fff"};
-      background-color: ${({btnHover}) => btnHover || "#EEACFF"};
+      background-color: ${({btnHover}) => btnHover || "#2F6FDC"};
     }
 
-    background-color: ${props => props.btnColor || "#CB9AE1"};
+    background-color: ${props => props.btnColor || "#729ADF"};
   `
 
 const Button = ({onClick, ...props}) => {

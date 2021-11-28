@@ -37,7 +37,7 @@ const Success = ({
           {text.title}
         </div>
         <div className={s.back}>
-          <Button onClick={onBackHome}>{text.buttonText}</Button>
+          <Button onClick={onBackHome} width={'280px'}>{text.buttonText}</Button>
         </div>
       </div>
     </div>

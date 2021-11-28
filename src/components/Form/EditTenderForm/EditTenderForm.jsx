@@ -17,6 +17,8 @@ const EditTenderForm = ({
   const createdDate = initialValues.createdDate.slice(0, 10)
   const createdTime = initialValues.createdDate.slice(11, 16)
 
+  formValues = {...formValues, budget: +formValues?.budget}
+
   const isEdited = formValues
     ? JSON.stringify(formValues) !== JSON.stringify(initialValues)
     : false

@@ -15,9 +15,6 @@ const Home = ({
                 userId,
                 user
               }) => {
-  // if (!isLoaded) {
-  //   return <Spinner/>
-  // }
 
   return (
     <div className={s.home__page}>

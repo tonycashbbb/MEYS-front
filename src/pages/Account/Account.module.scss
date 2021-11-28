@@ -31,7 +31,7 @@
 
 .header {
     padding: 20px;
-    border-bottom: 1px solid $color-purple-primary;
+    border-bottom: 1px solid $color-blue-primary;
 }
 
 .sidebar__title {
@@ -59,7 +59,7 @@
 }
 
 .links li a:hover {
-    color: $color-purple-primary-hover;
+    color: $color-blue-primary-hover;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -77,7 +77,7 @@
 
 .email {
     padding-bottom: 20px;
-    border-bottom: 1px solid $color-purple-primary;
+    border-bottom: 1px solid $color-blue-primary;
 }
 
 .email__text {
@@ -115,7 +115,7 @@
 
 .edit button:hover {
     background-color: #fff;
-    border: 1.5px solid $color-purple-primary;
+    border: 1.5px solid $color-blue-primary;
 }
 
 /* content */
@@ -148,7 +148,7 @@
 }
 
 .search input:focus {
-    border: 2px solid $color-purple-primary;
+    border: 2px solid $color-blue-primary;
 }
 
 /* LIST */
@@ -184,7 +184,7 @@
 }
 
 .nav a:hover {
-    color: $color-purple-primary-hover;
+    color: $color-blue-primary-hover;
     text-decoration: underline;
 }
 

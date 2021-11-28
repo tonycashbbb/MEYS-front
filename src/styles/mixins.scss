@@ -30,7 +30,7 @@
   .tender {
     margin: 40px 0 20px;
     border: 2px solid #999;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 20px;
     font-size: 17px;
   }
@@ -67,12 +67,12 @@
   }
 
   .data a {
-    color: $color-purple-primary;
+    color: $color-blue-primary;
     text-decoration: underline;
   }
 
   .data a:hover {
-    color: $color-purple-primary-hover;
+    color: $color-blue-primary-hover;
   }
 
   .row {
@@ -128,7 +128,7 @@
 
   .buttons {
     @include makeFlex();
-    width: 51%;
+    width: 37%;
     padding-left: 15px;
   }
 

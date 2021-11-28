@@ -23,13 +23,14 @@ const LoginForm = (props) => {
              validate={[required]}/>
       {props.error && <div className={s.error__text}>{props.error}</div>}
       <div className={s.login__btn}>
-        <Button>{APP_TEXT.login.loginBtn}</Button>
+        <Button >{APP_TEXT.login.loginBtn}</Button>
       </div>
       <hr/>
       <div className={s.login__btn}>
         <Button onClick={props.onCreateNavigate}
                 btnColor={theme.COLOR.SECONDARY}
-                btnHover={theme.COLOR.SECONDARY_HOVER}>{APP_TEXT.login.createBtn}</Button>
+                btnHover={theme.COLOR.SECONDARY_HOVER}
+                fontSize={'14px'}>{APP_TEXT.login.createBtn}</Button>
       </div>
     </form>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavLink, withRouter} from "react-router-dom";
 import {connect} from "react-redux";
+import {FaCodepen} from 'react-icons/fa'
 
 import {Button} from "@components";
 import {logout} from "@redux/actions/auth.action";
@@ -17,6 +18,7 @@ const Header = ({isAuth, logout, ...props}) => {
       <div className="container">
         <div className={s.inner}>
           <div className={s.logo}>
+            <FaCodepen className={{color: 'white'}}/>
             <NavLink to="/home/tenders"><h2>{APP_TEXT.meys}</h2></NavLink>
           </div>
           <div className={s.navigation}>

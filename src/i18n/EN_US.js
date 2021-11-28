@@ -1,5 +1,5 @@
 export const EN_US = {
-  meys: "MEYS",
+  meys: "Square",
   general: {
     tender: "tender",
     data: "data",
@@ -70,7 +70,7 @@ export const EN_US = {
     privacy: 'Privacy'
   },
   login: {
-    description: 'MEYS helps you to create tenders and take part in other people tenders as well',
+    description: 'Square helps you to create tenders and take part in other people tenders as well',
     loginBtn: "Log in",
     createBtn: 'Create an account'
   },

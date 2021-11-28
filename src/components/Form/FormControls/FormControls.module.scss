@@ -17,7 +17,7 @@
     border: 2px solid $color-gray-inputs;
 }
 .formControl input:focus {
-    border: 2px solid $color-purple-primary;
+    border: 2px solid $color-blue-primary;
 }
 
 .formControl textarea {
@@ -36,7 +36,7 @@
 }
 
 .formControl textarea:focus {
-    border: 2px solid $color-purple-primary;
+    border: 2px solid $color-blue-primary;
 }
 
 /* Handle error */

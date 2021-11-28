@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {NavLink} from "react-router-dom";
 
 import {Button} from "@components";
@@ -22,13 +22,19 @@ const TenderList = ({
                       userId,
                       showReplies
                     }) => {
+  const [isSearch, setIsSearch] = useState(false)
+
+  const toggleIsSearch = () => setIsSearch(!isSearch)
+
   const statuses = [ARCHIVED, CANCELED, RETENDER]
 
   return (
     <div className={s.content}>
       <div className={s.inner}>
         <div className={s.header}>
-          <div className={s.header__title}>{title}</div>
+          {isSearch ? <input type="text"/> : <div className={s.header__title}>{title}</div>}
+          {isSearch ? <div onClick={toggleIsSearch}>cancel</div> : <div onClick={toggleIsSearch}>LUPA</div>}
+
           {isAccount &&
           <div className={s.header__subtitle} onClick={showReplies}>{APP_TEXT.myRepliesList.title}</div>}
         </div>
