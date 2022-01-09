@@ -36,6 +36,13 @@ const Sidebar = ({
         </div>
 
         {isAccount && <CreateSidebar/>}
+
+        {!isAccount && (
+          <div className={s.info}>
+            <div className={s.sidebar__title}>Square</div>
+            <div className={s.info__text}>To create own tender go to profile page</div>
+          </div>
+        )}
       </div>
     </div>
   );

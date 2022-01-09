@@ -83,4 +83,16 @@
     max-width: 109px;
 }
 
+.info {
+    width: 420px;
+    padding: 20px;
+    background-color: $color-gray-background;
+    border-radius: 20px;
+
+    &__text {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+}
+
 
