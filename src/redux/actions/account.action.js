@@ -1,6 +1,7 @@
 import * as ActionTypes from "@redux/actionTypes";
 import * as Services from "@services";
 import {AppActions} from "@redux/actions";
+import {updateAccountAPI} from "@services";
 
 export const setAccountTenders = (contractorTenders) => ({type: ActionTypes.SET_CONTRACTOR_TENDERS, contractorTenders})
 export const setMyRepliesList = (allRequests) => ({type: ActionTypes.SET_MY_REPLIES, allRequests})
@@ -40,4 +41,7 @@ export const getMyRepliesList = (userId) => async (dispatch) => {
 
   const res = await Services.getAllTenderRequestsAPI()
   dispatch(setMyRepliesList(res))
+}
+export const updateAccountData = (accountData) => async () => {
+  await updateAccountAPI(accountData)
 }

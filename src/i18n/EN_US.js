@@ -98,6 +98,11 @@ export const EN_US = {
     title: "Create a tender",
   },
   success: {
+    updateAccount: {
+      title: "Account has been updated",
+      buttonText: "Back to the account page",
+      historyPage: "accountPage"
+    },
     createTender: {
       title: "Tender has been created",
       buttonText: "Back to the account page",

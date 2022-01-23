@@ -1,0 +1,21 @@
+.form {
+    border: 2px solid #999;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.form input {
+    padding: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+}
+
+.error__text {
+    padding: 10px;
+    font-size: 17px;
+    color: indianred;
+    font-weight: 500;
+}

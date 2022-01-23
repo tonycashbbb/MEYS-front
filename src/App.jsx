@@ -40,6 +40,8 @@ const App = ({
       <main className="content">
         <React.Suspense fallback={<Spinner/>}>
           <Switch>
+            <Route path={`/account/edit`} component={EditAccountData}/>
+
             <Route path={ROUTER_CONFIG.AUTH.LOGIN} component={Login}/>
             <Route path={ROUTER_CONFIG.AUTH.SIGN_UP} component={CreateAccount}/>
 
@@ -49,7 +51,6 @@ const App = ({
 
             <Route path={`${ROUTER_CONFIG.ACCOUNT.BASE}/:id/edit`} component={AccountTenderContainer}/>
             <Route path={`${ROUTER_CONFIG.ACCOUNT.BASE}/:id`} component={AccountTenderContainer}/>
-            <Route path={`/account/edit`} component={() => <div>KEK</div>}/>
             <Route path={ROUTER_CONFIG.ACCOUNT.BASE} component={Account}/>
 
             <Route path={`${ROUTER_CONFIG.ACCOUNT.REPLIES}/:id`} component={HomeTenderContainer}/>

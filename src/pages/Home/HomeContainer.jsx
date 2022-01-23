@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 import {compose} from "redux";
 
@@ -27,7 +27,7 @@ const HomePageAPI = ({
 
   useEffect(() => {
     getHomeTenders(searchValue)
-  }, [getHomeTenders])
+  }, [getHomeTenders, searchValue])
 
   return <Home {...{homeTenders, isLoaded, userId, user, searchValue, setSearchValue: handleSearchChange}} />
 }

@@ -19,6 +19,10 @@ const PersonalDataSidebar = ({
                                user
                              }) => {
 
+  const handleEdit = () => {
+    history.push('/account/edit')
+  }
+
   return (
     <div className={s.personal__data}>
       {user
@@ -29,7 +33,7 @@ const PersonalDataSidebar = ({
           <li><span>{nip}:</span> {user.nip}</li>
           <li><span>{city}:</span> {user.city}</li>
           <li><span>{region}:</span> {user.region}</li>
-          <li><Button onClick={() => history.push('/account/edit')}>Edit</Button></li>
+          <li><Button onClick={handleEdit}>Edit</Button></li>
         </ul>
         : <li>{APP_TEXT.sidebar.noData}</li>}
     </div>

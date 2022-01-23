@@ -5,6 +5,7 @@ import {AppActions} from "@redux/actions";
 import {authService, createUserAPI} from "@services";
 
 export const setUserData = (userData) => ({type: ActionTypes.SET_USER_DATA, userData})
+export const clearUserData = () => ({type: ActionTypes.SET_USER_DATA, userData: {}})
 export const toggleIsAuth = (isAuth) => ({type: ActionTypes.TOGGLE_IS_AUTH, isAuth})
 
 export const getLoggedInUser = () => async (dispatch) => {

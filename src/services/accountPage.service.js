@@ -53,3 +53,8 @@ export const getAllTenderRequestsAPI = () => {
     .get(`/tenderRequest/all`)
     .then(res => res.data)
 }
+
+export const updateAccountAPI = (accountData) => {
+  return instance
+    .put(`/contractors`, accountData)
+}
