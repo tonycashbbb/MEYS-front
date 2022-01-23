@@ -102,3 +102,20 @@
     font-weight: 500;
     font-size: 18px;
 }
+
+
+.search input {
+    display: block;
+    width: 100%;
+
+    font-size: 17px;
+
+    padding: 8px 30px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+
+    border: 2px solid $color-gray-inputs;
+}
+.search input:focus {
+    border: 2px solid $color-blue-primary;
+}

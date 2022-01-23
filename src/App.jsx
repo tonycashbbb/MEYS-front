@@ -16,6 +16,7 @@ import {ROUTER_CONFIG} from "@app/utils/config";
 import {AppActions} from "@redux/actions";
 
 import './styles/global.scss'
+import EditAccountData from "@app/pages/EditAccountData/EditAccountData";
 
 const CreateAccount = React.lazy(() => import("./pages/CreateAccount/CreateAccount"))
 
@@ -48,6 +49,7 @@ const App = ({
 
             <Route path={`${ROUTER_CONFIG.ACCOUNT.BASE}/:id/edit`} component={AccountTenderContainer}/>
             <Route path={`${ROUTER_CONFIG.ACCOUNT.BASE}/:id`} component={AccountTenderContainer}/>
+            <Route path={`/account/edit`} component={() => <div>KEK</div>}/>
             <Route path={ROUTER_CONFIG.ACCOUNT.BASE} component={Account}/>
 
             <Route path={`${ROUTER_CONFIG.ACCOUNT.REPLIES}/:id`} component={HomeTenderContainer}/>

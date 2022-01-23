@@ -75,7 +75,7 @@
 }
 
 .company__list li:last-child {
-    margin-bottom: 8px;
+    margin: 15px 0 8px;
 }
 
 .company__list li:last-child button {
@@ -84,7 +84,7 @@
 }
 
 .info {
-    width: 420px;
+    width: 450px;
     padding: 20px;
     background-color: $color-gray-background;
     border-radius: 20px;

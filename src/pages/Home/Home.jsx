@@ -13,7 +13,9 @@ const Home = ({
                 homeTenders,
                 isLoaded,
                 userId,
-                user
+                user,
+                searchValue,
+                setSearchValue
               }) => {
 
   return (
@@ -21,11 +23,13 @@ const Home = ({
       <Sidebar user={user}/>
       {!isLoaded
         ? <div style={{width: "70%"}}>
-          <Spinner/>
-        </div>
+            <Spinner/>
+          </div>
         : <TenderList title={APP_TEXT.tenderList.homeTitle}
                       listItems={homeTenders}
-                      userId={userId}/>}
+                      userId={userId}
+                      searchValue={searchValue}
+                      setSearchValue={setSearchValue}/>}
     </div>
   );
 }

@@ -3,6 +3,8 @@ import React from 'react';
 import {APP_TEXT} from "@app/i18n";
 
 import s from "./Sidebar.module.scss";
+import {Button} from "@components";
+import history from "@app/history";
 
 const {
   email,
@@ -27,6 +29,7 @@ const PersonalDataSidebar = ({
           <li><span>{nip}:</span> {user.nip}</li>
           <li><span>{city}:</span> {user.city}</li>
           <li><span>{region}:</span> {user.region}</li>
+          <li><Button onClick={() => history.push('/account/edit')}>Edit</Button></li>
         </ul>
         : <li>{APP_TEXT.sidebar.noData}</li>}
     </div>

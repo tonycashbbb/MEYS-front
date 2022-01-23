@@ -6,11 +6,10 @@ export const setTotalCount = (totalCount) => ({type: ActionTypes.SET_TOTAL_COUNT
 export const setCurrentPageAC = (pageNum) => ({type: ActionTypes.SET_CURRENT_PAGE, pageNum})
 export const toggleIsLoaded = (isLoaded) => ({type: ActionTypes.TOGGLE_IS_LOADED, isLoaded})
 
-export const getHomeTenders = (currentPage = 1, pageSize = 10) => async (dispatch) => {
+export const getHomeTenders = (search) => async (dispatch) => {
     dispatch(toggleIsLoaded(false))
-    dispatch(setCurrentPageAC(currentPage))
 
-    const tenders = await getTendersAPI(currentPage, pageSize)
+    const tenders = await getTendersAPI(search)
 
     dispatch(setTenders(tenders.data))
     dispatch(setTotalCount(tenders.data.length))

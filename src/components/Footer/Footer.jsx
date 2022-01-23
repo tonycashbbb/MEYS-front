@@ -12,7 +12,7 @@ export const Footer = () => {
       <div className="container">
         <div className={classes.inner}>
           <ul className={classes.footer__links}>
-            <h3>{APP_TEXT.meys}@2020</h3>
+            <h3>{APP_TEXT.meys}@2022</h3>
             <li><NavLink to={"#"}><h3>{APP_TEXT.footer.regulations}</h3></NavLink></li>
             <li><NavLink to={"#"}><h3>{APP_TEXT.footer.news}</h3></NavLink></li>
             <li><NavLink to={"#"}><h3>{APP_TEXT.footer.cookies}</h3></NavLink></li>

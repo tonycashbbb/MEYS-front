@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {NavLink} from "react-router-dom";
 
 import {Button} from "@components";
@@ -20,11 +20,10 @@ const TenderList = ({
                       cancelTender,
                       retender,
                       userId,
-                      showReplies
+                      showReplies,
+                      searchValue,
+                      setSearchValue
                     }) => {
-  const [isSearch, setIsSearch] = useState(false)
-
-  const toggleIsSearch = () => setIsSearch(!isSearch)
 
   const statuses = [ARCHIVED, CANCELED, RETENDER]
 
@@ -32,12 +31,19 @@ const TenderList = ({
     <div className={s.content}>
       <div className={s.inner}>
         <div className={s.header}>
-          {isSearch ? <input type="text"/> : <div className={s.header__title}>{title}</div>}
-          {isSearch ? <div onClick={toggleIsSearch}>cancel</div> : <div onClick={toggleIsSearch}>LUPA</div>}
+          <div className={s.header__title}>{title}</div>
 
-          {isAccount &&
-          <div className={s.header__subtitle} onClick={showReplies}>{APP_TEXT.myRepliesList.title}</div>}
+          {isAccount && <div className={s.header__subtitle} onClick={showReplies}>{APP_TEXT.myRepliesList.title}</div>}
         </div>
+
+        {!isAccount && (
+          <div className={s.search}>
+            <input type="text"
+                   placeholder={'Search tenders'}
+                   value={searchValue}
+                   onChange={(e) => setSearchValue(e.target.value)} />
+          </div>
+        )}
 
         {listItems.length !== 0
           ? <ul className={s.list}>

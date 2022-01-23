@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
 import {compose} from "redux";
 
@@ -14,33 +14,22 @@ import {
   selectUserId,
   selectUser
 } from "@app/selectors";
+import {useSearchDebounce} from "@app/hooks/useSearchDebounce/useSearchDebounce";
 
 const HomePageAPI = ({
                        homeTenders,
                        user,
                        userId,
                        isLoaded,
-                       totalCount,
-                       pageSize,
-                       currentPage,
                        getHomeTenders
                      }) => {
+  const {searchValue, handleSearchChange} = useSearchDebounce({callback: getHomeTenders});
+
   useEffect(() => {
-    getHomeTenders()
+    getHomeTenders(searchValue)
   }, [getHomeTenders])
 
-  const setCurrentPage = (pageNum) => {
-    getHomeTenders(pageNum, pageSize)
-  }
-
-  return <Home homeTenders={homeTenders}
-               user={user}
-               userId={userId}
-               isLoaded={isLoaded}
-               totalCount={totalCount}
-               pageSize={pageSize}
-               currentPage={currentPage}
-               setCurrentPage={setCurrentPage}/>
+  return <Home {...{homeTenders, isLoaded, userId, user, searchValue, setSearchValue: handleSearchChange}} />
 }
 
 const mapStateToProps = (state) => {
@@ -56,7 +45,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  getHomeTenders: () => dispatch(HomeActions.getHomeTenders())
+  getHomeTenders: (search) => dispatch(HomeActions.getHomeTenders(search))
 })
 
 export default compose(

@@ -1,8 +1,11 @@
 import instance from "./instance.service";
 
-export const getTendersAPI = (currentPage, pageSize) => {
-  return instance
-    .get(`tenders/getTendersByStatus?tenderStatus=ONGOING`)
+export const getTendersAPI = (search = '') => {
+  const request = !search.length
+    ? () => instance.get(`tenders/getTendersByStatus?tenderStatus=ONGOING`)
+    : () => instance.get(`tenders/getTendersByStatusAndName?tenderStatus=ONGOING&name=${search}`)
+
+  return request()
 }
 
 export const getTenderAPI = (tenderId) => {
