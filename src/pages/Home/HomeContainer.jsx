@@ -26,8 +26,8 @@ const HomePageAPI = ({
   const {searchValue, handleSearchChange} = useSearchDebounce({callback: getHomeTenders});
 
   useEffect(() => {
-    getHomeTenders(searchValue)
-  }, [getHomeTenders, searchValue])
+    getHomeTenders()
+  }, [])
 
   return <Home {...{homeTenders, isLoaded, userId, user, searchValue, setSearchValue: handleSearchChange}} />
 }

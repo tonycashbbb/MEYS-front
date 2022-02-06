@@ -42,7 +42,8 @@ const MyTendersContainer = ({
                      cancelTender={cancelTender}
                      retender={retender}
                      userId={userId}
-                     showReplies={showReplies}/>
+                     showReplies={showReplies}
+                     isLoaded={isLoaded}/>
 };
 
 const mapStateToProps = (state) => ({
